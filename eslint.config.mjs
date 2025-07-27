@@ -13,8 +13,30 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-  ...storybook.configs["flat/recommended"]
+  ...compat.extends(
+    "next/core-web-vitals",
+    "next/typescript",
+    "prettier"
+  ),
+  ...storybook.configs["flat/recommended"],
+  {
+    rules: {
+      // React
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/display-name": "off",
+      // TypeScript
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+    },
+  },
 ];
 
 export default eslintConfig;

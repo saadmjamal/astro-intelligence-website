@@ -2,35 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Heading, Text } from '@/components/ui/Typography';
-import { Button } from '@/components/ui/Button';
 
-const services = [
-  {
-    title: 'AI-Enhanced Orchestration',
-    description: 'Intelligent automation for cloud infrastructure and CI/CD pipelines with ML-driven optimization.',
-    icon: '🤖',
-    href: '/services/ai-enhanced-orchestration',
-  },
-  {
-    title: 'DevOps as a Service',
-    description: 'End-to-end DevOps implementation and management for seamless deployment workflows.',
-    icon: '⚡',
-    href: '/services/devops-as-a-service',
-  },
-  {
-    title: 'Platform Engineering',
-    description: 'Build scalable, self-service developer platforms that accelerate innovation.',
-    icon: '🏗️',
-    href: '/services/platform-engineering',
-  },
-  {
-    title: 'Microservices Architecture',
-    description: 'Design and implement cloud-native microservices for maximum flexibility and scale.',
-    icon: '🔧',
-    href: '/services/microservices-architecture',
-  },
-];
+import { services } from '@/lib/config/services.config';
+import { Button } from '@/components/ui/Button';
+import Card from '@/components/ui/Card';
+import { Heading, Text } from '@/components/ui/Typography';
 
 const container = {
   hidden: { opacity: 0 },
@@ -49,19 +25,19 @@ const item = {
 
 export default function ServicesOverview() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
           <Heading as="h2" variant="h2" className="mb-4">
             Our Services
           </Heading>
-          <Text variant="lead" className="max-w-3xl mx-auto text-offwhite/80">
+          <Text variant="lead" className="text-offwhite/80 mx-auto max-w-3xl">
             Cutting-edge solutions that combine AI, cloud expertise, and engineering excellence
           </Text>
         </motion.div>
@@ -71,29 +47,26 @@ export default function ServicesOverview() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 gap-8 md:grid-cols-2"
         >
           {services.map((service) => (
-            <motion.div
-              key={service.title}
-              variants={item}
-              className="group relative bg-gradient-to-br from-offwhite/5 to-offwhite/0 backdrop-blur-sm border border-offwhite/10 rounded-2xl p-8 hover:border-magenta/50 transition-all duration-300"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-magenta/0 to-magenta/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              <div className="relative z-10">
-                <div className="text-4xl mb-4">{service.icon}</div>
+            <motion.div key={service.id} variants={item}>
+              <Card
+                variant="glass"
+                className="group hover:shadow-glow hover:border-magenta-500/50 h-full transition-all duration-300"
+              >
+                <div className="mb-4 text-4xl">{service.icon}</div>
                 <Heading as="h3" variant="h4" className="mb-3">
                   {service.title}
                 </Heading>
-                <Text variant="body" className="mb-6 text-offwhite/70">
+                <Text variant="body" className="mb-6 text-gray-600 dark:text-gray-300">
                   {service.description}
                 </Text>
                 <Button variant="ghost" size="sm" asChild>
-                  <Link href={service.href}>
+                  <Link href={`/services/${service.slug}`}>
                     Learn More
                     <svg
-                      className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform"
+                      className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -107,7 +80,7 @@ export default function ServicesOverview() {
                     </svg>
                   </Link>
                 </Button>
-              </div>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
@@ -117,7 +90,7 @@ export default function ServicesOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
+          className="mt-12 text-center"
         >
           <Button size="lg" asChild>
             <Link href="/services">View All Services</Link>
