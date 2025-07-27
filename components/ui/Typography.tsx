@@ -28,7 +28,7 @@ const headingVariants = cva(
 );
 
 export interface HeadingProps
-  extends HTMLAttributes<HTMLHeadingElement>,
+  extends Omit<HTMLAttributes<HTMLHeadingElement>, 'color'>,
     VariantProps<typeof headingVariants> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }

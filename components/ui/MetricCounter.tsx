@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useInView, animate } from 'framer-motion';
 import { Heading, Text } from './Typography';
 
 interface MetricCounterProps {
@@ -21,31 +21,30 @@ export function MetricCounter({
 }: MetricCounterProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: duration * 1000 });
+  const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
     if (isInView) {
-      motionValue.set(value);
+      const controls = animate(0, value, {
+        duration: duration,
+        onUpdate: (v) => setDisplayValue(Math.round(v)),
+      });
+
+      return () => controls.stop();
     }
-  }, [isInView, motionValue, value]);
+  }, [isInView, value, duration]);
 
   return (
     <div ref={ref} className="text-center">
       <Heading as="h3" variant="h3" color="magenta" className="mb-2">
         {prefix}
         <motion.span
-          onUpdate={(latest) => {
-            if (ref.current) {
-              const countElement = ref.current.querySelector('.counter-value');
-              if (countElement) {
-                countElement.textContent = Math.round(latest).toLocaleString();
-              }
-            }
-          }}
-          style={{ x: springValue }}
-        />
-        <span className="counter-value">0</span>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInView ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {displayValue.toLocaleString()}
+        </motion.span>
         {suffix}
       </Heading>
       <Text variant="body" className="text-offwhite/70">

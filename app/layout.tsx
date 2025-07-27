@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ClerkProvider } from '@clerk/nextjs';
+// import { ClerkProvider } from '@clerk/nextjs'; // TODO: Enable when Clerk keys are available
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -29,16 +29,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className="bg-navy text-offwhite font-body min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className="bg-navy text-offwhite font-body min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
   );
 }
