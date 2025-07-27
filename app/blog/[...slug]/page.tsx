@@ -19,9 +19,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-  const post = allPosts.find(
-    (post) => post.slug === params.slug.join('/')
-  );
+  const post = allPosts.find((post) => post.slug === params.slug.join('/'));
 
   if (!post) {
     return {};
@@ -48,36 +46,39 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
 // MDX Components
 const mdxComponents = {
+  // @ts-expect-error - MDX component props
   h1: ({ children }: any) => (
-    <Heading as="h1" variant="h1" className="mb-6 mt-12">
+    <Heading as="h1" variant="h1" className="mt-12 mb-6">
       {children}
     </Heading>
   ),
+  // @ts-expect-error - MDX component props
   h2: ({ children }: any) => (
-    <Heading as="h2" variant="h2" className="mb-4 mt-10">
+    <Heading as="h2" variant="h2" className="mt-10 mb-4">
       {children}
     </Heading>
   ),
+  // @ts-expect-error - MDX component props
   h3: ({ children }: any) => (
-    <Heading as="h3" variant="h3" className="mb-3 mt-8">
+    <Heading as="h3" variant="h3" className="mt-8 mb-3">
       {children}
     </Heading>
   ),
+  // @ts-expect-error - MDX component props
   p: ({ children }: any) => (
-    <Text variant="body" className="mb-6 text-offwhite/80">
+    <Text variant="body" className="text-offwhite/80 mb-6">
       {children}
     </Text>
   ),
+  // @ts-expect-error - MDX component props
   ul: ({ children }: any) => (
-    <ul className="mb-6 space-y-2 list-disc list-inside text-offwhite/80">
-      {children}
-    </ul>
+    <ul className="text-offwhite/80 mb-6 list-inside list-disc space-y-2">{children}</ul>
   ),
+  // @ts-expect-error - MDX component props
   ol: ({ children }: any) => (
-    <ol className="mb-6 space-y-2 list-decimal list-inside text-offwhite/80">
-      {children}
-    </ol>
+    <ol className="text-offwhite/80 mb-6 list-inside list-decimal space-y-2">{children}</ol>
   ),
+  // @ts-expect-error - MDX component props
   li: ({ children }: any) => (
     <li className="ml-4">
       <Text variant="body" as="span" className="text-offwhite/80">
@@ -85,33 +86,31 @@ const mdxComponents = {
       </Text>
     </li>
   ),
+  // @ts-expect-error - MDX component props
   blockquote: ({ children }: any) => (
-    <blockquote className="border-l-4 border-magenta pl-6 py-2 mb-6 italic text-offwhite/70">
+    <blockquote className="border-magenta text-offwhite/70 mb-6 border-l-4 py-2 pl-6 italic">
       {children}
     </blockquote>
   ),
+  // @ts-expect-error - MDX component props
   pre: ({ children }: any) => (
-    <pre className="mb-6 p-6 bg-black/50 rounded-xl overflow-x-auto">
-      {children}
-    </pre>
+    <pre className="mb-6 overflow-x-auto rounded-xl bg-black/50 p-6">{children}</pre>
   ),
+  // @ts-expect-error - MDX component props
   code: ({ children }: any) => (
-    <code className="px-2 py-1 bg-black/30 rounded text-magenta text-sm">
-      {children}
-    </code>
+    <code className="text-magenta rounded bg-black/30 px-2 py-1 text-sm">{children}</code>
   ),
+  // @ts-expect-error - MDX component props
   a: ({ href, children }: any) => (
     <Link href={href} className="text-magenta hover:text-magenta/80 underline transition-colors">
       {children}
     </Link>
   ),
-  hr: () => <hr className="my-12 border-offwhite/20" />,
+  hr: () => <hr className="border-offwhite/20 my-12" />,
 };
 
 export default function PostPage({ params }: PostPageProps) {
-  const post = allPosts.find(
-    (post) => post.slug === params.slug.join('/')
-  );
+  const post = allPosts.find((post) => post.slug === params.slug.join('/'));
 
   if (!post) {
     notFound();
@@ -122,30 +121,28 @@ export default function PostPage({ params }: PostPageProps) {
   return (
     <article className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-magenta/10 via-navy to-black" />
+      <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
+        <div className="from-magenta/10 via-navy absolute inset-0 bg-gradient-to-br to-black" />
         <div className="relative mx-auto max-w-4xl">
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="mb-6 flex flex-wrap gap-2">
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs font-medium bg-magenta/10 text-magenta rounded-full"
+                className="bg-magenta/10 text-magenta rounded-full px-3 py-1 text-xs font-medium"
               >
                 {tag}
               </span>
             ))}
           </div>
-          
+
           <Heading as="h1" variant="h1" className="mb-6">
             {post.title}
           </Heading>
-          
-          <div className="flex items-center gap-6 text-offwhite/60">
+
+          <div className="text-offwhite/60 flex items-center gap-6">
             <div className="flex items-center gap-2">
               <span className="text-sm">By</span>
-              <span className="text-sm font-medium text-offwhite/80">
-                {post.author}
-              </span>
+              <span className="text-offwhite/80 text-sm font-medium">{post.author}</span>
             </div>
             <span>•</span>
             <time className="text-sm" dateTime={post.date}>
@@ -160,7 +157,7 @@ export default function PostPage({ params }: PostPageProps) {
       </section>
 
       {/* Content */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="prose prose-invert max-w-none">
             <MDXContent components={mdxComponents} />
@@ -169,35 +166,33 @@ export default function PostPage({ params }: PostPageProps) {
       </section>
 
       {/* Author Bio */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 border-t border-offwhite/10">
+      <section className="border-offwhite/10 border-t px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="bg-gradient-to-br from-offwhite/5 to-offwhite/0 border border-offwhite/10 rounded-2xl p-8">
+          <div className="from-offwhite/5 to-offwhite/0 border-offwhite/10 rounded-2xl border bg-gradient-to-br p-8">
             <Heading as="h3" variant="h4" className="mb-4">
               About the Author
             </Heading>
             <Text variant="body" className="text-offwhite/70 mb-4">
-              {post.author} is a technical expert at Astro Intelligence, specializing in 
-              cloud architecture and AI-driven solutions. With years of experience in 
-              enterprise transformation, they help organizations leverage cutting-edge 
-              technology to achieve their business goals.
+              {post.author} is a technical expert at Astro Intelligence, specializing in cloud
+              architecture and AI-driven solutions. With years of experience in enterprise
+              transformation, they help organizations leverage cutting-edge technology to achieve
+              their business goals.
             </Text>
             <Button variant="secondary" size="sm" asChild>
-              <Link href="/about#team">
-                View Profile
-              </Link>
+              <Link href="/about#team">View Profile</Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Related Posts */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-magenta/5 to-purple-600/5">
+      <section className="from-magenta/5 bg-gradient-to-r to-purple-600/5 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <Heading as="h2" variant="h2" className="text-center mb-12">
+          <Heading as="h2" variant="h2" className="mb-12 text-center">
             Related Articles
           </Heading>
-          
-          <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="grid gap-8 md:grid-cols-3">
             {allPosts
               .filter((p) => p._id !== post._id)
               .filter((p) => p.tags.some((tag) => post.tags.includes(tag)))
@@ -205,13 +200,10 @@ export default function PostPage({ params }: PostPageProps) {
               .map((relatedPost) => (
                 <article
                   key={relatedPost._id}
-                  className="bg-gradient-to-br from-offwhite/5 to-offwhite/0 border border-offwhite/10 rounded-2xl p-6 hover:border-magenta/50 transition-colors"
+                  className="from-offwhite/5 to-offwhite/0 border-offwhite/10 hover:border-magenta/50 rounded-2xl border bg-gradient-to-br p-6 transition-colors"
                 >
                   <Heading as="h3" variant="h5" className="mb-3">
-                    <Link
-                      href={relatedPost.url}
-                      className="hover:text-magenta transition-colors"
-                    >
+                    <Link href={relatedPost.url} className="hover:text-magenta transition-colors">
                       {relatedPost.title}
                     </Link>
                   </Heading>
@@ -228,7 +220,7 @@ export default function PostPage({ params }: PostPageProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <Heading as="h2" variant="h3" className="mb-6">
             Ready to Transform Your Infrastructure?
@@ -236,16 +228,12 @@ export default function PostPage({ params }: PostPageProps) {
           <Text variant="lead" className="mb-8">
             Let's discuss how our expertise can help you achieve your goals.
           </Text>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
-              <Link href="/book-call">
-                Schedule a Consultation
-              </Link>
+              <Link href="/book-call">Schedule a Consultation</Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/blog">
-                Read More Articles
-              </Link>
+              <Link href="/blog">Read More Articles</Link>
             </Button>
           </div>
         </div>

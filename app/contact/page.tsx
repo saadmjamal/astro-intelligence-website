@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Metadata } from 'next';
 import { Heading, Text } from '@/components/ui/Typography';
 import { Button } from '@/components/ui/Button';
 import { useForm } from 'react-hook-form';
@@ -28,7 +27,7 @@ interface ContactFormData {
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
+
   const {
     register,
     handleSubmit,
@@ -38,12 +37,12 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
+
     try {
       // TODO: Implement actual form submission
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate API call
       console.log('Form data:', data);
-      
+
       setIsSubmitted(true);
       reset();
     } catch (error) {
@@ -56,25 +55,25 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-black opacity-50" />
+      <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
+        <div className="from-navy via-navy absolute inset-0 bg-gradient-to-br to-black opacity-50" />
         <div className="relative mx-auto max-w-7xl text-center">
           <Heading as="h1" variant="h1" color="gradient" className="mb-6">
             Let's Build Something Amazing
           </Heading>
-          <Text variant="lead" className="max-w-3xl mx-auto">
-            Ready to transform your infrastructure? Our team is here to help you 
-            navigate your cloud and AI journey.
+          <Text variant="lead" className="mx-auto max-w-3xl">
+            Ready to transform your infrastructure? Our team is here to help you navigate your cloud
+            and AI journey.
           </Text>
         </div>
       </section>
 
       {/* Contact Options */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-3 gap-8 mb-20">
+          <div className="mb-20 grid gap-8 lg:grid-cols-3">
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-magenta to-purple-600 flex items-center justify-center">
+              <div className="from-magenta mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br to-purple-600">
                 <span className="text-2xl">📅</span>
               </div>
               <Heading as="h3" variant="h4" className="mb-3">
@@ -89,7 +88,7 @@ export default function ContactPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-magenta to-purple-600 flex items-center justify-center">
+              <div className="from-magenta mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br to-purple-600">
                 <span className="text-2xl">💬</span>
               </div>
               <Heading as="h3" variant="h4" className="mb-3">
@@ -102,7 +101,7 @@ export default function ContactPage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-magenta to-purple-600 flex items-center justify-center">
+              <div className="from-magenta mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br to-purple-600">
                 <span className="text-2xl">📧</span>
               </div>
               <Heading as="h3" variant="h4" className="mb-3">
@@ -111,7 +110,7 @@ export default function ContactPage() {
               <Text variant="body" className="text-offwhite/70 mb-4">
                 Send us a detailed message and we'll respond within 24 hours.
               </Text>
-              <Link 
+              <Link
                 href="mailto:hello@astrointelligence.com"
                 className="text-magenta hover:text-magenta/80 underline transition-colors"
               >
@@ -121,38 +120,36 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-offwhite/5 to-offwhite/0 border border-offwhite/10 rounded-2xl p-8 md:p-12">
-              <Heading as="h2" variant="h2" className="text-center mb-8">
+          <div className="mx-auto max-w-4xl">
+            <div className="from-offwhite/5 to-offwhite/0 border-offwhite/10 rounded-2xl border bg-gradient-to-br p-8 md:p-12">
+              <Heading as="h2" variant="h2" className="mb-8 text-center">
                 Tell Us About Your Project
               </Heading>
 
               {isSubmitted ? (
-                <div className="text-center py-12">
-                  <div className="text-6xl mb-6">✅</div>
+                <div className="py-12 text-center">
+                  <div className="mb-6 text-6xl">✅</div>
                   <Heading as="h3" variant="h3" className="mb-4">
                     Thank You!
                   </Heading>
                   <Text variant="lead" className="mb-8">
                     We've received your message and will get back to you within 24 hours.
                   </Text>
-                  <Button onClick={() => setIsSubmitted(false)}>
-                    Send Another Message
-                  </Button>
+                  <Button onClick={() => setIsSubmitted(false)}>Send Another Message</Button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* Name Fields */}
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium mb-2">
+                      <label htmlFor="firstName" className="mb-2 block text-sm font-medium">
                         First Name *
                       </label>
                       <input
                         {...register('firstName', { required: 'First name is required' })}
                         type="text"
                         id="firstName"
-                        className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite placeholder-offwhite/40 focus:outline-none focus:border-magenta transition-colors"
+                        className="bg-navy border-offwhite/20 text-offwhite placeholder-offwhite/40 focus:border-magenta w-full rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                         placeholder="John"
                       />
                       {errors.firstName && (
@@ -161,14 +158,14 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="lastName" className="block text-sm font-medium mb-2">
+                      <label htmlFor="lastName" className="mb-2 block text-sm font-medium">
                         Last Name *
                       </label>
                       <input
                         {...register('lastName', { required: 'Last name is required' })}
                         type="text"
                         id="lastName"
-                        className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite placeholder-offwhite/40 focus:outline-none focus:border-magenta transition-colors"
+                        className="bg-navy border-offwhite/20 text-offwhite placeholder-offwhite/40 focus:border-magenta w-full rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                         placeholder="Doe"
                       />
                       {errors.lastName && (
@@ -178,9 +175,9 @@ export default function ContactPage() {
                   </div>
 
                   {/* Email and Company */}
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      <label htmlFor="email" className="mb-2 block text-sm font-medium">
                         Email *
                       </label>
                       <input
@@ -188,12 +185,12 @@ export default function ContactPage() {
                           required: 'Email is required',
                           pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                            message: 'Invalid email address'
-                          }
+                            message: 'Invalid email address',
+                          },
                         })}
                         type="email"
                         id="email"
-                        className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite placeholder-offwhite/40 focus:outline-none focus:border-magenta transition-colors"
+                        className="bg-navy border-offwhite/20 text-offwhite placeholder-offwhite/40 focus:border-magenta w-full rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                         placeholder="john@company.com"
                       />
                       {errors.email && (
@@ -202,14 +199,14 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="company" className="block text-sm font-medium mb-2">
+                      <label htmlFor="company" className="mb-2 block text-sm font-medium">
                         Company *
                       </label>
                       <input
                         {...register('company', { required: 'Company is required' })}
                         type="text"
                         id="company"
-                        className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite placeholder-offwhite/40 focus:outline-none focus:border-magenta transition-colors"
+                        className="bg-navy border-offwhite/20 text-offwhite placeholder-offwhite/40 focus:border-magenta w-full rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                         placeholder="Acme Corp"
                       />
                       {errors.company && (
@@ -220,14 +217,14 @@ export default function ContactPage() {
 
                   {/* Role */}
                   <div>
-                    <label htmlFor="role" className="block text-sm font-medium mb-2">
+                    <label htmlFor="role" className="mb-2 block text-sm font-medium">
                       Your Role *
                     </label>
                     <input
                       {...register('role', { required: 'Role is required' })}
                       type="text"
                       id="role"
-                      className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite placeholder-offwhite/40 focus:outline-none focus:border-magenta transition-colors"
+                      className="bg-navy border-offwhite/20 text-offwhite placeholder-offwhite/40 focus:border-magenta w-full rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                       placeholder="CTO, VP Engineering, etc."
                     />
                     {errors.role && (
@@ -237,13 +234,13 @@ export default function ContactPage() {
 
                   {/* Project Type */}
                   <div>
-                    <label htmlFor="projectType" className="block text-sm font-medium mb-2">
+                    <label htmlFor="projectType" className="mb-2 block text-sm font-medium">
                       Project Type *
                     </label>
                     <select
                       {...register('projectType', { required: 'Please select a project type' })}
                       id="projectType"
-                      className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite focus:outline-none focus:border-magenta transition-colors"
+                      className="bg-navy border-offwhite/20 text-offwhite focus:border-magenta w-full rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                     >
                       <option value="">Select a project type</option>
                       <option value="ai-orchestration">AI-Enhanced Orchestration</option>
@@ -259,15 +256,15 @@ export default function ContactPage() {
                   </div>
 
                   {/* Budget and Timeline */}
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="budget" className="block text-sm font-medium mb-2">
+                      <label htmlFor="budget" className="mb-2 block text-sm font-medium">
                         Budget Range
                       </label>
                       <select
                         {...register('budget')}
                         id="budget"
-                        className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite focus:outline-none focus:border-magenta transition-colors"
+                        className="bg-navy border-offwhite/20 text-offwhite focus:border-magenta w-full rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                       >
                         <option value="">Select budget range</option>
                         <option value="<50k">Less than $50k</option>
@@ -279,13 +276,13 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="timeline" className="block text-sm font-medium mb-2">
+                      <label htmlFor="timeline" className="mb-2 block text-sm font-medium">
                         Timeline
                       </label>
                       <select
                         {...register('timeline')}
                         id="timeline"
-                        className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite focus:outline-none focus:border-magenta transition-colors"
+                        className="bg-navy border-offwhite/20 text-offwhite focus:border-magenta w-full rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                       >
                         <option value="">Select timeline</option>
                         <option value="immediate">Immediate (ASAP)</option>
@@ -299,14 +296,14 @@ export default function ContactPage() {
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    <label htmlFor="message" className="mb-2 block text-sm font-medium">
                       Tell us more about your project *
                     </label>
                     <textarea
                       {...register('message', { required: 'Please tell us about your project' })}
                       id="message"
                       rows={6}
-                      className="w-full px-4 py-3 bg-navy border border-offwhite/20 rounded-lg text-offwhite placeholder-offwhite/40 focus:outline-none focus:border-magenta transition-colors resize-none"
+                      className="bg-navy border-offwhite/20 text-offwhite placeholder-offwhite/40 focus:border-magenta w-full resize-none rounded-lg border px-4 py-3 transition-colors focus:outline-none"
                       placeholder="Describe your current challenges, goals, and what you're looking to achieve..."
                     />
                     {errors.message && (
@@ -320,11 +317,14 @@ export default function ContactPage() {
                       {...register('acceptTerms', { required: 'You must accept the terms' })}
                       type="checkbox"
                       id="acceptTerms"
-                      className="mt-1 w-4 h-4 bg-navy border-offwhite/20 rounded text-magenta focus:ring-magenta"
+                      className="bg-navy border-offwhite/20 text-magenta focus:ring-magenta mt-1 h-4 w-4 rounded"
                     />
-                    <label htmlFor="acceptTerms" className="text-sm text-offwhite/70">
+                    <label htmlFor="acceptTerms" className="text-offwhite/70 text-sm">
                       I agree to the{' '}
-                      <Link href="/privacy" className="text-magenta hover:text-magenta/80 underline">
+                      <Link
+                        href="/privacy"
+                        className="text-magenta hover:text-magenta/80 underline"
+                      >
                         Privacy Policy
                       </Link>{' '}
                       and{' '}
@@ -338,7 +338,7 @@ export default function ContactPage() {
                   )}
 
                   {/* Submit Button */}
-                  <div className="text-center pt-6">
+                  <div className="pt-6 text-center">
                     <Button
                       type="submit"
                       size="lg"
@@ -356,45 +356,51 @@ export default function ContactPage() {
       </section>
 
       {/* Office Locations */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-magenta/5 to-purple-600/5">
+      <section className="from-magenta/5 bg-gradient-to-r to-purple-600/5 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <Heading as="h2" variant="h2" className="text-center mb-12">
+          <Heading as="h2" variant="h2" className="mb-12 text-center">
             Global Presence
           </Heading>
-          
-          <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="grid gap-8 md:grid-cols-3">
             <div className="text-center">
-              <div className="text-4xl mb-4">🌉</div>
+              <div className="mb-4 text-4xl">🌉</div>
               <Heading as="h3" variant="h4" className="mb-2">
                 San Francisco
               </Heading>
               <Text variant="body" className="text-offwhite/70">
-                123 Market Street<br />
-                San Francisco, CA 94105<br />
+                123 Market Street
+                <br />
+                San Francisco, CA 94105
+                <br />
                 United States
               </Text>
             </div>
 
             <div className="text-center">
-              <div className="text-4xl mb-4">🏛️</div>
+              <div className="mb-4 text-4xl">🏛️</div>
               <Heading as="h3" variant="h4" className="mb-2">
                 London
               </Heading>
               <Text variant="body" className="text-offwhite/70">
-                456 Canary Wharf<br />
-                London E14 5AB<br />
+                456 Canary Wharf
+                <br />
+                London E14 5AB
+                <br />
                 United Kingdom
               </Text>
             </div>
 
             <div className="text-center">
-              <div className="text-4xl mb-4">🏮</div>
+              <div className="mb-4 text-4xl">🏮</div>
               <Heading as="h3" variant="h4" className="mb-2">
                 Singapore
               </Heading>
               <Text variant="body" className="text-offwhite/70">
-                789 Marina Boulevard<br />
-                Singapore 018985<br />
+                789 Marina Boulevard
+                <br />
+                Singapore 018985
+                <br />
                 Singapore
               </Text>
             </div>

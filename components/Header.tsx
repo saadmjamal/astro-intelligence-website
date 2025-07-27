@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Logo } from '@/components/ui/Logo';
-import { Button } from '@/components/ui/Button';
+
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/Button';
+import { Logo } from '@/components/ui/Logo';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const navigation = [
   { name: 'Services', href: '/services' },
@@ -21,7 +23,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-offwhite/10 bg-navy/80 backdrop-blur-lg">
+    <header className="border-offwhite/10 bg-navy/80 sticky top-0 z-50 w-full border-b backdrop-blur-lg">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -38,10 +40,8 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'text-sm font-medium transition-colors hover:text-magenta',
-                  pathname === item.href
-                    ? 'text-magenta'
-                    : 'text-offwhite'
+                  'hover:text-magenta text-sm font-medium transition-colors',
+                  pathname === item.href ? 'text-magenta' : 'text-offwhite'
                 )}
               >
                 {item.name}
@@ -51,6 +51,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:items-center lg:gap-x-4">
+            <ThemeToggle />
             <Button variant="ghost" size="sm" asChild>
               <Link href="/contact">Contact</Link>
             </Button>
@@ -63,18 +64,34 @@ export default function Header() {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-offwhite hover:bg-offwhite/10 hover:text-magenta focus:outline-none focus:ring-2 focus:ring-inset focus:ring-magenta"
+              className="text-offwhite hover:bg-offwhite/10 hover:text-magenta focus:ring-magenta inline-flex items-center justify-center rounded-md p-2 focus:ring-2 focus:outline-none focus:ring-inset"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
               {mobileMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
                 </svg>
               )}
             </button>
@@ -84,22 +101,18 @@ export default function Header() {
         {/* Mobile menu */}
         <div
           className={cn(
-            'lg:hidden transition-all duration-300 ease-in-out',
-            mobileMenuOpen
-              ? 'max-h-screen opacity-100'
-              : 'max-h-0 opacity-0 overflow-hidden'
+            'transition-all duration-300 ease-in-out lg:hidden',
+            mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 overflow-hidden opacity-0'
           )}
         >
-          <div className="space-y-1 pb-4 pt-2">
+          <div className="space-y-1 pt-2 pb-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'block rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-offwhite/10 hover:text-magenta',
-                  pathname === item.href
-                    ? 'text-magenta bg-offwhite/5'
-                    : 'text-offwhite'
+                  'hover:bg-offwhite/10 hover:text-magenta block rounded-md px-3 py-2 text-base font-medium transition-colors',
+                  pathname === item.href ? 'text-magenta bg-offwhite/5' : 'text-offwhite'
                 )}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -107,6 +120,9 @@ export default function Header() {
               </Link>
             ))}
             <div className="mt-4 space-y-2 px-3">
+              <div className="mb-4 flex justify-center">
+                <ThemeToggle />
+              </div>
               <Button variant="secondary" size="md" className="w-full" asChild>
                 <Link href="/contact">Contact</Link>
               </Button>

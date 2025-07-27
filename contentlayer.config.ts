@@ -15,14 +15,14 @@ export const Post = defineDocumentType(() => ({
     image: { type: 'string' },
   },
   computedFields: {
-    url: { 
-      type: 'string', 
-      resolve: (post) => `/blog/${post._raw.flattenedPath.replace('blog/', '')}` 
+    url: {
+      type: 'string',
+      resolve: (post) => `/blog/${post._raw.flattenedPath.replace('blog/', '')}`,
     },
     slug: {
       type: 'string',
-      resolve: (post) => post._raw.flattenedPath.replace('blog/', '')
-    }
+      resolve: (post) => post._raw.flattenedPath.replace('blog/', ''),
+    },
   },
 }));
 
@@ -41,14 +41,14 @@ export const CaseStudy = defineDocumentType(() => ({
     image: { type: 'string' },
   },
   computedFields: {
-    url: { 
-      type: 'string', 
-      resolve: (study) => `/portfolio/${study._raw.flattenedPath.replace('case-studies/', '')}` 
+    url: {
+      type: 'string',
+      resolve: (study) => `/portfolio/${study._raw.flattenedPath.replace('case-studies/', '')}`,
     },
     slug: {
       type: 'string',
-      resolve: (study) => study._raw.flattenedPath.replace('case-studies/', '')
-    }
+      resolve: (study) => study._raw.flattenedPath.replace('case-studies/', ''),
+    },
   },
 }));
 
@@ -65,14 +65,14 @@ export const ResearchArticle = defineDocumentType(() => ({
     tags: { type: 'list', of: { type: 'string' }, required: true },
   },
   computedFields: {
-    url: { 
-      type: 'string', 
-      resolve: (article) => `/research-lab/${article._raw.flattenedPath.replace('research/', '')}` 
+    url: {
+      type: 'string',
+      resolve: (article) => `/research-lab/${article._raw.flattenedPath.replace('research/', '')}`,
     },
     slug: {
       type: 'string',
-      resolve: (article) => article._raw.flattenedPath.replace('research/', '')
-    }
+      resolve: (article) => article._raw.flattenedPath.replace('research/', ''),
+    },
   },
 }));
 

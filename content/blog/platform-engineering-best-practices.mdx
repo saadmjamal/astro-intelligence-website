@@ -1,10 +1,10 @@
 ---
-title: "Platform Engineering Best Practices: Building Developer-First Infrastructure"
+title: 'Platform Engineering Best Practices: Building Developer-First Infrastructure'
 date: 2025-07-22
-author: "Alex Thompson"
-excerpt: "Learn how to build internal developer platforms that accelerate innovation while maintaining security and compliance."
-tags: ["Platform Engineering", "DevOps", "Developer Experience", "Infrastructure"]
-image: "/images/blog/platform-engineering.jpg"
+author: 'Alex Thompson'
+excerpt: 'Learn how to build internal developer platforms that accelerate innovation while maintaining security and compliance.'
+tags: ['Platform Engineering', 'DevOps', 'Developer Experience', 'Infrastructure']
+image: '/images/blog/platform-engineering.jpg'
 ---
 
 # Platform Engineering Best Practices
@@ -46,16 +46,16 @@ const microserviceTemplate: ServiceTemplate = {
   parameters: [
     { name: 'serviceName', type: 'string', required: true },
     { name: 'port', type: 'number', default: 3000 },
-    { name: 'replicas', type: 'number', default: 3 }
+    { name: 'replicas', type: 'number', default: 3 },
   ],
   dependencies: ['postgresql', 'redis'],
   deployment: {
     platform: 'kubernetes',
     resources: {
       cpu: '500m',
-      memory: '512Mi'
-    }
-  }
+      memory: '512Mi',
+    },
+  },
 };
 ```
 
@@ -87,7 +87,7 @@ jobs:
         with:
           coverage-threshold: 80
       - uses: platform/sonar-analysis@v1
-  
+
   build-and-deploy:
     needs: quality-gates
     runs-on: platform-runners
@@ -114,11 +114,11 @@ class OrderService(Service):
             runtime="python:3.11",
             scaling={"min": 2, "max": 10}
         )
-        
+
         # Platform handles all the complexity
         self.db = Database("orders", engine="postgresql")
         self.cache = Cache("order-cache", type="redis")
-        
+
         # Automatic monitoring and logging
         self.enable_monitoring()
         self.enable_distributed_tracing()
@@ -148,7 +148,7 @@ $ platform create service --custom --config=./my-special-config.yaml
 
 Keep documentation close to code and auto-generate when possible:
 
-```typescript
+````typescript
 /**
  * @platform-docs
  * @category Storage
@@ -162,7 +162,7 @@ Keep documentation close to code and auto-generate when possible:
 export class BlobStorage {
   // Implementation
 }
-```
+````
 
 ### 4. Progressive Disclosure
 
@@ -193,15 +193,19 @@ Start simple, reveal complexity gradually:
 ## Common Pitfalls to Avoid
 
 ### 1. Over-Engineering
+
 Start with MVP features that solve real problems. Don't build what you think developers might need.
 
 ### 2. Ignoring Developer Feedback
+
 Your developers are your customers. Listen to them.
 
 ### 3. Insufficient Documentation
+
 Great platforms have great documentation. Invest accordingly.
 
 ### 4. One-Size-Fits-All Approach
+
 Different teams have different needs. Build flexibility into your platform.
 
 ## Real-World Example: E-Commerce Platform
@@ -209,16 +213,19 @@ Different teams have different needs. Build flexibility into your platform.
 A major retailer implemented our platform engineering practices:
 
 ### Before:
+
 - 6 weeks to launch new microservice
 - 15+ manual steps for deployment
 - Inconsistent monitoring and security
 
 ### After:
+
 - 2 days to launch new microservice
 - 1-click deployment with full observability
 - Security and compliance built-in
 
 ### Results:
+
 - **300% increase** in deployment frequency
 - **75% reduction** in production incidents
 - **92% developer satisfaction** score
@@ -226,16 +233,19 @@ A major retailer implemented our platform engineering practices:
 ## Getting Started with Platform Engineering
 
 ### Phase 1: Discovery (2-4 weeks)
+
 - Interview developers about pain points
 - Audit existing tools and processes
 - Define success metrics
 
 ### Phase 2: MVP (2-3 months)
+
 - Build core platform components
 - Onboard pilot teams
 - Gather feedback and iterate
 
 ### Phase 3: Scale (6-12 months)
+
 - Expand platform capabilities
 - Migrate more teams
 - Establish platform team processes

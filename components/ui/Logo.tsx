@@ -42,7 +42,7 @@ export function Logo({ variant = 'full', ...props }: LogoProps) {
           fill="currentColor"
         />
         <circle cx="20" cy="20" r="3" fill="#0a0e23" />
-        
+
         {/* Text */}
         <text
           x="50"

@@ -11,33 +11,28 @@ interface HeroProps {
 
 export default function Hero({ tagline }: HeroProps) {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden">
       {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-black">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-magenta/20 via-transparent to-transparent"></div>
+      <div className="from-navy via-navy absolute inset-0 bg-gradient-to-br to-black">
+        <div className="from-magenta/20 absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] via-transparent to-transparent"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Heading
-            as="h1"
-            variant="h1"
-            color="gradient"
-            className="mb-6"
-          >
+          <Heading as="h1" variant="h1" color="gradient" className="mb-6">
             Astro Intelligence
           </Heading>
-          
-          <Text variant="lead" className="mb-8 max-w-3xl mx-auto">
+
+          <Text variant="lead" className="mx-auto mb-8 max-w-3xl">
             {tagline}
           </Text>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
               <Link href="/book-call">Book a Discovery Call</Link>
             </Button>
@@ -52,7 +47,7 @@ export default function Hero({ tagline }: HeroProps) {
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-magenta/30 rounded-full"
+              className="bg-magenta/30 absolute h-1 w-1 rounded-full"
               initial={{
                 x: `${Math.random() * 100}%`,
                 y: `${Math.random() * 100}%`,
@@ -79,7 +74,7 @@ export default function Hero({ tagline }: HeroProps) {
         transition={{ duration: 2, repeat: Infinity }}
       >
         <svg
-          className="w-6 h-6 text-offwhite/50"
+          className="text-offwhite/50 h-6 w-6"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"

@@ -10,24 +10,23 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="flex min-h-screen items-center justify-center px-4">
       <div className="text-center">
-        <div className="text-8xl mb-6">🛸</div>
-        
+        <div className="mb-6 text-8xl">🛸</div>
+
         <Heading as="h1" variant="h1" color="gradient" className="mb-4">
           404
         </Heading>
-        
+
         <Heading as="h2" variant="h3" className="mb-6">
           Lost in Space
         </Heading>
-        
-        <Text variant="lead" className="max-w-md mx-auto mb-8 text-offwhite/80">
-          Looks like this page drifted off into the digital cosmos. 
-          Let's get you back on course.
+
+        <Text variant="lead" className="text-offwhite/80 mx-auto mb-8 max-w-md">
+          Looks like this page drifted off into the digital cosmos. Let's get you back on course.
         </Text>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+        <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Button asChild>
             <Link href="/">Return Home</Link>
           </Button>
@@ -35,8 +34,8 @@ export default function NotFound() {
             <Link href="/contact">Contact Support</Link>
           </Button>
         </div>
-        
-        <div className="mt-12 pt-8 border-t border-offwhite/10">
+
+        <div className="border-offwhite/10 mt-12 border-t pt-8">
           <Text variant="small" className="text-offwhite/60">
             Error Code: 404 | Page Not Found
           </Text>

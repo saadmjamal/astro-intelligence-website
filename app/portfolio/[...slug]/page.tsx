@@ -19,9 +19,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
-  const study = allCaseStudies.find(
-    (study) => study.slug === params.slug.join('/')
-  );
+  const study = allCaseStudies.find((study) => study.slug === params.slug.join('/'));
 
   if (!study) {
     return {};
@@ -46,36 +44,39 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
 
 // MDX Components (reuse from blog)
 const mdxComponents = {
+  // @ts-expect-error - MDX component props
   h1: ({ children }: any) => (
-    <Heading as="h1" variant="h1" className="mb-6 mt-12">
+    <Heading as="h1" variant="h1" className="mt-12 mb-6">
       {children}
     </Heading>
   ),
+  // @ts-expect-error - MDX component props
   h2: ({ children }: any) => (
-    <Heading as="h2" variant="h2" className="mb-4 mt-10">
+    <Heading as="h2" variant="h2" className="mt-10 mb-4">
       {children}
     </Heading>
   ),
+  // @ts-expect-error - MDX component props
   h3: ({ children }: any) => (
-    <Heading as="h3" variant="h3" className="mb-3 mt-8">
+    <Heading as="h3" variant="h3" className="mt-8 mb-3">
       {children}
     </Heading>
   ),
+  // @ts-expect-error - MDX component props
   p: ({ children }: any) => (
-    <Text variant="body" className="mb-6 text-offwhite/80">
+    <Text variant="body" className="text-offwhite/80 mb-6">
       {children}
     </Text>
   ),
+  // @ts-expect-error - MDX component props
   ul: ({ children }: any) => (
-    <ul className="mb-6 space-y-2 list-disc list-inside text-offwhite/80">
-      {children}
-    </ul>
+    <ul className="text-offwhite/80 mb-6 list-inside list-disc space-y-2">{children}</ul>
   ),
+  // @ts-expect-error - MDX component props
   ol: ({ children }: any) => (
-    <ol className="mb-6 space-y-2 list-decimal list-inside text-offwhite/80">
-      {children}
-    </ol>
+    <ol className="text-offwhite/80 mb-6 list-inside list-decimal space-y-2">{children}</ol>
   ),
+  // @ts-expect-error - MDX component props
   li: ({ children }: any) => (
     <li className="ml-4">
       <Text variant="body" as="span" className="text-offwhite/80">
@@ -83,53 +84,49 @@ const mdxComponents = {
       </Text>
     </li>
   ),
+  // @ts-expect-error - MDX component props
   blockquote: ({ children }: any) => (
-    <blockquote className="border-l-4 border-magenta pl-6 py-2 mb-6 italic text-offwhite/70">
+    <blockquote className="border-magenta text-offwhite/70 mb-6 border-l-4 py-2 pl-6 italic">
       {children}
     </blockquote>
   ),
+  // @ts-expect-error - MDX component props
   pre: ({ children }: any) => (
-    <pre className="mb-6 p-6 bg-black/50 rounded-xl overflow-x-auto">
-      {children}
-    </pre>
+    <pre className="mb-6 overflow-x-auto rounded-xl bg-black/50 p-6">{children}</pre>
   ),
+  // @ts-expect-error - MDX component props
   code: ({ children }: any) => (
-    <code className="px-2 py-1 bg-black/30 rounded text-magenta text-sm">
-      {children}
-    </code>
+    <code className="text-magenta rounded bg-black/30 px-2 py-1 text-sm">{children}</code>
   ),
+  // @ts-expect-error - MDX component props
   table: ({ children }: any) => (
     <div className="mb-6 overflow-x-auto">
-      <table className="min-w-full divide-y divide-offwhite/20">
-        {children}
-      </table>
+      <table className="divide-offwhite/20 min-w-full divide-y">{children}</table>
     </div>
   ),
-  thead: ({ children }: any) => (
-    <thead className="bg-offwhite/5">{children}</thead>
-  ),
+  // @ts-expect-error - MDX component props
+  thead: ({ children }: any) => <thead className="bg-offwhite/5">{children}</thead>,
+  // @ts-expect-error - MDX component props
   th: ({ children }: any) => (
-    <th className="px-6 py-3 text-left text-xs font-medium text-offwhite uppercase tracking-wider">
+    <th className="text-offwhite px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
       {children}
     </th>
   ),
+  // @ts-expect-error - MDX component props
   td: ({ children }: any) => (
-    <td className="px-6 py-4 whitespace-nowrap text-sm text-offwhite/80">
-      {children}
-    </td>
+    <td className="text-offwhite/80 px-6 py-4 text-sm whitespace-nowrap">{children}</td>
   ),
+  // @ts-expect-error - MDX component props
   a: ({ href, children }: any) => (
     <Link href={href} className="text-magenta hover:text-magenta/80 underline transition-colors">
       {children}
     </Link>
   ),
-  hr: () => <hr className="my-12 border-offwhite/20" />,
+  hr: () => <hr className="border-offwhite/20 my-12" />,
 };
 
 export default function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const study = allCaseStudies.find(
-    (study) => study.slug === params.slug.join('/')
-  );
+  const study = allCaseStudies.find((study) => study.slug === params.slug.join('/'));
 
   if (!study) {
     notFound();
@@ -140,25 +137,25 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
   return (
     <article className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-magenta/10 via-navy to-black" />
+      <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
+        <div className="from-magenta/10 via-navy absolute inset-0 bg-gradient-to-br to-black" />
         <div className="relative mx-auto max-w-5xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="flex flex-wrap gap-4 mb-6">
-                <span className="px-4 py-2 bg-magenta/10 text-magenta rounded-full text-sm font-medium">
+              <div className="mb-6 flex flex-wrap gap-4">
+                <span className="bg-magenta/10 text-magenta rounded-full px-4 py-2 text-sm font-medium">
                   {study.industry}
                 </span>
-                <span className="px-4 py-2 bg-offwhite/10 text-offwhite rounded-full text-sm">
+                <span className="bg-offwhite/10 text-offwhite rounded-full px-4 py-2 text-sm">
                   {study.client}
                 </span>
               </div>
-              
+
               <Heading as="h1" variant="h1" className="mb-6">
                 {study.title}
               </Heading>
-              
-              <Text variant="lead" className="mb-8 text-offwhite/80">
+
+              <Text variant="lead" className="text-offwhite/80 mb-8">
                 {study.excerpt}
               </Text>
 
@@ -166,7 +163,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
                 {study.services.map((service) => (
                   <span
                     key={service}
-                    className="px-3 py-1 text-xs bg-offwhite/5 text-offwhite/60 rounded-full"
+                    className="bg-offwhite/5 text-offwhite/60 rounded-full px-3 py-1 text-xs"
                   >
                     {service}
                   </span>
@@ -176,21 +173,20 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
 
             {/* Key Metrics */}
             <div className="grid grid-cols-2 gap-6">
+              {/* @ts-expect-error - MDX component props */}
               {Object.entries(study.metrics).map(([key, metric]: [string, any]) => (
-                <div 
+                <div
                   key={key}
-                  className="bg-gradient-to-br from-offwhite/10 to-offwhite/5 rounded-2xl p-6 text-center"
+                  className="from-offwhite/10 to-offwhite/5 rounded-2xl bg-gradient-to-br p-6 text-center"
                 >
-                  <div className="text-3xl font-bold text-magenta mb-2">
+                  <div className="text-magenta mb-2 text-3xl font-bold">
                     {metric.improvement || metric.after || metric.value}
                   </div>
-                  <div className="text-sm text-offwhite/80 font-medium mb-1">
+                  <div className="text-offwhite/80 mb-1 text-sm font-medium">
                     {key.replace(/([A-Z])/g, ' $1').trim()}
                   </div>
                   {metric.before && (
-                    <div className="text-xs text-offwhite/60">
-                      Previously: {metric.before}
-                    </div>
+                    <div className="text-offwhite/60 text-xs">Previously: {metric.before}</div>
                   )}
                 </div>
               ))}
@@ -200,7 +196,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
       </section>
 
       {/* Content */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="prose prose-invert max-w-none">
             <MDXContent components={mdxComponents} />
@@ -209,15 +205,15 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
       </section>
 
       {/* Results Summary */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-magenta/5 to-purple-600/5">
+      <section className="from-magenta/5 bg-gradient-to-r to-purple-600/5 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
-          <Heading as="h2" variant="h2" className="text-center mb-12">
+          <Heading as="h2" variant="h2" className="mb-12 text-center">
             Transformation Impact
           </Heading>
-          
-          <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="grid gap-8 md:grid-cols-3">
             <div className="text-center">
-              <div className="text-5xl mb-4">📈</div>
+              <div className="mb-4 text-5xl">📈</div>
               <Heading as="h3" variant="h4" className="mb-2">
                 Performance
               </Heading>
@@ -226,7 +222,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
               </Text>
             </div>
             <div className="text-center">
-              <div className="text-5xl mb-4">💰</div>
+              <div className="mb-4 text-5xl">💰</div>
               <Heading as="h3" variant="h4" className="mb-2">
                 Cost Efficiency
               </Heading>
@@ -235,7 +231,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
               </Text>
             </div>
             <div className="text-center">
-              <div className="text-5xl mb-4">🚀</div>
+              <div className="mb-4 text-5xl">🚀</div>
               <Heading as="h3" variant="h4" className="mb-2">
                 Innovation Speed
               </Heading>
@@ -248,7 +244,7 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <Heading as="h2" variant="h2" className="mb-6">
             Ready to Transform Your Business?
@@ -256,16 +252,12 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
           <Text variant="lead" className="mb-8">
             Let's discuss how we can help you achieve similar results.
           </Text>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
-              <Link href="/book-call">
-                Schedule a Consultation
-              </Link>
+              <Link href="/book-call">Schedule a Consultation</Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/portfolio">
-                View More Case Studies
-              </Link>
+              <Link href="/portfolio">View More Case Studies</Link>
             </Button>
           </div>
         </div>

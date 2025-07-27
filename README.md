@@ -9,6 +9,7 @@ A high-performance, mobile-first Next.js 15 application showcasing AI and cloud 
 ## ✨ Features
 
 ### Core Functionality
+
 - **📱 Mobile-First Design** - Optimized for all devices with touch-friendly interactions
 - **🎨 Futuristic UI/UX** - Custom design system with ethical AI themes
 - **📝 MDX Blog Engine** - Type-safe content management with Contentlayer2
@@ -17,6 +18,7 @@ A high-performance, mobile-first Next.js 15 application showcasing AI and cloud 
 - **🌍 SEO Optimized** - Meta tags, structured data, and sitemap generation
 
 ### Business Features
+
 - **💼 Service Showcase** - AI Consulting, Cloud Architecture, ML Engineering, Strategic Partnerships
 - **📚 Portfolio** - Case studies with rich media support
 - **📰 Blog** - Technical articles with syntax highlighting
@@ -171,11 +173,11 @@ astro-intelligence/
 
 ```mdx
 ---
-title: "Your Post Title"
-date: "2025-01-27"
-excerpt: "Brief description"
-author: "Author Name"
-tags: ["AI", "Cloud"]
+title: 'Your Post Title'
+date: '2025-01-27'
+excerpt: 'Brief description'
+author: 'Author Name'
+tags: ['AI', 'Cloud']
 ---
 
 # Your content here...
@@ -189,12 +191,12 @@ tags: ["AI", "Cloud"]
 
 ```mdx
 ---
-title: "Project Name"
-client: "Client Name"
-date: "2025-01-27"
-excerpt: "Project summary"
-featuredImage: "/images/case-study.jpg"
-tags: ["AI", "Enterprise"]
+title: 'Project Name'
+client: 'Client Name'
+date: '2025-01-27'
+excerpt: 'Project summary'
+featuredImage: '/images/case-study.jpg'
+tags: ['AI', 'Enterprise']
 ---
 
 # Case study content...

@@ -37,25 +37,25 @@ export function ServicePageTemplate({
   features,
   useCases,
   ctaTitle = 'Ready to Get Started?',
-  ctaDescription = 'Let\'s discuss how this service can transform your business.',
-  children
+  ctaDescription = "Let's discuss how this service can transform your business.",
+  children,
 }: ServicePageTemplateProps) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
         <div className={`absolute inset-0 bg-gradient-to-br ${heroGradient}`} />
         <div className="relative mx-auto max-w-7xl">
-          <div className="flex items-center gap-4 mb-6">
+          <div className="mb-6 flex items-center gap-4">
             <span className="text-6xl">{icon}</span>
             <Heading as="h1" variant="h1" color="gradient">
               {title}
             </Heading>
           </div>
-          <Text variant="lead" className="max-w-3xl mb-8">
+          <Text variant="lead" className="mb-8 max-w-3xl">
             {description}
           </Text>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col gap-4 sm:flex-row">
             <Button size="lg" asChild>
               <Link href="/book-call">Get Started</Link>
             </Button>
@@ -67,16 +67,19 @@ export function ServicePageTemplate({
       </section>
 
       {/* Key Features */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <Heading as="h2" variant="h2" className="text-center mb-12">
+          <Heading as="h2" variant="h2" className="mb-12 text-center">
             Key Features & Capabilities
           </Heading>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
-              <div key={feature.title} className="bg-gradient-to-br from-offwhite/5 to-offwhite/0 border border-offwhite/10 rounded-2xl p-6 hover:border-magenta/50 transition-colors">
-                <div className="text-4xl mb-4">{feature.icon}</div>
+              <div
+                key={feature.title}
+                className="from-offwhite/5 to-offwhite/0 border-offwhite/10 hover:border-magenta/50 rounded-2xl border bg-gradient-to-br p-6 transition-colors"
+              >
+                <div className="mb-4 text-4xl">{feature.icon}</div>
                 <Heading as="h3" variant="h4" className="mb-3">
                   {feature.title}
                 </Heading>
@@ -103,16 +106,19 @@ export function ServicePageTemplate({
       {children}
 
       {/* Use Cases */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-magenta/5 to-purple-600/5">
+      <section className="from-magenta/5 bg-gradient-to-r to-purple-600/5 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <Heading as="h2" variant="h2" className="text-center mb-12">
+          <Heading as="h2" variant="h2" className="mb-12 text-center">
             Real-World Applications
           </Heading>
-          
-          <div className="grid lg:grid-cols-2 gap-8">
+
+          <div className="grid gap-8 lg:grid-cols-2">
             {useCases.map((useCase) => (
-              <div key={useCase.industry} className="bg-gradient-to-br from-offwhite/5 to-offwhite/0 border border-offwhite/10 rounded-2xl p-8">
-                <div className="text-magenta text-sm font-semibold mb-2">{useCase.industry}</div>
+              <div
+                key={useCase.industry}
+                className="from-offwhite/5 to-offwhite/0 border-offwhite/10 rounded-2xl border bg-gradient-to-br p-8"
+              >
+                <div className="text-magenta mb-2 text-sm font-semibold">{useCase.industry}</div>
                 <Heading as="h3" variant="h4" className="mb-4">
                   {useCase.scenario}
                 </Heading>
@@ -120,11 +126,15 @@ export function ServicePageTemplate({
                   {useCase.solution}
                 </Text>
                 <div className="space-y-2">
-                  <Text variant="small" className="font-semibold text-offwhite/90">Key Results:</Text>
+                  <Text variant="small" className="text-offwhite/90 font-semibold">
+                    Key Results:
+                  </Text>
                   {useCase.results.map((result) => (
                     <div key={result} className="flex items-center gap-2">
                       <span className="text-magenta">✓</span>
-                      <Text variant="small" className="text-offwhite/70">{result}</Text>
+                      <Text variant="small" className="text-offwhite/70">
+                        {result}
+                      </Text>
                     </div>
                   ))}
                 </div>
@@ -135,7 +145,7 @@ export function ServicePageTemplate({
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-magenta/10 to-purple-600/10">
+      <section className="from-magenta/10 bg-gradient-to-r to-purple-600/10 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <Heading as="h2" variant="h2" className="mb-6">
             {ctaTitle}
@@ -143,7 +153,7 @@ export function ServicePageTemplate({
           <Text variant="lead" className="mb-8">
             {ctaDescription}
           </Text>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
               <Link href="/book-call">Schedule a Consultation</Link>
             </Button>

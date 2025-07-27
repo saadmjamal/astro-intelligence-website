@@ -5,24 +5,26 @@ import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
   title: 'Services - Astro Intelligence Inc',
-  description: 'Cutting-edge AI and cloud services for modern enterprises. From AI-enhanced orchestration to microservices architecture.',
+  description:
+    'Cutting-edge AI and cloud services for modern enterprises. From AI-enhanced orchestration to microservices architecture.',
 };
 
 const services = [
   {
     id: 'ai-enhanced-orchestration',
     title: 'AI-Enhanced Orchestration',
-    description: 'Revolutionize your infrastructure with intelligent automation that learns, adapts, and optimizes.',
+    description:
+      'Revolutionize your infrastructure with intelligent automation that learns, adapts, and optimizes.',
     features: [
       'Predictive scaling based on ML models',
       'Intelligent resource allocation',
       'Self-healing infrastructure',
-      'Cost optimization algorithms'
+      'Cost optimization algorithms',
     ],
     benefits: [
       '68% reduction in resource waste',
       '45% improvement in performance',
-      '82% faster incident resolution'
+      '82% faster incident resolution',
     ],
     icon: '🤖',
     gradient: 'from-magenta to-purple-600',
@@ -30,78 +32,69 @@ const services = [
   {
     id: 'devops-as-a-service',
     title: 'DevOps as a Service',
-    description: 'End-to-end DevOps implementation and management, letting you focus on innovation.',
+    description:
+      'End-to-end DevOps implementation and management, letting you focus on innovation.',
     features: [
       'CI/CD pipeline automation',
       'Infrastructure as Code',
       'Monitoring and observability',
-      '24/7 expert support'
+      '24/7 expert support',
     ],
-    benefits: [
-      '10x faster deployments',
-      '95% reduction in manual tasks',
-      '99.99% uptime SLA'
-    ],
+    benefits: ['10x faster deployments', '95% reduction in manual tasks', '99.99% uptime SLA'],
     icon: '⚡',
     gradient: 'from-blue-500 to-magenta',
   },
   {
     id: 'platform-engineering',
     title: 'Platform Engineering',
-    description: 'Build self-service developer platforms that accelerate innovation and maintain governance.',
+    description:
+      'Build self-service developer platforms that accelerate innovation and maintain governance.',
     features: [
       'Internal developer portals',
       'Golden path templates',
       'Automated compliance',
-      'Developer experience optimization'
+      'Developer experience optimization',
     ],
-    benefits: [
-      '3x developer productivity',
-      '75% faster onboarding',
-      '90% governance compliance'
-    ],
+    benefits: ['3x developer productivity', '75% faster onboarding', '90% governance compliance'],
     icon: '🏗️',
     gradient: 'from-green-500 to-teal-600',
   },
   {
     id: 'microservices-architecture',
     title: 'Microservices Architecture',
-    description: 'Design and implement cloud-native microservices for maximum flexibility and scale.',
+    description:
+      'Design and implement cloud-native microservices for maximum flexibility and scale.',
     features: [
       'Service mesh implementation',
       'API gateway design',
       'Event-driven architecture',
-      'Distributed tracing'
+      'Distributed tracing',
     ],
-    benefits: [
-      'Infinite scalability',
-      '80% faster feature delivery',
-      'Zero-downtime deployments'
-    ],
+    benefits: ['Infinite scalability', '80% faster feature delivery', 'Zero-downtime deployments'],
     icon: '🔧',
     gradient: 'from-orange-500 to-red-600',
-  }
+  },
 ];
 
 export default function ServicesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-black opacity-50" />
+      <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
+        <div className="from-navy via-navy absolute inset-0 bg-gradient-to-br to-black opacity-50" />
         <div className="relative mx-auto max-w-7xl text-center">
           <Heading as="h1" variant="h1" color="gradient" className="mb-6">
             Our Services
           </Heading>
-          <Text variant="lead" className="max-w-3xl mx-auto mb-8">
-            Transforming enterprises with cutting-edge AI and cloud solutions. 
-            We don't just implement technology—we architect your future.
+          <Text variant="lead" className="mx-auto mb-8 max-w-3xl">
+            Transforming enterprises with cutting-edge AI and cloud solutions. We don't just
+            implement technology—we architect your future.
           </Text>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:gap-16">
             {services.map((service, index) => (
@@ -109,7 +102,7 @@ export default function ServicesPage() {
                 key={service.id}
                 className={`relative ${
                   index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                } flex flex-col lg:flex items-center gap-12`}
+                } flex flex-col items-center gap-12 lg:flex`}
               >
                 {/* Service Content */}
                 <div className="flex-1 space-y-6">
@@ -119,12 +112,12 @@ export default function ServicesPage() {
                       {service.title}
                     </Heading>
                   </div>
-                  
+
                   <Text variant="lead" className="text-offwhite/80">
                     {service.description}
                   </Text>
 
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid gap-8 md:grid-cols-2">
                     <div>
                       <Heading as="h3" variant="h5" className="mb-4">
                         Key Features
@@ -158,27 +151,23 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <div className="flex flex-col gap-4 pt-4 sm:flex-row">
                     <Button asChild>
-                      <Link href={`/services/${service.id}`}>
-                        Learn More
-                      </Link>
+                      <Link href={`/services/${service.id}`}>Learn More</Link>
                     </Button>
                     <Button variant="secondary" asChild>
-                      <Link href="/contact">
-                        Get Started
-                      </Link>
+                      <Link href="/contact">Get Started</Link>
                     </Button>
                   </div>
                 </div>
 
                 {/* Visual Element */}
-                <div className="flex-1 relative">
-                  <div className={`aspect-square max-w-md mx-auto rounded-2xl bg-gradient-to-br ${service.gradient} p-8 opacity-20`} />
+                <div className="relative flex-1">
+                  <div
+                    className={`mx-auto aspect-square max-w-md rounded-2xl bg-gradient-to-br ${service.gradient} p-8 opacity-20`}
+                  />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-[200px] opacity-10">
-                      {service.icon}
-                    </div>
+                    <div className="text-[200px] opacity-10">{service.icon}</div>
                   </div>
                 </div>
               </div>
@@ -188,7 +177,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-magenta/10 to-purple-600/10">
+      <section className="from-magenta/10 bg-gradient-to-r to-purple-600/10 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <Heading as="h2" variant="h2" className="mb-6">
             Ready to Transform Your Infrastructure?
@@ -196,16 +185,12 @@ export default function ServicesPage() {
           <Text variant="lead" className="mb-8">
             Let's discuss how our services can accelerate your digital transformation journey.
           </Text>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
-              <Link href="/book-call">
-                Schedule a Consultation
-              </Link>
+              <Link href="/book-call">Schedule a Consultation</Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/portfolio">
-                View Case Studies
-              </Link>
+              <Link href="/portfolio">View Case Studies</Link>
             </Button>
           </div>
         </div>
