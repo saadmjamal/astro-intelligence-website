@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import plugins from './tailwind.plugins.js';
 
 const colors = {
   // Primary palette
@@ -244,5 +245,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins,
 } satisfies Config;

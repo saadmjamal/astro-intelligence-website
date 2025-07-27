@@ -4,6 +4,7 @@ import './globals.css';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { ThemeScript } from './theme-script';
 
 export const metadata: Metadata = {
   title: 'Astro Intelligence Inc - Empowering Enterprises with Ethical AI',
@@ -32,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark font-body flex min-h-screen flex-col">
         <ThemeProvider>
           <Header />

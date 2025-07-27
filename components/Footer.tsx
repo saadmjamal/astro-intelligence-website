@@ -4,10 +4,10 @@ import { Text } from '@/components/ui/Typography';
 
 const footerLinks = {
   services: [
-    { name: 'AI-Enhanced Orchestration', href: '/services/ai-enhanced-orchestration' },
-    { name: 'DevOps as a Service', href: '/services/devops-as-a-service' },
-    { name: 'Platform Engineering', href: '/services/platform-engineering' },
-    { name: 'Microservices Architecture', href: '/services/microservices-architecture' },
+    { name: 'AI Consulting', href: '/services/ai-consulting' },
+    { name: 'Cloud Architecture', href: '/services/cloud-architecture' },
+    { name: 'ML Engineering', href: '/services/ml-engineering' },
+    { name: 'Strategic Partnerships', href: '/services/strategic-partnerships' },
   ],
   company: [
     { name: 'About', href: '/about' },
