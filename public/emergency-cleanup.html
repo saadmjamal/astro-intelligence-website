@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Service Worker Cleanup</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #000;
+            color: #0f0;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .alert {
+            background: #ff0000;
+            color: white;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #00ff00;
+            color: black;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #cc0000;
+        }
+        #log {
+            background: #111;
+            color: #0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 EMERGENCY SERVICE WORKER CLEANUP</h1>
+        
+        <div class="alert">
+            <strong>CRITICAL:</strong> Wrong site cached! This tool will remove ALL service workers and clear ALL caches.
+        </div>
+        
+        <button onclick="runCleanup()">🗑️ CLEAR ALL SERVICE WORKERS & CACHES</button>
+        <button onclick="checkStatus()">🔍 CHECK CURRENT STATUS</button>
+        <button onclick="hardRefresh()">🔄 HARD REFRESH PAGE</button>
+        
+        <div id="log"></div>
+        
+        <div id="instructions">
+            <h3>Manual Browser Commands:</h3>
+            <p>If the automatic cleanup fails, run these commands in the browser console:</p>
+            <pre>
+// Unregister all service workers
+navigator.serviceWorker.getRegistrations().then(registrations => {
+  registrations.forEach(registration => registration.unregister());
+});
+
+// Clear all caches  
+caches.keys().then(names => {
+  names.forEach(name => caches.delete(name));
+});
+
+// Clear all storage
+localStorage.clear();
+sessionStorage.clear();
+
+// Hard refresh
+location.reload(true);
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        const log = document.getElementById('log');
+        
+        function logMessage(message) {
+            log.innerHTML += message + '\n';
+            log.scrollTop = log.scrollHeight;
+            console.log(message);
+        }
+        
+        async function runCleanup() {
+            logMessage('🚨 EMERGENCY CLEANUP INITIATED...');
+            
+            if ('serviceWorker' in navigator) {
+                try {
+                    // Get all registrations
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    logMessage(`Found ${registrations.length} service worker registrations`);
+                    
+                    // Unregister all
+                    for (const registration of registrations) {
+                        logMessage(`Unregistering: ${registration.scope}`);
+                        await registration.unregister();
+                        logMessage(`✅ Unregistered: ${registration.scope}`);
+                    }
+                    
+                    // Clear all caches
+                    if ('caches' in window) {
+                        const cacheNames = await caches.keys();
+                        logMessage(`Found ${cacheNames.length} caches to clear`);
+                        
+                        for (const cacheName of cacheNames) {
+                            logMessage(`Deleting cache: ${cacheName}`);
+                            await caches.delete(cacheName);
+                            logMessage(`✅ Deleted cache: ${cacheName}`);
+                        }
+                    }
+                    
+                    // Clear storage
+                    localStorage.clear();
+                    sessionStorage.clear();
+                    logMessage('✅ Cleared localStorage and sessionStorage');
+                    
+                    logMessage('🎉 CLEANUP COMPLETE!');
+                    logMessage('Please hard refresh the page now.');
+                    
+                } catch (error) {
+                    logMessage('❌ Error: ' + error.message);
+                }
+            } else {
+                logMessage('❌ Service workers not supported');
+            }
+        }
+        
+        async function checkStatus() {
+            logMessage('🔍 CHECKING CURRENT STATUS...');
+            
+            if ('serviceWorker' in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                logMessage(`Service Workers: ${registrations.length}`);
+                
+                registrations.forEach((reg, i) => {
+                    logMessage(`  ${i+1}. ${reg.scope}`);
+                });
+                
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    logMessage(`Caches: ${cacheNames.length}`);
+                    
+                    cacheNames.forEach((name, i) => {
+                        logMessage(`  ${i+1}. ${name}`);
+                    });
+                }
+            }
+        }
+        
+        function hardRefresh() {
+            logMessage('🔄 HARD REFRESHING...');
+            setTimeout(() => {
+                location.reload(true);
+            }, 1000);
+        }
+        
+        // Auto-check status on load
+        window.addEventListener('load', checkStatus);
+    </script>
+</body>
+</html>

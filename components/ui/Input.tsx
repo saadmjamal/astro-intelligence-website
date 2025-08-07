@@ -8,6 +8,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   helperText?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  required?: boolean;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -26,6 +27,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     const inputId = id || `input-${Math.random().toString(36).substring(7)}`;
+    const helperId = `${inputId}-helper`;
+    const errorId = `${inputId}-error`;
 
     return (
       <div className="w-full">
@@ -35,21 +38,33 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             {label}
+            {props.required && (
+              <span className="text-red-500 ml-1" aria-label="required">
+                *
+              </span>
+            )}
           </label>
         )}
         <div className="relative">
           {leftIcon && (
-            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-              <span className="text-sm text-gray-500 dark:text-gray-400">{leftIcon}</span>
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3" aria-hidden="true">
+              <span className="text-sm text-muted-foreground">
+                {leftIcon}
+              </span>
             </div>
           )}
           <input
             ref={ref}
             id={inputId}
+            aria-invalid={error}
+            aria-describedby={
+              error ? errorId : helperText ? helperId : undefined
+            }
             className={cn(
-              'w-full px-3 py-2 text-gray-900 placeholder-gray-500 dark:text-gray-100 dark:placeholder-gray-400',
-              'transition-all duration-200',
-              'focus:ring-2 focus:ring-offset-2 focus:outline-none',
+              'w-full mobile-input text-gray-900 placeholder-gray-500 dark:text-gray-100 dark:placeholder-gray-400',
+              'interactive',
+              'input-focus',
+              'touch-focus',
               'disabled:cursor-not-allowed disabled:opacity-50',
               {
                 // Variants
@@ -73,17 +88,21 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {rightIcon && (
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-              <span className="text-sm text-gray-500 dark:text-gray-400">{rightIcon}</span>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3" aria-hidden="true">
+              <span className="text-sm text-muted-foreground">
+                {rightIcon}
+              </span>
             </div>
           )}
         </div>
         {helperText && (
           <p
+            id={error ? errorId : helperId}
             className={cn(
               'mt-1 text-sm',
               error ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-gray-400'
             )}
+            role={error ? 'alert' : undefined}
           >
             {helperText}
           </p>

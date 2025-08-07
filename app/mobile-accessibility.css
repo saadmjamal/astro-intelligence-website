@@ -1,0 +1,582 @@
+/* 🌟 MOBILE ACCESSIBILITY ENHANCEMENTS - WCAG 2.1 AA COMPLIANCE
+   Comprehensive accessibility system for enterprise mobile users
+   Optimized for screen readers, keyboard navigation, and assistive technologies
+*/
+
+/* ===================================================================
+   📱 BASE ACCESSIBILITY FOUNDATIONS
+   =================================================================== */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Focus management */
+.focus-visible-enabled *:focus-visible {
+  outline: 3px solid #00FF94 !important;
+  outline-offset: 2px !important;
+  border-radius: 4px !important;
+}
+
+.focus-visible-enabled button:focus-visible,
+.focus-visible-enabled a:focus-visible,
+.focus-visible-enabled input:focus-visible,
+.focus-visible-enabled select:focus-visible,
+.focus-visible-enabled textarea:focus-visible {
+  outline: 3px solid #00FF94 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 6px rgba(0, 255, 148, 0.2) !important;
+}
+
+/* ===================================================================
+   🔤 RESPONSIVE TEXT SCALING SYSTEM
+   =================================================================== */
+
+/* Font size scaling using CSS custom properties */
+:root {
+  --font-scale: 1;
+  --base-font-size: 16px;
+  --line-height-scale: 1.5;
+}
+
+/* Apply scaling to all text elements */
+body {
+  font-size: calc(var(--base-font-size) * var(--font-scale));
+  line-height: var(--line-height-scale);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: calc(var(--line-height-scale) * 0.9);
+}
+
+/* Responsive font scaling */
+@media (max-width: 640px) {
+  :root {
+    --base-font-size: 14px;
+  }
+  
+  /* Larger minimum touch targets on mobile */
+  button, a, input, select, textarea, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --base-font-size: 13px;
+  }
+}
+
+/* ===================================================================
+   🎨 HIGH CONTRAST MODE
+   =================================================================== */
+
+.high-contrast {
+  --text-primary: #FFFFFF;
+  --text-secondary: #FFFFFF;
+  --text-muted: #E0E0E0;
+  --bg-primary: #000000;
+  --bg-secondary: #1A1A1A;
+  --border-color: #FFFFFF;
+  --accent-color: #00FF00;
+  --error-color: #FF0000;
+  --warning-color: #FFFF00;
+  --success-color: #00FF00;
+}
+
+.high-contrast * {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.high-contrast button,
+.high-contrast .button,
+.high-contrast [role="button"] {
+  background-color: var(--accent-color) !important;
+  color: var(--bg-primary) !important;
+  border: 2px solid var(--text-primary) !important;
+  font-weight: 700 !important;
+}
+
+.high-contrast a {
+  color: var(--accent-color) !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+
+.high-contrast input,
+.high-contrast textarea,
+.high-contrast select {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 2px solid var(--text-primary) !important;
+}
+
+.high-contrast input:focus,
+.high-contrast textarea:focus,
+.high-contrast select:focus {
+  outline: 4px solid var(--accent-color) !important;
+  outline-offset: 2px !important;
+}
+
+/* ===================================================================
+   🎭 REDUCED MOTION MODE
+   =================================================================== */
+
+.reduce-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+.reduce-motion *:hover,
+.reduce-motion *:focus {
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================================================
+   👆 LARGE TOUCH TARGETS
+   =================================================================== */
+
+.large-targets button,
+.large-targets a,
+.large-targets input,
+.large-targets select,
+.large-targets textarea,
+.large-targets [role="button"],
+.large-targets [role="tab"],
+.large-targets [role="option"] {
+  min-height: 56px !important;
+  min-width: 56px !important;
+  padding: 14px !important;
+}
+
+.large-targets .mobile-nav-item-enhanced {
+  min-height: 56px !important;
+  padding: 16px 24px !important;
+}
+
+.large-targets .mobile-card-enhanced {
+  padding: 20px !important;
+}
+
+/* Touch target spacing */
+.large-targets button + button,
+.large-targets a + a,
+.large-targets [role="button"] + [role="button"] {
+  margin-left: 8px !important;
+}
+
+/* ===================================================================
+   🌈 COLOR VISION SUPPORT
+   =================================================================== */
+
+/* Deuteranopia (green-blind) */
+.colorblind-deuteranopia {
+  filter: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="deuteranopia"><feColorMatrix values="0.625 0.375 0 0 0 0.7 0.3 0 0 0 0 0.3 0.7 0 0 0 0 0 1 0"/></filter></defs></svg>#deuteranopia');
+}
+
+/* Protanopia (red-blind) */
+.colorblind-protanopia {
+  filter: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="protanopia"><feColorMatrix values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0"/></filter></defs></svg>#protanopia');
+}
+
+/* Tritanopia (blue-blind) */
+.colorblind-tritanopia {
+  filter: 
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="tritanopia"><feColorMatrix values="0.95 0.05 0 0 0 0 0.433 0.567 0 0 0 0.475 0.525 0 0 0 0 0 1 0"/></filter></defs></svg>#tritanopia');
+}
+
+/* Ensure color is not the only way to convey information */
+.colorblind-deuteranopia *[data-status="success"]::before,
+.colorblind-protanopia *[data-status="success"]::before,
+.colorblind-tritanopia *[data-status="success"]::before {
+  content: "✓ ";
+}
+
+.colorblind-deuteranopia *[data-status="error"]::before,
+.colorblind-protanopia *[data-status="error"]::before,
+.colorblind-tritanopia *[data-status="error"]::before {
+  content: "✗ ";
+}
+
+.colorblind-deuteranopia *[data-status="warning"]::before,
+.colorblind-protanopia *[data-status="warning"]::before,
+.colorblind-tritanopia *[data-status="warning"]::before {
+  content: "⚠ ";
+}
+
+/* ===================================================================
+   🤳 ONE-HANDED MODE
+   =================================================================== */
+
+.one-handed-mode {
+  /* Move interactive elements to bottom third of screen */
+}
+
+.one-handed-mode .mobile-nav-panel {
+  top: auto !important;
+  bottom: 0 !important;
+  height: 70vh !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+.one-handed-mode .mobile-accessibility-menu {
+  bottom: 100px !important;
+}
+
+.one-handed-mode .fixed {
+  position: fixed !important;
+}
+
+.one-handed-mode .fixed.bottom-4 {
+  bottom: 24px !important;
+}
+
+.one-handed-mode .mobile-button-primary,
+.one-handed-mode .mobile-button-secondary {
+  margin-top: auto !important;
+}
+
+/* Thumb-friendly zone (bottom 75% of screen) */
+.one-handed-mode .thumb-zone {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75vh;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.one-handed-mode .thumb-zone * {
+  pointer-events: auto;
+}
+
+/* ===================================================================
+   📱 MOBILE-SPECIFIC ACCESSIBILITY
+   =================================================================== */
+
+/* Safe area support for devices with notches */
+@supports (padding: max(0px)) {
+  .mobile-safe-area {
+    padding-left: max(env(safe-area-inset-left), 16px);
+    padding-right: max(env(safe-area-inset-right), 16px);
+    padding-top: max(env(safe-area-inset-top), 16px);
+    padding-bottom: max(env(safe-area-inset-bottom), 16px);
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .mobile-section-enhanced {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+  
+  .mobile-hero-text {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+  }
+  
+  .mobile-nav-panel {
+    width: min(280px, 70vw) !important;
+  }
+}
+
+/* ===================================================================
+   🎭 ANIMATION AND INTERACTION STATES
+   =================================================================== */
+
+/* Hover states for touch devices */
+@media (hover: hover) {
+  .mobile-haptic-light:hover {
+    transform: scale(1.02);
+  }
+  
+  .mobile-haptic-medium:hover {
+    transform: scale(1.03);
+  }
+  
+  .mobile-haptic-strong:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Active states for better feedback */
+.mobile-haptic-light:active {
+  transform: scale(0.98);
+}
+
+.mobile-haptic-medium:active {
+  transform: scale(0.95);
+}
+
+.mobile-haptic-strong:active {
+  transform: scale(0.92);
+}
+
+/* Focus indicators for all interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+[role="option"]:focus-visible {
+  outline: 3px solid #00FF94;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(0, 255, 148, 0.2);
+}
+
+/* ===================================================================
+   🗣️ VOICE CONTROL INDICATORS
+   =================================================================== */
+
+.voice-control-enabled::after {
+  content: "🎤";
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 255, 148, 0.2);
+  border: 2px solid #00FF94;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Voice command feedback */
+.voice-command-active {
+  border: 2px solid #00FF94 !important;
+  background: rgba(0, 255, 148, 0.1) !important;
+}
+
+/* ===================================================================
+   📖 READING MODE ENHANCEMENTS
+   =================================================================== */
+
+.reading-mode {
+  line-height: 1.8 !important;
+  letter-spacing: 0.02em !important;
+  word-spacing: 0.1em !important;
+}
+
+.reading-mode p {
+  margin-bottom: 1.5rem !important;
+}
+
+.reading-mode h1, .reading-mode h2, .reading-mode h3, 
+.reading-mode h4, .reading-mode h5, .reading-mode h6 {
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* ===================================================================
+   🚨 ERROR AND STATUS ANNOUNCEMENTS
+   =================================================================== */
+
+.error-announcement {
+  color: #ff4444 !important;
+  background: rgba(255, 68, 68, 0.1) !important;
+  border: 2px solid #ff4444 !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  margin: 8px 0 !important;
+  font-weight: 600 !important;
+}
+
+.success-announcement {
+  color: #00ff94 !important;
+  background: rgba(0, 255, 148, 0.1) !important;
+  border: 2px solid #00ff94 !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  margin: 8px 0 !important;
+  font-weight: 600 !important;
+}
+
+.warning-announcement {
+  color: #ffaa00 !important;
+  background: rgba(255, 170, 0, 0.1) !important;
+  border: 2px solid #ffaa00 !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  margin: 8px 0 !important;
+  font-weight: 600 !important;
+}
+
+/* ===================================================================
+   🔧 ASSISTIVE TECHNOLOGY ENHANCEMENTS
+   =================================================================== */
+
+/* Improved table accessibility */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #444;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+  font-weight: 600;
+}
+
+/* Form enhancements */
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 16px; /* Prevents zoom on iOS */
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #00ff94;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 255, 148, 0.2);
+}
+
+/* Required field indicators */
+.required::after {
+  content: " *";
+  color: #ff4444;
+  font-weight: bold;
+}
+
+/* ===================================================================
+   🎯 SKIP LINKS AND LANDMARKS
+   =================================================================== */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #00ff94;
+  color: #000;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Landmark regions */
+main {
+  outline: none;
+}
+
+nav {
+  outline: none;
+}
+
+/* ===================================================================
+   📱 RESPONSIVE BREAKPOINTS FOR ACCESSIBILITY
+   =================================================================== */
+
+@media (max-width: 320px) {
+  /* Small mobile devices */
+  .mobile-container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  
+  .mobile-card-enhanced {
+    padding: 12px !important;
+  }
+  
+  button, .button, [role="button"] {
+    min-height: 48px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+  /* Portrait mobile optimization */
+  .mobile-hero-text {
+    font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+    line-height: 1.1 !important;
+  }
+  
+  .mobile-subheading {
+    font-size: clamp(1rem, 4vw, 1.25rem) !important;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  /* Landscape mobile optimization */
+  .mobile-section-enhanced {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  
+  .mobile-nav-panel {
+    height: 90vh !important;
+  }
+}

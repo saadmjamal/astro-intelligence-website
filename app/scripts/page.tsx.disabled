@@ -1,0 +1,360 @@
+import React from 'react';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { Heading, Text } from '@/components/ui/Typography';
+import { Button } from '@/components/ui/Button';
+import Card from '@/components/ui/Card';
+import { scripts } from '@/lib/scripts-data-enhanced';
+import { ArrowRight, Download, Code, Zap, BarChart3, Cloud, Lock, CheckCircle, Search } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Enterprise Automation Scripts & Tools | Astro Intelligence',
+  description:
+    'Download production-ready scripts for cloud automation, AI/ML pipelines, infrastructure management, and DevOps workflows. Accelerate your enterprise transformation.',
+};
+
+const categoryIcons: Record<string, React.ComponentType<any>> = {
+  'cloud-infrastructure': Cloud,
+  'ai-ml': Zap,
+  'data-engineering': BarChart3,
+  'devops-automation': Code,
+  'security-compliance': Lock,
+  'monitoring-observability': CheckCircle,
+};
+
+const categoryInfo = {
+  'cloud-infrastructure': {
+    name: 'Cloud Infrastructure',
+    description: 'Terraform modules, CloudFormation templates, and multi-cloud automation scripts',
+    color: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+  },
+  'ai-ml': {
+    name: 'AI & Machine Learning',
+    description: 'ML pipelines, model training frameworks, and AI automation tools',
+    color: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
+  },
+  'data-engineering': {
+    name: 'Data Engineering',
+    description: 'ETL pipelines, data processing frameworks, and analytics automation',
+    color: 'bg-green-500/10 text-green-500 border-green-500/20',
+  },
+  'devops-automation': {
+    name: 'DevOps Automation',
+    description: 'CI/CD pipelines, deployment automation, and infrastructure management',
+    color: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
+  },
+  'security-compliance': {
+    name: 'Security & Compliance',
+    description: 'Security scanning, compliance automation, and vulnerability management',
+    color: 'bg-red-500/10 text-red-500 border-red-500/20',
+  },
+  'monitoring-observability': {
+    name: 'Monitoring & Observability',
+    description: 'Monitoring setup, alerting frameworks, and observability tools',
+    color: 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20',
+  },
+};
+
+export default function ScriptsMarketplacePage() {
+  const relatedContent = [
+    {
+      id: 'documentation',
+      title: 'Script Documentation',
+      excerpt: 'Comprehensive guides for all scripts',
+      href: '/docs/scripts',
+    },
+    {
+      id: 'support',
+      title: 'Premium Support',
+      excerpt: 'Get expert help with implementation',
+      href: '/contact?type=script-support',
+    },
+    {
+      id: 'custom-scripts',
+      title: 'Custom Development',
+      excerpt: 'Need something specific? We can build it',
+      href: '/contact?type=custom-script',
+    },
+  ];
+
+  // Group scripts by category
+  const scriptsByCategory = scripts.reduce((acc, script) => {
+    if (!acc[script.category]) {
+      acc[script.category] = [];
+    }
+    acc[script.category]!.push(script);
+    return acc;
+  }, {} as Record<string, typeof scripts>);
+
+  const featuredScripts = scripts.filter(script => script.featured);
+  const freeScripts = scripts.filter(script => !script.isPremium);
+
+  return (
+    <PageLayout relatedContent={relatedContent}>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden section-padding">
+        <div className="from-navy via-navy absolute inset-0 bg-gradient-to-br to-black opacity-50" />
+        <div className="relative mx-auto max-w-7xl text-center">
+          <Heading as="h1" variant="h1" color="gradient" className="mb-6">
+            Enterprise Automation Scripts
+          </Heading>
+          <Text variant="lead" className="mx-auto mb-8 max-w-3xl">
+            Production-ready scripts and tools that save weeks of development time. 
+            Built by experts who've automated infrastructure for Fortune 500 companies.
+          </Text>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button size="lg" asChild>
+              <Link href="/auth/sign-in?redirect=/dashboard/scripts">
+                Access Premium Scripts
+              </Link>
+            </Button>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/scripts/search">
+                <Search className="mr-2 h-4 w-4" />
+                Search Scripts
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/scripts/compare">
+                Compare Scripts
+              </Link>
+            </Button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-magenta mb-2">500+</div>
+              <Text variant="small" className="text-muted-foreground">Active Users</Text>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-magenta mb-2">50+</div>
+              <Text variant="small" className="text-muted-foreground">Premium Scripts</Text>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-magenta mb-2">95%</div>
+              <Text variant="small" className="text-muted-foreground">Success Rate</Text>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-magenta mb-2">24/7</div>
+              <Text variant="small" className="text-muted-foreground">Support Available</Text>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Scripts */}
+      <section id="featured-scripts" className="section-padding bg-muted/20">
+        <div className="container-width">
+          <div className="text-center mb-12">
+            <Heading as="h2" variant="h2" className="mb-4">
+              Featured Enterprise Scripts
+            </Heading>
+            <Text variant="lead" className="max-w-2xl mx-auto">
+              Our most popular scripts that solve real enterprise challenges
+            </Text>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-gap mb-12">
+            {featuredScripts.map((script) => {
+              const Icon = categoryIcons[script.category] || Code;
+              const catInfo = categoryInfo[script.category];
+              
+              return (
+                <Card key={script.id} hover className="overflow-hidden flex flex-col">
+                  <div className="h-48 bg-gradient-to-br from-navy-700 to-navy-900 flex items-center justify-center relative">
+                    <Icon className="h-16 w-16 text-magenta opacity-20" />
+                    {script.isPremium && (
+                      <span className="absolute top-4 right-4 bg-magenta text-white px-3 py-1 rounded-full text-sm font-medium">
+                        Premium
+                      </span>
+                    )}
+                  </div>
+                  <div className="card-padding flex-1 flex flex-col">
+                    <div className="mb-4">
+                      <Heading as="h3" variant="h4" className="mb-2">
+                        {script.title}
+                      </Heading>
+                      <Text variant="small" className="text-muted-foreground mb-4">
+                        {script.description}
+                      </Text>
+                    </div>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${catInfo.color}`}>
+                          {catInfo.name}
+                        </span>
+                        <span className="px-3 py-1 rounded-full text-sm font-medium border border-gray-200 text-muted-foreground">{script.language}</span>
+                        {script.downloads && (
+                          <span className="px-3 py-1 rounded-full text-sm font-medium border border-gray-200 text-muted-foreground flex items-center">
+                            <Download className="h-3 w-3 mr-1" />
+                            {script.downloads}+ downloads
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="space-y-1">
+                        {script.features.slice(0, 3).map((feature, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-500 shrink-0" />
+                            <Text variant="small">{feature}</Text>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-auto pt-4 border-t border-subtle flex items-center justify-between">
+                      <div>
+                        <Heading as="h4" variant="h4" className="font-bold">
+                          {script.isPremium ? `$${(script.price / 100).toFixed(0)}` : 'Free'}
+                        </Heading>
+                        {script.isPremium && (
+                          <Text variant="caption" className="text-muted-foreground">
+                            one-time purchase
+                          </Text>
+                        )}
+                      </div>
+                      <Button asChild size="sm">
+                        <Link href={`/scripts/${script.id}`}>
+                          View Details
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="text-center">
+            <Button asChild variant="outline" size="lg">
+              <Link href="#all-scripts">
+                View All Scripts
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="section-padding">
+        <div className="container-width">
+          <div className="text-center mb-12">
+            <Heading as="h2" variant="h2" className="mb-4">
+              Browse by Category
+            </Heading>
+            <Text variant="lead" className="max-w-2xl mx-auto">
+              Find the perfect script for your specific use case
+            </Text>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-gap">
+            {Object.entries(categoryInfo).map(([key, info]) => {
+              const Icon = categoryIcons[key as keyof typeof categoryIcons] || Code;
+              const categoryScripts = scriptsByCategory[key] || [];
+              
+              return (
+                <Card key={key} hover className="group">
+                  <Link href={`/scripts/category/${key}`} className="block card-padding">
+                    <div className="flex items-start gap-4">
+                      <div className={`p-3 rounded-lg ${info.color}`}>
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <div className="flex-1">
+                        <Heading as="h3" variant="h4" className="mb-2 group-hover:text-magenta transition-colors">
+                          {info.name}
+                        </Heading>
+                        <Text variant="small" className="text-muted-foreground mb-3">
+                          {info.description}
+                        </Text>
+                        <div className="flex items-center justify-between">
+                          <Text variant="small" className="font-medium">
+                            {categoryScripts.length} scripts available
+                          </Text>
+                          <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-magenta group-hover:translate-x-1 transition-all" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Free Scripts */}
+      <section className="section-padding bg-muted/20">
+        <div className="container-width">
+          <div className="text-center mb-12">
+            <Heading as="h2" variant="h2" className="mb-4">
+              Free Scripts & Tools
+            </Heading>
+            <Text variant="lead" className="max-w-2xl mx-auto">
+              Get started with our collection of free, open-source scripts
+            </Text>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 grid-gap">
+            {freeScripts.map((script) => {
+              const catInfo = categoryInfo[script.category];
+              
+              return (
+                <Card key={script.id} hover className="flex items-center gap-4 card-padding">
+                  <div className={`p-3 rounded-lg ${catInfo.color} shrink-0`}>
+                    <Code className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <Heading as="h4" variant="h5" className="mb-1">
+                      {script.title}
+                    </Heading>
+                    <Text variant="small" className="text-muted-foreground mb-2">
+                      {script.description}
+                    </Text>
+                    <div className="flex items-center gap-4">
+                      <span className="px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-700">Free</span>
+                      <span className="px-3 py-1 rounded-full text-sm font-medium border border-gray-200 text-muted-foreground">{script.language}</span>
+                    </div>
+                  </div>
+                  <Button asChild size="sm" variant="ghost">
+                    <Link href={`/scripts/${script.id}`}>
+                      <Download className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="from-magenta-500/10 bg-gradient-to-r to-purple-600/10 section-padding">
+        <div className="mx-auto max-w-4xl text-center">
+          <Heading as="h2" variant="h2" className="mb-6">
+            Need a Custom Script?
+          </Heading>
+          <Text variant="lead" className="mb-8">
+            Our team can develop custom automation scripts tailored to your specific requirements. 
+            From complex infrastructure automation to specialized AI pipelines.
+          </Text>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Button size="lg" asChild>
+              <Link href="/contact?type=custom-script">Request Custom Script</Link>
+            </Button>
+            <Button size="lg" variant="secondary" asChild>
+              <Link href="/portfolio">View Our Work</Link>
+            </Button>
+          </div>
+          <Text variant="small" className="mt-6 text-muted-foreground">
+            Typical delivery in 5-10 business days • Starting at $2,500
+          </Text>
+        </div>
+      </section>
+    </PageLayout>
+  );
+}

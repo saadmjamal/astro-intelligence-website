@@ -22,21 +22,48 @@ A high-performance, mobile-first Next.js 15 application showcasing AI and cloud 
 - **💼 Service Showcase** - AI Consulting, Cloud Architecture, ML Engineering, Strategic Partnerships
 - **📚 Portfolio** - Case studies with rich media support
 - **📰 Blog** - Technical articles with syntax highlighting
+- **🤖 AI Chat Assistant** - Intelligent customer support with multi-provider support
+- **🔍 AI-Powered Search** - Vector-based semantic search across content
+- **💡 AI Recommendations** - Personalized service and content suggestions
 - **💳 Script Marketplace** - Premium automation scripts (Phase 2)
 - **🔬 Research Lab** - AI research microsite (Phase 3)
 - **📖 Knowledge Base** - Advanced documentation (Phase 4)
 
+### 🤖 AI Features
+
+- **Multi-Provider AI Integration** - OpenAI, Anthropic, Google AI, Azure OpenAI support
+- **Intelligent Chat System** - Context-aware conversations with session management
+- **Smart Recommendations** - AI-powered service recommendations based on user profile
+- **Content Generation** - Automated content creation (blog posts, case studies, proposals)
+- **Vector Database Support** - Pinecone, Supabase Vector, Weaviate, ChromaDB integration
+- **Advanced Rate Limiting** - IP-based and user-based request throttling
+- **Response Caching** - Intelligent caching with TTL for improved performance
+- **Security Features** - Input sanitization, content filtering, audit logging
+- **Performance Monitoring** - Real-time metrics and performance optimization
+
+> 📖 **[Complete AI Integration Guide](../AI_INTEGRATION_GUIDE.md)** - Comprehensive documentation for AI features, API endpoints, and deployment
+
 ## 🛠️ Tech Stack
 
+### Core Stack
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) with custom design tokens
 - **Content**: [Contentlayer2](https://contentlayer.dev/) for MDX
 - **Animation**: [Framer Motion](https://www.framer.com/motion/)
 - **Forms**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
+
+### AI & Data Stack
+- **AI Providers**: [OpenAI](https://openai.com/), [Anthropic](https://anthropic.com/), [Google AI](https://ai.google.dev/)
+- **Vector Databases**: [Pinecone](https://pinecone.io/), [Supabase Vector](https://supabase.com/), [Weaviate](https://weaviate.io/), [ChromaDB](https://chromadb.com/)
+- **Embeddings**: OpenAI text-embedding-3-small, Cohere, Sentence Transformers
+- **Search**: Vector similarity search, hybrid search, semantic search
+
+### Infrastructure & Services
 - **Auth**: [Clerk](https://clerk.com/) (Phase 2)
 - **Payments**: [Stripe](https://stripe.com/) (Phase 2)
 - **Search**: [Algolia DocSearch](https://docsearch.algolia.com/) (Phase 4)
+- **Email**: [Resend](https://resend.com/), [ConvertKit](https://convertkit.com/)
 - **Monitoring**: [Sentry](https://sentry.io/)
 - **Analytics**: [Plausible](https://plausible.io/)
 - **Deployment**: [Vercel](https://vercel.com/)
@@ -73,19 +100,44 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 Create a `.env.local` file with the following variables:
 
 ```env
-# Required for Phase 2+
+# 🤖 AI SERVICE PROVIDERS (Required)
+OPENAI_API_KEY=sk-proj-your_openai_api_key_here
+ANTHROPIC_API_KEY=sk-ant-api03-your_anthropic_api_key_here  # Optional
+GOOGLE_AI_API_KEY=your_google_ai_api_key_here              # Optional
+
+# 🗄️ VECTOR DATABASE (Choose one)
+PINECONE_API_KEY=your_pinecone_api_key_here                # Recommended
+PINECONE_ENVIRONMENT=your_pinecone_environment
+PINECONE_INDEX_NAME=astro-intelligence-vectors
+
+# OR use Supabase Vector (Alternative)
+SUPABASE_URL=https://your_project.supabase.co
+SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+
+# 🔐 AUTHENTICATION & PAYMENTS (Phase 2+)
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
 CLERK_SECRET_KEY=sk_test_...
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 
-# Optional
-ALGOLIA_APP_ID=...
-ALGOLIA_API_KEY=...
-CONVERTKIT_API_KEY=...
-RESEND_API_KEY=...
-SENTRY_DSN=...
+# 📧 EMAIL & COMMUNICATION (Optional)
+RESEND_API_KEY=re_your_resend_api_key_here
+CONVERTKIT_API_KEY=your_convertkit_api_key_here
+
+# 🔍 SEARCH & ANALYTICS (Optional)
+ALGOLIA_APP_ID=your_algolia_app_id
+ALGOLIA_API_KEY=your_algolia_api_key_here
+SENTRY_DSN=https://your_sentry_dsn_here
+
+# ⚙️ AI CONFIGURATION (Optional - has defaults)
+AI_DEFAULT_MODEL=gpt-4
+AI_CHAT_RATE_LIMIT=20
+AI_RECOMMENDATIONS_RATE_LIMIT=30
+VECTOR_SIMILARITY_THRESHOLD=0.8
 ```
+
+For detailed AI setup instructions, see [docs/AI_SETUP.md](./docs/AI_SETUP.md)
 
 ## 📚 Development
 

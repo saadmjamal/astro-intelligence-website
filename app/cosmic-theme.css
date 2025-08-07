@@ -1,0 +1,538 @@
+/* 🌌 Cosmic Space Theme - Inspired by Perplexity Comet */
+
+:root[data-theme="cosmic"] {
+  /* 🌌 COSMIC COLOR PALETTE - Deep Space Inspiration */
+  
+  /* Deep Space Base Colors */
+  --cosmic-void: #0D0B0F;           /* Deepest space void */
+  --cosmic-black: #15121A;          /* Dark matter */
+  --cosmic-midnight: #1E1B26;       /* Space dust */
+  --cosmic-nebula: #2A2332;         /* Distant nebula */
+  --cosmic-stellar: #3A3342;        /* Stellar formation */
+  
+  /* Celestial Accent Colors */
+  --cosmic-comet-blue: #4A9EFF;     /* Bright comet tail - Primary accent */
+  --cosmic-plasma: #6B73FF;         /* Stellar plasma */
+  --cosmic-aurora: #00E5FF;         /* Aurora borealis */
+  --cosmic-pulsar: #FF6B9D;         /* Pulsar emissions */
+  --cosmic-quasar: #FFD700;         /* Distant quasar */
+  --cosmic-solar: #FFA726;          /* Solar corona */
+  
+  /* Cosmic Phenomenon Colors */
+  --cosmic-supernova: #FF4081;      /* Supernova explosion */
+  --cosmic-galaxy-core: #9C27B0;    /* Galaxy center */
+  --cosmic-wormhole: #3F51B5;       /* Spacetime distortion */
+  --cosmic-antimatter: #00BCD4;     /* Exotic matter */
+  
+  /* Atmospheric Space Colors */
+  --cosmic-star-dust: rgba(74, 158, 255, 0.15);  /* Stellar dust particles */
+  --cosmic-nebula-mist: rgba(107, 115, 255, 0.08); /* Nebula gas */
+  --cosmic-plasma-field: rgba(0, 229, 255, 0.12);  /* Electromagnetic field */
+  --cosmic-quantum-foam: rgba(255, 107, 157, 0.06); /* Quantum fluctuations */
+  
+  /* 🎨 UPDATED DESIGN TOKENS */
+  
+  /* Core System Colors */
+  --black: var(--cosmic-void);
+  --white: #F0F2FF;                 /* Starlight white with cosmic tint */
+  --tech-green: var(--cosmic-comet-blue); /* Replace tech-green with comet blue */
+  
+  /* Background Hierarchy */
+  --background: var(--cosmic-void);
+  --foreground: var(--white);
+  --bg-elevated: var(--cosmic-midnight);
+  --bg-card: var(--cosmic-black);
+  --bg-glass: var(--cosmic-star-dust);
+  
+  /* Text Hierarchy - Stellar Navigation */
+  --text-primary: #FFFFFF;          /* Pure starlight */
+  --text-secondary: #E1E5FF;        /* Distant starlight */
+  --text-muted: #A5B2FF;            /* Nebula glow */
+  --text-subtle: #6B7AFF;           /* Cosmic dust */
+  
+  /* Border System - Cosmic Boundaries */
+  --border-default: var(--cosmic-stellar);
+  --border-subtle: var(--cosmic-nebula);
+  --border-cosmic: var(--cosmic-comet-blue);
+  
+  /* Accent System - Celestial Events */
+  --accent-primary: var(--cosmic-comet-blue);
+  --accent-secondary: var(--cosmic-plasma);
+  --accent-muted: var(--cosmic-star-dust);
+  --accent-hover: var(--cosmic-aurora);
+  --accent-active: var(--cosmic-pulsar);
+  
+  /* Semantic Colors - Space Phenomena */
+  --success: #00E676;               /* Life-supporting planet */
+  --warning: var(--cosmic-solar);   /* Solar flare */
+  --error: var(--cosmic-supernova); /* Stellar explosion */
+  --info: var(--cosmic-aurora);     /* Information beacon */
+  
+  /* 🌠 COSMIC GRADIENTS */
+  
+  /* Primary Cosmic Gradients */
+  --gradient-cosmic-primary: linear-gradient(135deg, var(--cosmic-comet-blue) 0%, var(--cosmic-plasma) 50%, var(--cosmic-aurora) 100%);
+  --gradient-cosmic-nebula: linear-gradient(135deg, var(--cosmic-void) 0%, var(--cosmic-midnight) 30%, var(--cosmic-nebula) 100%);
+  --gradient-cosmic-aurora: linear-gradient(90deg, var(--cosmic-aurora) 0%, var(--cosmic-plasma) 50%, var(--cosmic-pulsar) 100%);
+  --gradient-cosmic-galaxy: radial-gradient(ellipse at center, var(--cosmic-galaxy-core) 0%, var(--cosmic-void) 70%);
+  
+  /* Dynamic Space Effects */
+  --gradient-cosmic-warp: conic-gradient(from 0deg, var(--cosmic-comet-blue), var(--cosmic-plasma), var(--cosmic-aurora), var(--cosmic-comet-blue));
+  --gradient-cosmic-hyperspace: linear-gradient(45deg, 
+    var(--cosmic-void) 0%, 
+    var(--cosmic-comet-blue) 25%, 
+    var(--cosmic-plasma) 50%, 
+    var(--cosmic-aurora) 75%, 
+    var(--cosmic-void) 100%);
+  
+  /* 🌟 ORBITAL MOTION VARIABLES */
+  --orbital-duration-fast: 8s;
+  --orbital-duration-medium: 16s;
+  --orbital-duration-slow: 24s;
+  --orbital-radius-small: 4px;
+  --orbital-radius-medium: 8px;
+  --orbital-radius-large: 12px;
+  
+  /* 🎭 GRAVITATIONAL EFFECT SHADOWS */
+  --shadow-cosmic-low: 0 2px 8px rgba(74, 158, 255, 0.15);
+  --shadow-cosmic-medium: 0 4px 16px rgba(74, 158, 255, 0.2), 0 2px 4px rgba(107, 115, 255, 0.1);
+  --shadow-cosmic-high: 0 8px 32px rgba(74, 158, 255, 0.25), 0 4px 8px rgba(0, 229, 255, 0.15);
+  --shadow-cosmic-critical: 0 12px 48px rgba(74, 158, 255, 0.3), 0 6px 12px rgba(255, 107, 157, 0.2);
+  
+  /* Cosmic Glow Effects */
+  --glow-cosmic-subtle: 0 0 10px rgba(74, 158, 255, 0.3);
+  --glow-cosmic-medium: 0 0 20px rgba(74, 158, 255, 0.4), 0 0 40px rgba(107, 115, 255, 0.2);
+  --glow-cosmic-intense: 0 0 30px rgba(74, 158, 255, 0.5), 0 0 60px rgba(0, 229, 255, 0.3);
+  --glow-cosmic-supernova: 0 0 50px rgba(255, 64, 129, 0.6), 0 0 100px rgba(74, 158, 255, 0.4);
+}
+
+/* 🌌 COSMIC UTILITY CLASSES */
+
+/* Cosmic Text Effects */
+.text-cosmic-primary {
+  color: var(--cosmic-comet-blue);
+}
+
+.text-cosmic-secondary {
+  color: var(--cosmic-plasma);
+}
+
+.text-cosmic-aurora {
+  color: var(--cosmic-aurora);
+}
+
+.text-cosmic-pulsar {
+  color: var(--cosmic-pulsar);
+}
+
+.text-cosmic-quasar {
+  color: var(--cosmic-quasar);
+}
+
+/* Cosmic Gradient Text */
+.text-gradient-cosmic {
+  background: var(--gradient-cosmic-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-aurora {
+  background: var(--gradient-cosmic-aurora);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-hyperspace {
+  background: var(--gradient-cosmic-hyperspace);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: cosmic-gradient-shift 4s ease-in-out infinite;
+}
+
+/* Cosmic Backgrounds */
+.bg-cosmic-void {
+  background-color: var(--cosmic-void);
+}
+
+.bg-cosmic-nebula {
+  background-color: var(--cosmic-nebula);
+}
+
+.bg-cosmic-gradient {
+  background: var(--gradient-cosmic-primary);
+}
+
+.bg-cosmic-aurora {
+  background: var(--gradient-cosmic-aurora);
+}
+
+.bg-cosmic-galaxy {
+  background: var(--gradient-cosmic-galaxy);
+}
+
+/* Cosmic Borders */
+.border-cosmic {
+  border-color: var(--cosmic-comet-blue);
+}
+
+.border-cosmic-glow {
+  border: 1px solid var(--cosmic-comet-blue);
+  box-shadow: var(--glow-cosmic-subtle);
+}
+
+/* 🌟 ORBITAL ANIMATIONS */
+
+@keyframes cosmic-orbit {
+  0% {
+    transform: rotate(0deg) translateX(var(--orbital-radius-medium)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(var(--orbital-radius-medium)) rotate(-360deg);
+  }
+}
+
+@keyframes cosmic-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cosmic-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes cosmic-stellar-drift {
+  0% {
+    transform: translateX(-100px) translateY(0px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes cosmic-supernova {
+  0% {
+    transform: scale(1);
+    box-shadow: var(--glow-cosmic-subtle);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: var(--glow-cosmic-supernova);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: var(--glow-cosmic-subtle);
+  }
+}
+
+/* 🎭 COSMIC ANIMATION CLASSES */
+
+.cosmic-orbit {
+  animation: cosmic-orbit var(--orbital-duration-medium) linear infinite;
+}
+
+.cosmic-orbit-fast {
+  animation: cosmic-orbit var(--orbital-duration-fast) linear infinite;
+}
+
+.cosmic-orbit-slow {
+  animation: cosmic-orbit var(--orbital-duration-slow) linear infinite;
+}
+
+.cosmic-float {
+  animation: cosmic-float 6s ease-in-out infinite;
+}
+
+.cosmic-pulse {
+  animation: cosmic-pulse 2s ease-in-out infinite;
+}
+
+.cosmic-stellar-drift {
+  animation: cosmic-stellar-drift 20s linear infinite;
+}
+
+.cosmic-supernova {
+  animation: cosmic-supernova 3s ease-in-out infinite;
+}
+
+/* 🌠 COSMIC COMPONENT VARIANTS */
+
+/* Cosmic Buttons */
+.btn-cosmic-primary {
+  background: var(--gradient-cosmic-primary);
+  color: var(--white);
+  border: 1px solid var(--cosmic-aurora);
+  box-shadow: var(--shadow-cosmic-medium);
+  transition: all 0.3s ease;
+}
+
+.btn-cosmic-primary:hover {
+  background: var(--gradient-cosmic-aurora);
+  box-shadow: var(--shadow-cosmic-high);
+  transform: translateY(-2px);
+}
+
+.btn-cosmic-secondary {
+  background: transparent;
+  color: var(--cosmic-comet-blue);
+  border: 2px solid var(--cosmic-comet-blue);
+  box-shadow: var(--glow-cosmic-subtle);
+  transition: all 0.3s ease;
+}
+
+.btn-cosmic-secondary:hover {
+  background: var(--cosmic-star-dust);
+  box-shadow: var(--glow-cosmic-medium);
+  color: var(--cosmic-aurora);
+  border-color: var(--cosmic-aurora);
+}
+
+/* Cosmic Cards */
+.card-cosmic {
+  background: linear-gradient(135deg, var(--cosmic-black) 0%, var(--cosmic-midnight) 100%);
+  border: 1px solid var(--cosmic-stellar);
+  box-shadow: var(--shadow-cosmic-low);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.card-cosmic:hover {
+  border-color: var(--cosmic-comet-blue);
+  box-shadow: var(--shadow-cosmic-medium);
+  transform: translateY(-4px);
+}
+
+.card-cosmic-glow {
+  background: linear-gradient(135deg, var(--cosmic-void) 0%, var(--cosmic-black) 100%);
+  border: 1px solid var(--cosmic-comet-blue);
+  box-shadow: var(--glow-cosmic-medium);
+  backdrop-filter: blur(15px);
+}
+
+/* 🌌 COSMIC PARTICLE EFFECTS */
+
+.cosmic-particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-particles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, var(--cosmic-comet-blue), transparent),
+    radial-gradient(2px 2px at 40px 70px, var(--cosmic-aurora), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--cosmic-plasma), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--cosmic-pulsar), transparent);
+  background-size: 200px 150px;
+  animation: cosmic-stellar-drift 30s linear infinite;
+  opacity: 0.6;
+}
+
+/* 🌟 COSMIC FOCUS STATES */
+
+.cosmic-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--cosmic-star-dust), var(--glow-cosmic-medium);
+}
+
+.cosmic-focus-visible:focus-visible {
+  outline: 2px solid var(--cosmic-comet-blue);
+  outline-offset: 2px;
+  box-shadow: var(--glow-cosmic-subtle);
+}
+
+/* 🌠 COSMIC SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cosmic-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-cosmic-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-cosmic-aurora);
+}
+
+/* 🌌 COSMIC SELECTION */
+
+::selection {
+  background: var(--cosmic-comet-blue);
+  color: var(--cosmic-void);
+}
+
+/* 🎭 PERFORMANCE OPTIMIZATIONS */
+
+.cosmic-gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.cosmic-motion-reduce {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .cosmic-orbit,
+  .cosmic-float,
+  .cosmic-pulse,
+  .cosmic-stellar-drift,
+  .cosmic-supernova {
+    animation: none;
+  }
+  
+  .text-gradient-hyperspace {
+    background-position: 0% 50%;
+    animation: none;
+  }
+}
+
+/* 🌌 RESPONSIVE COSMIC ADJUSTMENTS */
+
+@media (max-width: 768px) {
+  :root[data-theme="cosmic"] {
+    --orbital-radius-small: 2px;
+    --orbital-radius-medium: 4px;
+    --orbital-radius-large: 6px;
+    --orbital-duration-fast: 6s;
+    --orbital-duration-medium: 12s;
+    --orbital-duration-slow: 18s;
+  }
+  
+  .cosmic-particles::before {
+    background-size: 100px 75px;
+    animation-duration: 20s;
+  }
+}
+
+/* 🌟 COSMIC LOADING STATES */
+
+.cosmic-skeleton {
+  background: linear-gradient(90deg, var(--cosmic-black) 25%, var(--cosmic-midnight) 50%, var(--cosmic-black) 75%);
+  background-size: 200% 100%;
+  animation: cosmic-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes cosmic-skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 🎯 PORTFOLIO GALLERY ENHANCEMENTS */
+
+/* Cosmic color classes for portfolio component */
+.bg-cosmic-surface {
+  background-color: var(--cosmic-stellar);
+}
+
+.bg-cosmic-nebula {
+  background-color: var(--cosmic-nebula);
+}
+
+.bg-cosmic-surface\/50 {
+  background-color: rgba(58, 51, 66, 0.5);
+}
+
+.border-cosmic-nebula {
+  border-color: var(--cosmic-nebula);
+}
+
+.text-cosmic-text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-cosmic-text-muted {
+  color: var(--text-muted);
+}
+
+.text-cosmic-aurora {
+  color: var(--cosmic-aurora);
+}
+
+.text-cosmic-pulsar {
+  color: var(--cosmic-pulsar);
+}
+
+.bg-cosmic-aurora {
+  background-color: var(--cosmic-aurora);
+}
+
+.hover\:bg-cosmic-aurora:hover {
+  background-color: var(--cosmic-aurora);
+}
+
+.shadow-glow-cosmic-subtle {
+  box-shadow: var(--glow-cosmic-subtle);
+}
+
+.shadow-glow-cosmic-medium {
+  box-shadow: var(--glow-cosmic-medium);
+}
+
+.shadow-glow-cosmic-high {
+  box-shadow: var(--glow-cosmic-intense);
+}
+
+.hover\:shadow-glow-cosmic-medium:hover {
+  box-shadow: var(--glow-cosmic-medium);
+}
+
+.hover\:shadow-glow-cosmic-high:hover {
+  box-shadow: var(--glow-cosmic-intense);
+}
+
+/* Line clamp utility for text truncation */
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}

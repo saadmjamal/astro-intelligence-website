@@ -1,0 +1,214 @@
+/* 
+ * LANDING PAGE SPACING FIXES
+ * Solution Architect: Comprehensive spacing system
+ * 
+ * Fixes:
+ * 1. Section transition overlap issues
+ * 2. Margin collapse problems
+ * 3. Empty space between components
+ * 4. Consistent vertical rhythm
+ */
+
+/* ===================================================================
+   🎯 SECTION SPACING SYSTEM - Fix Empty Space Issues
+   =================================================================== */
+
+/* Main page container */
+main {
+  position: relative;
+  background: linear-gradient(180deg, #000000 0%, #0A0A0B 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Section overlap system - eliminates empty space */
+main section:not(:first-child) {
+  margin-top: -2rem;
+  position: relative;
+  z-index: 10;
+}
+
+main section:nth-child(odd) {
+  z-index: 20;
+}
+
+main section:nth-child(even) {
+  z-index: 15;
+}
+
+/* Hero section specific adjustments */
+section:has([class*="EnhancedHero"]) {
+  padding-bottom: 2rem;
+  margin-bottom: -2rem;
+}
+
+/* Trust section spacing */
+section:has([class*="TrustSection"]) {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem;
+}
+
+/* AI Showcase spacing */
+section:has([class*="AIShowcase"]) {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem;
+}
+
+/* Core Services spacing */
+section:has([class*="CoreServices"]) {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem;
+}
+
+/* About section spacing */
+section:has([class*="CometAbout"]) {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem;
+}
+
+/* Contact section spacing */
+section:has([class*="CometContact"]) {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem;
+}
+
+/* ===================================================================
+   🔧 COMPONENT-SPECIFIC FIXES
+   =================================================================== */
+
+/* Fix margin collapse issues */
+.section-container {
+  contain: layout;
+  isolation: isolate;
+}
+
+/* Ensure proper stacking context */
+.section-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Background gradient transitions */
+.bg-transition-black-to-gray {
+  background: linear-gradient(180deg, #000000 0%, #1A1A1A 50%, #2A2A2A 100%);
+}
+
+.bg-transition-gray-to-black {
+  background: linear-gradient(180deg, #2A2A2A 0%, #1A1A1A 50%, #000000 100%);
+}
+
+/* ===================================================================
+   📱 RESPONSIVE SPACING ADJUSTMENTS
+   =================================================================== */
+
+/* Mobile spacing adjustments */
+@media (max-width: 768px) {
+  main section:not(:first-child) {
+    margin-top: -1rem;
+  }
+  
+  section:has([class*="TrustSection"]),
+  section:has([class*="AIShowcase"]),
+  section:has([class*="CoreServices"]),
+  section:has([class*="CometAbout"]),
+  section:has([class*="CometContact"]) {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+/* Tablet spacing adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  main section:not(:first-child) {
+    margin-top: -1.5rem;
+  }
+  
+  section:has([class*="TrustSection"]),
+  section:has([class*="AIShowcase"]),
+  section:has([class*="CoreServices"]),
+  section:has([class*="CometAbout"]),
+  section:has([class*="CometContact"]) {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+/* ===================================================================
+   🎨 VISUAL CONSISTENCY FIXES
+   =================================================================== */
+
+/* Ensure sections blend seamlessly */
+section[class*="py-"] {
+  background-attachment: local;
+  background-blend-mode: normal;
+}
+
+/* Fix any remaining gaps */
+.no-gap {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.tight-spacing {
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+/* Container width consistency */
+.section-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ===================================================================
+   🚀 PERFORMANCE OPTIMIZATIONS
+   =================================================================== */
+
+/* Optimize repaints for smooth scrolling */
+main section {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* GPU acceleration for smooth transitions */
+.section-transition {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* ===================================================================
+   ✅ DEBUGGING UTILITIES (Remove in production)
+   =================================================================== */
+
+/* Uncomment for debugging spacing issues */
+/*
+.debug-spacing section {
+  outline: 2px solid red;
+  outline-offset: -2px;
+}
+
+.debug-spacing section:nth-child(odd) {
+  outline-color: blue;
+}
+
+.debug-margins * {
+  margin: 2px solid green !important;
+}
+*/

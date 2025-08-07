@@ -1,35 +1,73 @@
-@import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+/* Google Font imports - must come first per CSS specification */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 
+/* 🏆 AWARD-WINNING DESIGN SYSTEM IMPORT */
+@import './award-winning-unified-design-system.css';
+
+/* 🚀 FUTURE-FORWARD DESIGN SYSTEM 2025 */
+@import './design-system/future-forward-design-system.css';
+
+/* 📱 MOBILE UX ENHANCEMENTS */
+@import './mobile-enhancements.css';
+
+/* 🔧 HEADER NAVIGATION FIXES */
+@import './header-fix.css';
+
+/* 🎯 LANDING PAGE SPACING FIXES */
+@import './spacing-fixes.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Legacy variable mapping for maximum backward compatibility */
 :root {
-  --navy: #0a0e23;
-  --magenta: #ff3eb5;
-  --black: #000000;
-  --offwhite: #f5f5f5;
-
-  --background: var(--navy);
-  --foreground: var(--offwhite);
+  /* Map old variables to unified system */
+  --comet-black: var(--black-rich);
+  --comet-dark: var(--black-soft);
+  --comet-darker: var(--black);
+  
+  /* Background system mapping */
+  --background: var(--black-rich);
+  --foreground: var(--white-pure);
+  --bg-card: var(--black-warm);
+  --bg-glass: var(--glass-medium);
+  --bg-elevated: var(--surface-elevated);
+  
+  /* Text system mapping */
+  --comet-text-primary: var(--text-primary);
+  --comet-text-secondary: var(--text-secondary);
+  --comet-text-muted: var(--text-muted);
+  --comet-text-subtle: var(--text-subtle);
+  
+  /* Border system mapping */
+  --comet-border: var(--border-subtle);
+  --comet-border-active: var(--border-accent);
+  
+  /* Surface system mapping */
+  --comet-surface: var(--glass-medium);
+  --comet-surface-hover: var(--glass-strong);
+  --comet-surface-active: var(--glass-tech);
+  
+  /* Accent system mapping */
+  --comet-neon-blue: var(--tech-green);
+  --comet-neon-purple: var(--tech-green-bright);
+  --comet-neon-pink: var(--tech-green-bright);
+  --comet-glow: var(--tech-green-glow);
+  
+  /* Gradient system mapping */
+  --comet-purple: var(--tech-green);
+  --comet-blue: var(--tech-green-bright);
+  --comet-cyan: var(--tech-green);
+  --comet-teal: var(--tech-green-dark);
+  --comet-magenta: var(--tech-green-bright);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-heading: 'Orbitron', sans-serif;
-  --font-body: 'Inter', sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Reduced motion support */
@@ -45,42 +83,395 @@ body {
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - METLAB precision */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px; /* 8px grid system */
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--navy);
+  background: var(--black);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--magenta);
-  border-radius: 5px;
+  background: var(--tech-green);
+  border-radius: 4px; /* Geometric precision */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff1e9e;
+  background: var(--accent-hover);
 }
 
-/* Selection styles */
+/* Custom Tailwind utilities for missing classes */
+.bg-elevated {
+  background-color: var(--bg-elevated);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+}
+
+/* Selection styles - High-tech accent */
 ::selection {
-  background: var(--magenta);
-  color: var(--navy);
+  background: var(--tech-green);
+  color: var(--black);
 }
 
-/* Focus styles for accessibility */
+/* Focus styles - High-tech accessibility */
 a:focus,
 button:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--magenta);
+  outline: 2px solid var(--tech-green);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 255, 148, 0.1);
+}
+
+/* Mobile tap highlight - Tech green */
+a,
+button {
+  -webkit-tap-highlight-color: rgba(0, 255, 148, 0.15);
+}
+
+/* Utility classes for semantic colors */
+.text-muted-foreground {
+  color: var(--text-muted);
+}
+
+.text-secondary-foreground {
+  color: var(--text-secondary);
+}
+
+.text-subtle-foreground {
+  color: var(--text-subtle);
+}
+
+/* METLAB + Wolf Ollins Design Utilities */
+.text-tech-accent {
+  color: var(--tech-green);
+}
+
+.bg-tech-accent {
+  background-color: var(--tech-green);
+}
+
+.border-tech-accent {
+  border-color: var(--tech-green);
+}
+
+.text-gradient-tech {
+  background: linear-gradient(135deg, var(--tech-green) 0%, var(--tech-green-bright) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-default {
+  border-color: var(--border-default);
+}
+
+.border-subtle {
+  border-color: var(--border-subtle);
+}
+
+/* Placeholder text colors */
+.placeholder-text-subtle::placeholder {
+  color: var(--text-subtle);
+}
+
+.placeholder-text-muted::placeholder {
+  color: var(--text-muted);
+}
+
+/* Consistent Spacing Utilities - 8px Grid System */
+.section-padding {
+  @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24;
+}
+
+.section-padding-sm {
+  @apply px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16;
+}
+
+.section-padding-lg {
+  @apply px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32;
+}
+
+.container-width {
+  @apply mx-auto w-full max-w-7xl;
+}
+
+.content-width {
+  @apply mx-auto w-full max-w-4xl;
+}
+
+.prose-width {
+  @apply mx-auto w-full max-w-prose;
+}
+
+.card-padding {
+  @apply p-6 sm:p-8;
+}
+
+.card-padding-sm {
+  @apply p-4 sm:p-6;
+}
+
+.card-padding-lg {
+  @apply p-8 sm:p-10 lg:p-12;
+}
+
+/* Consistent gap utilities */
+.stack-sm {
+  @apply space-y-2;
+}
+
+.stack {
+  @apply space-y-4;
+}
+
+.stack-md {
+  @apply space-y-6;
+}
+
+.stack-lg {
+  @apply space-y-8;
+}
+
+.stack-xl {
+  @apply space-y-12;
+}
+
+/* Grid gap utilities */
+.grid-gap-sm {
+  @apply gap-4;
+}
+
+.grid-gap {
+  @apply gap-6;
+}
+
+.grid-gap-md {
+  @apply gap-8;
+}
+
+.grid-gap-lg {
+  @apply gap-12;
+}
+
+/* Interactive States & Transitions */
+.interactive {
+  @apply transition-all duration-200 ease-out;
+}
+
+.interactive-fast {
+  @apply transition-all duration-150 ease-out;
+}
+
+.interactive-slow {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Button hover states */
+.button-hover {
+  @apply hover:scale-[1.02] hover:shadow-lg active:scale-[0.98];
+}
+
+.button-hover-subtle {
+  @apply hover:opacity-90 active:opacity-80;
+}
+
+/* Card hover states */
+.card-hover {
+  @apply hover:-translate-y-1 hover:shadow-xl;
+}
+
+.card-hover-subtle {
+  @apply hover:shadow-lg;
+}
+
+/* Link hover states */
+.link-hover {
+  @apply hover:opacity-80 transition-all duration-200;
+}
+
+.link-underline {
+  @apply underline decoration-gray-400 underline-offset-2 hover:opacity-80 transition-all duration-200;
+}
+
+/* Call-to-Action Visual Prominence - METLAB Style */
+.cta-primary {
+  @apply text-black font-bold px-8 py-4 rounded-lg shadow-lg;
+  background-color: var(--tech-green);
+  @apply hover:shadow-xl hover:scale-[1.02];
+  @apply transition-all duration-200 ease-out;
+  box-shadow: 0 4px 20px rgba(0, 255, 148, 0.25);
+}
+
+.cta-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.cta-secondary {
+  @apply bg-transparent border-2 font-semibold px-6 py-3 rounded-lg;
+  color: var(--tech-green);
+  border-color: var(--tech-green);
+  @apply hover:text-black hover:shadow-lg;
+  background-color: transparent;
+}
+
+.cta-secondary:hover {
+  background-color: var(--tech-green);
+}
+
+.cta-subtle {
+  @apply font-medium px-4 py-2 rounded-md;
+  color: var(--tech-green);
+  background: var(--accent-muted);
+  @apply transition-all duration-200 ease-out;
+}
+
+.cta-subtle:hover {
+  background-color: rgba(0, 255, 148, 0.2);
+  color: var(--tech-green);
+}
+
+.cta-ghost {
+  @apply font-medium underline underline-offset-4;
+  color: var(--tech-green);
+  text-decoration-color: rgba(0, 255, 148, 0.5);
+  @apply transition-all duration-200 ease-out;
+}
+
+.cta-ghost:hover {
+  color: var(--accent-hover);
+}
+
+/* Focus states for accessibility - High-tech styling */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  --tw-ring-color: rgba(0, 255, 148, 0.5);
+  --tw-ring-offset-color: var(--background);
+}
+
+.focus-visible-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  --tw-ring-color: rgba(0, 255, 148, 0.5);
+  --tw-ring-offset-color: var(--background);
+}
+
+/* Input focus states */
+.input-focus {
+  @apply focus:outline-none focus:ring-2;
+  --tw-ring-color: rgba(0, 255, 148, 0.2);
+}
+
+.input-focus:focus {
+  border-color: var(--tech-green);
+  box-shadow: 0 0 0 2px rgba(0, 255, 148, 0.2);
+}
+
+/* Loading states */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.loading-pulse {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Skeleton loading */
+.skeleton {
+  @apply relative overflow-hidden;
+  background-color: var(--bg-card);
+}
+
+.skeleton::after {
+  content: '';
+  @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Mobile-First Responsive Utilities */
+
+/* Touch-friendly sizing - minimum 44px touch targets */
+.touch-target {
+  @apply min-h-[44px] min-w-[44px];
+}
+
+.touch-target-lg {
+  @apply min-h-[48px] min-w-[48px];
+}
+
+/* Mobile button sizing for accessibility */
+.mobile-button-sm {
+  @apply h-10 px-4 py-2 text-sm min-h-[44px] min-w-[44px];
+}
+
+.mobile-button {
+  @apply h-11 px-6 py-3 text-base min-h-[44px] min-w-[44px];
+}
+
+.mobile-button-lg {
+  @apply h-12 px-8 py-4 text-lg min-h-[48px] min-w-[48px];
+}
+
+.mobile-input {
+  @apply h-11 px-4 py-2 border rounded-md min-h-[44px];
+}
+
+.touch-focus:focus {
+  @apply outline-none ring-2 ring-offset-2;
+  --tw-ring-color: #00FF94;
+  /* Ensure focus ring is visible on touch devices */
+  outline: 2px solid var(--tech-green);
   outline-offset: 2px;
 }
 
-/* Mobile tap highlight */
-a,
-button {
-  -webkit-tap-highlight-color: rgba(255, 62, 181, 0.2);
+/* Mobile typography scaling */
+.text-mobile-h1 {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+}
+
+.text-mobile-h2 {
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+}
+
+.text-mobile-h3 {
+  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+}
+
+.text-mobile-h4 {
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+}
+
+.text-mobile-body {
+  @apply text-sm sm:text-base md:text-lg;
+}
+
+.text-mobile-caption {
+  @apply text-xs sm:text-sm;
+}
+
+/* Mobile spacing utilities */
+.mobile-padding {
+  @apply px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6;
+}
+
+.mobile-padding-sm {
+  @apply px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4;
+}
+
+.mobile-padding-lg {
+  @apply px-6 py-4 sm:px-8 sm:py-6 md:px-12 md:py-8;
 }

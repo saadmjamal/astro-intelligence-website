@@ -1,3 +1,4 @@
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
@@ -9,17 +10,41 @@ const redirectMap: Record<string, string> = {
   '/services/microservices-architecture': '/services/strategic-partnerships',
 };
 
-export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+const isProtectedRoute = createRouteMatcher([
+  '/dashboard(.*)',
+  '/api/dashboard(.*)',
+]);
+
+export default clerkMiddleware(async (auth, req: NextRequest) => {
+  const pathname = req.nextUrl.pathname;
 
   // Check if the current path needs a redirect
   if (redirectMap[pathname]) {
-    return NextResponse.redirect(new URL(redirectMap[pathname], request.url), 301);
+    return NextResponse.redirect(new URL(redirectMap[pathname], req.url), 301);
   }
 
-  return NextResponse.next();
-}
+  // Protect dashboard routes
+  if (isProtectedRoute(req)) {
+    const authObject = await auth();
+    if (!authObject.userId) {
+      return NextResponse.redirect(new URL('/sign-in', req.url));
+    }
+  }
+
+  // Add basic security headers (Edge Runtime compatible)
+  const response = NextResponse.next();
+  
+  // Basic security headers that are safe for Edge Runtime
+  response.headers.set('X-Frame-Options', 'DENY');
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  
+  return response;
+});
 
 export const config = {
-  matcher: '/services/:path*',
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/(api|trpc)(.*)',
+  ],
 };

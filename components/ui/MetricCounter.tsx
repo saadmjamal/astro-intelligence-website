@@ -36,7 +36,7 @@ export function MetricCounter({
 
   return (
     <div ref={ref} className="text-center">
-      <Heading as="h3" variant="h3" color="magenta" className="mb-2">
+      <Heading as="h3" variant="h3" color="accent" className="mb-2">
         {prefix}
         <motion.span
           initial={{ opacity: 0 }}
@@ -47,7 +47,7 @@ export function MetricCounter({
         </motion.span>
         {suffix}
       </Heading>
-      <Text variant="body" className="text-offwhite/70">
+      <Text variant="body" className="text-muted-foreground">
         {label}
       </Text>
     </div>

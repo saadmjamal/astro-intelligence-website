@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `blog/**/*.mdx`,
+  filePathPattern: `blog/**/!(*.test|_archive|index).mdx`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -13,6 +13,7 @@ export const Post = defineDocumentType(() => ({
     excerpt: { type: 'string', required: true },
     tags: { type: 'list', of: { type: 'string' }, required: true },
     image: { type: 'string' },
+    series: { type: 'string' },
   },
   computedFields: {
     url: {
@@ -39,6 +40,19 @@ export const CaseStudy = defineDocumentType(() => ({
     metrics: { type: 'json', required: true }, // For success metrics
     excerpt: { type: 'string', required: true },
     image: { type: 'string' },
+    featuredImage: { type: 'string' },
+    tags: { type: 'list', of: { type: 'string' } },
+    images: { 
+      type: 'list', 
+      of: { type: 'json' } // Array of {src, alt, caption}
+    },
+    beforeAfter: {
+      type: 'json' // {before: {src, alt, caption}, after: {src, alt, caption}}
+    },
+    architectureDiagrams: {
+      type: 'list',
+      of: { type: 'json' } // Array of {src, alt, caption, description}
+    },
   },
   computedFields: {
     url: {
@@ -54,7 +68,7 @@ export const CaseStudy = defineDocumentType(() => ({
 
 export const ResearchArticle = defineDocumentType(() => ({
   name: 'ResearchArticle',
-  filePathPattern: `research/**/*.mdx`,
+  filePathPattern: `{research,whitepapers}/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -63,6 +77,7 @@ export const ResearchArticle = defineDocumentType(() => ({
     abstract: { type: 'string', required: true },
     category: { type: 'string', required: true },
     tags: { type: 'list', of: { type: 'string' }, required: true },
+    externalUrl: { type: 'string', required: false },
   },
   computedFields: {
     url: {

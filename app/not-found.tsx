@@ -22,7 +22,7 @@ export default function NotFound() {
           Lost in Space
         </Heading>
 
-        <Text variant="lead" className="text-offwhite/80 mx-auto mb-8 max-w-md">
+        <Text variant="lead" className="text-secondary-foreground mx-auto mb-8 max-w-md">
           Looks like this page drifted off into the digital cosmos. Let's get you back on course.
         </Text>
 
@@ -35,8 +35,8 @@ export default function NotFound() {
           </Button>
         </div>
 
-        <div className="border-offwhite/10 mt-12 border-t pt-8">
-          <Text variant="small" className="text-offwhite/60">
+        <div className="border-subtle mt-12 border-t pt-8">
+          <Text variant="small" className="text-muted-foreground">
             Error Code: 404 | Page Not Found
           </Text>
         </div>

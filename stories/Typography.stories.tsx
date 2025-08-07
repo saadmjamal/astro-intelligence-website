@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Headings: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className="stack">
       <Heading as="h1" variant="h1">
         Heading 1
       </Heading>
@@ -40,12 +40,12 @@ export const Headings: Story = {
 
 export const HeadingColors: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className="stack">
       <Heading as="h2" variant="h2" color="default">
         Default Color
       </Heading>
-      <Heading as="h2" variant="h2" color="magenta">
-        Magenta Color
+      <Heading as="h2" variant="h2" color="accent">
+        Accent Color
       </Heading>
       <Heading as="h2" variant="h2" color="gradient">
         Gradient Color
@@ -56,7 +56,7 @@ export const HeadingColors: Story = {
 
 export const TextVariants: Story = {
   render: () => (
-    <div className="space-y-4">
+    <div className="stack">
       <Text variant="lead">
         This is lead text. It's larger and draws attention to important introductory content.
       </Text>

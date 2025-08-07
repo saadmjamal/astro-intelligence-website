@@ -1,9 +1,14 @@
+# *
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /auth/
 
-Sitemap: https://astrointelligence.com/sitemap.xml
+# Host
+Host: http://localhost:3000
+
+# Sitemaps
+Sitemap: http://localhost:3000/sitemap.xml
 Sitemap: https://astrointelligence.com/sitemap-blog.xml
 Sitemap: https://astrointelligence.com/sitemap-portfolio.xml

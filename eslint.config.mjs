@@ -13,7 +13,12 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
+  ...compat.extends(
+    'next/core-web-vitals',
+    'next/typescript',
+    'plugin:jsx-a11y/recommended',
+    'prettier'
+  ),
   ...storybook.configs['flat/recommended'],
   {
     rules: {
@@ -22,6 +27,15 @@ const eslintConfig = [
       'react/react-in-jsx-scope': 'off',
       'react/display-name': 'off',
       'react/no-unescaped-entities': 'off',
+      // Accessibility
+      'jsx-a11y/anchor-is-valid': [
+        'error',
+        {
+          components: ['Link'],
+          specialLink: ['hrefLeft', 'hrefRight'],
+          aspects: ['invalidHref', 'preferButton'],
+        },
+      ],
       // TypeScript
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',

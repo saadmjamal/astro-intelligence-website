@@ -21,6 +21,11 @@ export type CaseStudy = {
   metrics: any
   excerpt: string
   image?: string | undefined
+  featuredImage?: string | undefined
+  tags?: string[] | undefined
+  images?: any[] | undefined
+  beforeAfter?: any | undefined
+  architectureDiagrams?: any[] | undefined
   /** MDX file body */
   body: MDX
   url: string
@@ -38,6 +43,7 @@ export type Post = {
   excerpt: string
   tags: string[]
   image?: string | undefined
+  series?: string | undefined
   /** MDX file body */
   body: MDX
   url: string
@@ -55,6 +61,7 @@ export type ResearchArticle = {
   abstract: string
   category: string
   tags: string[]
+  externalUrl?: string | undefined
   /** MDX file body */
   body: MDX
   url: string

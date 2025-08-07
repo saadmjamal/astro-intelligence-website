@@ -11,6 +11,7 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       className="dark:bg-navy-700 dark:hover:bg-navy-600 relative flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 transition-colors hover:bg-gray-300"
       aria-label="Toggle theme"
+      data-testid="theme-toggle"
     >
       <div className="relative h-6 w-6">
         <motion.svg

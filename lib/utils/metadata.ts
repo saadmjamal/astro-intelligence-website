@@ -60,7 +60,14 @@ export function generateSEOMetadata({
       description: openGraph?.description || description,
       url: siteConfig.url,
       siteName: siteConfig.name,
-      images: openGraph?.images || ['/og-image.png'],
+      images: openGraph?.images || [
+        {
+          url: `/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
       locale: 'en_US',
       type: 'website',
     },
@@ -70,7 +77,9 @@ export function generateSEOMetadata({
       description: twitter?.description || description,
       site: siteConfig.twitter,
       creator: siteConfig.twitter,
-      images: twitter?.images || ['/twitter-image.png'],
+      images: twitter?.images || [
+        `/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+      ],
     },
     robots: {
       index: robots.index,
