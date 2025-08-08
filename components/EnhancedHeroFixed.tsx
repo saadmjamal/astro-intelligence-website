@@ -266,7 +266,7 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.85]">
-                <span className="block text-white mb-2">YOUR AI</span>
+                <span className="block text-white mb-2">Cut run‑rate costs</span>
                 <motion.span 
                   className="block"
                   style={{ 
@@ -281,9 +281,8 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
                   } : undefined}
                   transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                 >
-                  ADVANTAGE
+                  20–40% in 90 days
                 </motion.span>
-                <span className="block text-white mt-2">STARTS NOW</span>
               </h1>
               
               {/* Success Badge */}
@@ -321,9 +320,9 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="space-y-4"
             >
-              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
-                The future of enterprise AI is here. AstroIntelligence delivers ethical, measurable AI solutions
-                that Fortune 500 companies trust for their most critical operations. Transform complexity into competitive advantage.
+              <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                Production‑grade copilots and automation on your cloud (Azure/AWS/GCP) with SOC 2 guardrails, telemetry,
+                and executive ROI dashboards. From pilot to production in 6–12 weeks.
               </p>
               
               {/* Key Benefits */}
@@ -376,36 +375,27 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="space-y-4"
             >
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Link 
-                  href="/contact"
-                  className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 w-full sm:w-auto overflow-hidden rounded-2xl font-bold text-lg"
-                >
-                  {/* Gradient Background */}
-                  <div className="absolute inset-0"
-                       style={{
-                         backgroundImage: 'linear-gradient(to right, #00FF94, #00D9FF, #B794F4)',
-                         backgroundSize: '200% 100%'
-                       }} />
-                  
-                  {/* Glass Overlay */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                       style={{
-                         background: 'rgba(255, 255, 255, 0.1)',
-                         backdropFilter: 'blur(5px)',
-                         WebkitBackdropFilter: 'blur(5px)'
-                       }} />
-                  
-                  {/* Content */}
-                  <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
-                    Start Your AI Journey
-                  </span>
-                  <ArrowRight className="relative z-10 w-5 h-5 text-black group-hover:text-white transition-colors duration-300 group-hover:translate-x-1" />
-                </Link>
-              </motion.div>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Link 
+                    href="/contact?plan=6-weeks"
+                    className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto overflow-hidden rounded-2xl font-bold text-lg"
+                  >
+                    <div className="absolute inset-0"
+                          style={{ backgroundImage: 'linear-gradient(to right, #00FF94, #00D9FF, #B794F4)', backgroundSize: '200% 100%' }} />
+                    <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">See 6‑Week Plan</span>
+                    <ArrowRight className="relative z-10 w-5 h-5 text-black group-hover:text-white transition-colors duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Link 
+                    href="/contact?asset=roi-model"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto rounded-2xl font-semibold border border-white/20 text-white hover:bg-white/10 transition"
+                  >
+                    Get ROI Model (5 min)
+                  </Link>
+                </motion.div>
+              </div>
               
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <motion.div 

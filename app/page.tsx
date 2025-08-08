@@ -2,6 +2,10 @@ import EnhancedHeroFixed from '@/components/EnhancedHeroFixed'
 import TrustSection from '@/components/TrustSection'
 import AIShowcase from '@/components/AIShowcase'
 import CoreServices from '@/components/CoreServices'
+import OutcomeMetricsBand from '@/components/OutcomeMetricsBand'
+import ThreePillars from '@/components/ThreePillars'
+import HowWeWork from '@/components/HowWeWork'
+import ComplianceStrip from '@/components/ComplianceStrip'
 import CometAbout from '@/components/CometAbout'
 import CometContact from '@/components/CometContact'
 import EnhancedFooter from '@/components/EnhancedFooter'
@@ -16,17 +20,17 @@ export default function RedesignedHomePage() {
           <EnhancedHeroFixed />
         </section>
         
-        {/* Social Proof & Trust - New section */}
-        <section className="relative -mt-8">
-          <TrustSection />
-        </section>
+        <OutcomeMetricsBand />
         
         {/* AI Intelligence Showcase - Highlight AI capabilities */}
         <section className="relative -mt-8">
           <AIShowcase />
         </section>
         
-        {/* Core Services - Simplified from 6 to 4 services */}
+        <ThreePillars />
+        <ComplianceStrip />
+        <HowWeWork />
+        {/* Keep detailed services below the summary pillars */}
         <section className="relative -mt-8">
           <CoreServices />
         </section>
@@ -36,7 +40,7 @@ export default function RedesignedHomePage() {
           <PersonaValueProps />
         </section>
         
-        {/* About Section - Keep existing for now */}
+        {/* About Section */}
         <section className="relative -mt-8">
           <CometAbout />
         </section>
