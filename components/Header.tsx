@@ -23,6 +23,7 @@ const navigation = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstMenuItemRef = useRef<HTMLAnchorElement>(null);
@@ -45,10 +46,29 @@ export default function Header() {
     }
   }, [mobileMenuOpen]);
 
+  // Scroll-aware header styling
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 z-[100] w-full bg-black/95 backdrop-blur-md border-b border-tech-accent/20 safe-area-top">
-      <nav ref={navRef as React.RefObject<HTMLElement>} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <div className="flex h-16 sm:h-20 items-center justify-between">
+    <header className="fixed top-0 z-[100] w-full safe-area-top transition-all">
+      <nav
+        ref={navRef as React.RefObject<HTMLElement>}
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+        aria-label="Main navigation"
+      >
+        <div className={`mt-3 ${scrolled ? 'mt-2' : 'mt-3'} transition-margin`}></div>
+        <div
+          className={cn(
+            'flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 rounded-2xl transition-all',
+            'glass-morphism border border-white/10 shadow-[0_8px_32px_0_rgba(0,255,148,0.08)]',
+            scrolled ? 'bg-black/40' : 'bg-black/30'
+          )}
+        >
           {/* Logo */}
           <div className="flex items-center">
             <Link 
@@ -90,8 +110,9 @@ export default function Header() {
               <Button variant="ghost" size="sm" asChild data-testid="nav-signin">
                 <Link href="/sign-in">Sign In</Link>
               </Button>
-              <Button size="sm" asChild data-testid="nav-signup">
-                <Link href="/sign-up">Get Started</Link>
+              <Button size="sm" asChild data-testid="nav-signup" className="relative overflow-hidden font-semibold">
+                <Link href="/sign-up" className="relative z-10">Get Started</Link>
+                <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--neon-green)] via-[var(--electric-blue)] to-[var(--cyber-purple)] opacity-90" />
               </Button>
             </SignedOut>
             

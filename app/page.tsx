@@ -5,6 +5,7 @@ import CoreServices from '@/components/CoreServices'
 import CometAbout from '@/components/CometAbout'
 import CometContact from '@/components/CometContact'
 import EnhancedFooter from '@/components/EnhancedFooter'
+import PersonaValueProps from '@/components/PersonaValueProps'
 
 export default function RedesignedHomePage() {
   return (
@@ -28,6 +29,11 @@ export default function RedesignedHomePage() {
         {/* Core Services - Simplified from 6 to 4 services */}
         <section className="relative -mt-8">
           <CoreServices />
+        </section>
+
+        {/* Persona Value Props - role-tailored benefits */}
+        <section className="relative -mt-8">
+          <PersonaValueProps />
         </section>
         
         {/* About Section - Keep existing for now */}
