@@ -265,8 +265,8 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.85]">
-                <span className="block text-white mb-2">Cut run‑rate costs</span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9]">
+                <span className="block text-white mb-2">Human‑First AI for</span>
                 <motion.span 
                   className="block"
                   style={{ 
@@ -276,12 +276,10 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
                     backgroundClip: 'text',
                     color: 'transparent'
                   }}
-                  animate={mounted ? { 
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] 
-                  } : undefined}
+                  animate={mounted ? { backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] } : undefined}
                   transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                 >
-                  20–40% in 90 days
+                  Cloud & Operations
                 </motion.span>
               </h1>
               
@@ -321,8 +319,8 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
               className="space-y-4"
             >
               <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                Production‑grade copilots and automation on your cloud (Azure/AWS/GCP) with SOC 2 guardrails, telemetry,
-                and executive ROI dashboards. From pilot to production in 6–12 weeks.
+                Automate cloud workflows, cut spend, and improve reliability—<strong>with guardrails</strong>. We build ethical, AI‑powered orchestration
+                for Azure, AWS, and Citrix—pilot to production in 6–12 weeks.
               </p>
               
               {/* Key Benefits */}
@@ -383,7 +381,7 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
                   >
                     <div className="absolute inset-0"
                           style={{ backgroundImage: 'linear-gradient(to right, #00FF94, #00D9FF, #B794F4)', backgroundSize: '200% 100%' }} />
-                    <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">See 6‑Week Plan</span>
+                    <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">Book a Cost Teardown</span>
                     <ArrowRight className="relative z-10 w-5 h-5 text-black group-hover:text-white transition-colors duration-300 group-hover:translate-x-1" />
                   </Link>
                 </motion.div>

@@ -13,12 +13,22 @@ import { Search } from 'lucide-react';
 import { useKeyboardNavigation } from '@/hooks/useKeyboardNavigation';
 
 const navigation = [
+  {
+    name: 'Solutions',
+    href: '/solutions',
+    children: [
+      { name: 'CloudViewX', href: '/solutions/cloudviewx' },
+      { name: 'AI Service Desk', href: '/solutions/ai-service-desk' },
+      { name: 'Cost Optimization', href: '/solutions/cost-optimization' },
+    ],
+  },
   { name: 'Services', href: '/services' },
-  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Case Studies', href: '/portfolio' },
   { name: 'Scripts', href: '/scripts' },
   { name: 'Research Lab', href: '/lab' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
@@ -81,19 +91,33 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:gap-x-8">
+          <div className="hidden lg:flex lg:items-center lg:gap-x-6">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  'metlab-nav-item text-sm font-medium transition-colors focus-ring rounded-md px-2 py-1',
-                  pathname === item.href ? 'text-tech-accent active' : 'text-secondary-foreground hover:text-white'
+              <div key={item.name} className="relative group">
+                <Link
+                  href={item.href}
+                  className={cn(
+                    'metlab-nav-item text-sm font-medium transition-colors focus-ring rounded-md px-2 py-1',
+                    pathname === item.href ? 'text-tech-accent active' : 'text-secondary-foreground hover:text-white'
+                  )}
+                  aria-current={pathname === item.href ? 'page' : undefined}
+                >
+                  {item.name}
+                </Link>
+                {Array.isArray((item as any).children) && (
+                  <div className="absolute left-0 top-full mt-2 hidden group-hover:block min-w-[220px] glass-morphism rounded-xl p-2 border border-white/10">
+                    {(item as any).children.map((child: { name: string; href: string }) => (
+                      <Link
+                        key={child.name}
+                        href={child.href}
+                        className="block px-3 py-2 text-sm text-white/85 rounded-lg hover:bg-white/10"
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
                 )}
-                aria-current={pathname === item.href ? 'page' : undefined}
-              >
-                {item.name}
-              </Link>
+              </div>
             ))}
           </div>
 
