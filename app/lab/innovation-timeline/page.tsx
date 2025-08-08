@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from '@/components/ui/Card';
+import Link from 'next/link';
+import Card from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import { 
@@ -247,6 +248,7 @@ export default function InnovationTimeline() {
     ? timelineEvents 
     : timelineEvents.filter(event => event.category === selectedCategory);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'breakthrough': return Zap;
@@ -308,7 +310,7 @@ export default function InnovationTimeline() {
 
           {/* Timeline events */}
           <div className="space-y-8">
-            {filteredEvents.map((event, index) => {
+            {filteredEvents.map((event, _index) => {
               const Icon = event.icon;
               const categoryColor = getCategoryColor(event.category);
               
@@ -403,10 +405,10 @@ export default function InnovationTimeline() {
           </p>
           <div className="flex gap-4 justify-center">
             <Button asChild>
-              <a href="/lab/publications">View All Research</a>
+              <Link href="/lab/publications" aria-label="View All Research">View All Research</Link>
             </Button>
             <Button variant="outline" asChild>
-              <a href="/contact">Collaborate With Us</a>
+              <Link href="/contact">Collaborate With Us</Link>
             </Button>
           </div>
         </Card>

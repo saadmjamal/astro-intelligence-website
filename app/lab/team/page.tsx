@@ -1,21 +1,19 @@
 'use client';
 
-import { Card } from '@/components/ui/Card';
+import Card from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import { 
   Brain,
-  Zap,
   Shield,
   Database,
   Globe,
   Award,
-  ExternalLink,
   Mail,
   BookOpen,
   Users,
   Cpu,
-  Quantum
+  Atom
 } from 'lucide-react';
 
 interface TeamMember {
@@ -319,7 +317,7 @@ const teamMembers: TeamMember[] = [
 ];
 
 const getSpecializationIcon = (spec: string) => {
-  if (spec.includes('Quantum')) return Quantum;
+  if (spec.includes('Quantum')) return Atom;
   if (spec.includes('Neural') || spec.includes('Brain')) return Brain;
   if (spec.includes('Privacy') || spec.includes('Crypto')) return Shield;
   if (spec.includes('Edge') || spec.includes('Distributed')) return Globe;

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Card from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
-import Input from '@/components/ui/Input';
 import { 
   Zap, 
   Brain, 
@@ -129,8 +128,9 @@ export default function QuantumOptimizerDemo() {
             <div className="space-y-4">
               {/* Model Size Selection */}
               <div>
-                <label className="block text-sm font-medium mb-2">Model Size</label>
+                <label htmlFor="model-size" className="block text-sm font-medium mb-2">Model Size</label>
                 <select 
+                  id="model-size"
                   value={modelSize} 
                   onChange={(e) => setModelSize(e.target.value)}
                   className="w-full p-2 border rounded-lg bg-background"
