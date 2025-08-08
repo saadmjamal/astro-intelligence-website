@@ -6,6 +6,7 @@ import { services } from '@/lib/config/services.config';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { TestimonialSection } from '@/components/ui/Testimonial';
 import { getRandomTestimonials } from '@/data/testimonials';
+import OfferCard from '@/components/OfferCard'
 
 export const metadata: Metadata = {
   title: 'Enterprise AI Services | Transform Operations & Cut Costs by 70%',
@@ -56,6 +57,33 @@ export default function ServicesPage() {
             <Button size="lg" variant="secondary" asChild>
               <Link href="#services-grid">Explore Solutions</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Productized Offers */}
+      <section className="section-padding">
+        <div className="container-width">
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-gap-md">
+            <OfferCard
+              title="Cloud Cost Teardown (14 days)"
+              excerpt="Outcome‑driven audit, quick wins, and safe‑by‑default policy scripts."
+              guarantee="Identify ≥15% savings or 20% fee refund."
+              cta="See the 14‑day plan"
+              href="/services/cloud-cost-teardown"
+            />
+            <OfferCard
+              title="AI‑Powered Ops Pilot (6 weeks)"
+              excerpt="Ticket deflection bot, idle resource orchestration, and HIL change assistant."
+              cta="Start a pilot"
+              href="/services/ai-ops-pilot"
+            />
+            <OfferCard
+              title="Citrix Modernization Sprint (4 weeks)"
+              excerpt="Logon‑time diagnostics, image lifecycle automation (PVS/MCS), capacity plan."
+              cta="Modernize VDI"
+              href="/services/citrix-modernization"
+            />
           </div>
         </div>
       </section>
