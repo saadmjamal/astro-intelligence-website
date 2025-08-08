@@ -10,6 +10,8 @@ import CometAbout from '@/components/CometAbout'
 import CometContact from '@/components/CometContact'
 import EnhancedFooter from '@/components/EnhancedFooter'
 import PersonaValueProps from '@/components/PersonaValueProps'
+import ProofStrip from '@/components/ProofStrip'
+import SystemsFit from '@/components/SystemsFit'
 
 export default function RedesignedHomePage() {
   return (
@@ -22,6 +24,9 @@ export default function RedesignedHomePage() {
         
         <OutcomeMetricsBand />
         
+        {/* Proof & Systems Fit */}
+        <ProofStrip />
+        <SystemsFit />
         {/* AI Intelligence Showcase - Highlight AI capabilities */}
         <section className="relative -mt-8">
           <AIShowcase />

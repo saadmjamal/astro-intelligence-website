@@ -19,19 +19,49 @@ import {
 
 const personas = [
   {
+    id: 'cfo',
+    title: 'For Finance Leaders',
+    role: 'CFO / FP&A',
+    icon: BriefcaseIcon,
+    benefits: [
+      { icon: TrendingDownIcon, text: 'Cut run‑rate opex 20–40% within 90 days' },
+      { icon: ShieldCheckIcon, text: 'Audit‑ready controls, PII redaction, tenant‑isolated data' },
+      { icon: RocketIcon, text: 'ROI dashboard with payback, sensitivity, and telemetry' }
+    ],
+    description: 'Outcome‑first automation and copilots with executive‑grade ROI and governance. Proven path from pilot to production in 6–12 weeks.',
+    cta: 'Get ROI Model',
+    ctaLink: '/contact?asset=roi-model',
+    color: 'from-amber-600/20 to-amber-600/5'
+  },
+  {
     id: 'cio',
     title: 'For IT Executives',
     role: 'CIO / IT Director',
-    icon: BriefcaseIcon,
+    icon: ServerIcon,
     benefits: [
-      { icon: TrendingDownIcon, text: 'Reduce cloud costs by 30%+ with AI optimization' },
-      { icon: ShieldCheckIcon, text: 'Ensure compliance with ethical AI governance' },
-      { icon: RocketIcon, text: 'Achieve 40% faster time-to-market' }
+      { icon: CodeIcon, text: 'Deploy copilots on Azure/AWS/GCP with existing SSO' },
+      { icon: CloudIcon, text: 'Integrations: M365, ServiceNow, Slack, Snowflake/Databricks' },
+      { icon: WorkflowIcon, text: '6–12 week pilots with production rollout playbooks' }
     ],
-    description: 'Strategic cloud transformation that delivers measurable ROI while maintaining enterprise security and compliance standards.',
-    cta: 'Schedule Executive Briefing',
-    ctaLink: '/contact?type=executive',
+    description: 'Low‑risk rollout on your cloud with deep system fit, observability, and SLAs. Built for scale and maintainability.',
+    cta: 'See 6‑Week Plan',
+    ctaLink: '/contact?plan=6-weeks',
     color: 'from-blue-600/20 to-blue-600/5'
+  },
+  {
+    id: 'ciso',
+    title: 'For Security & Risk',
+    role: 'CISO / Risk',
+    icon: ShieldCheckIcon,
+    benefits: [
+      { icon: ShieldCheckIcon, text: 'Data stays in tenant, access controls and audit trails' },
+      { icon: WorkflowIcon, text: 'Evals for hallucinations, PII, and jailbreaks' },
+      { icon: RocketIcon, text: 'Policy‑as‑code guardrails and prompt/model logging' }
+    ],
+    description: 'Privacy by design and compliance from day one. SOC 2 badges and evidence artifacts ready for audit.',
+    cta: 'Review Controls',
+    ctaLink: '/contact?type=security-review',
+    color: 'from-emerald-600/20 to-emerald-600/5'
   },
   {
     id: 'sysadmin',
@@ -39,13 +69,13 @@ const personas = [
     role: 'SysAdmin / Cloud Ops',
     icon: ServerIcon,
     benefits: [
-      { icon: CodeIcon, text: 'Automate repetitive tasks with intelligent scripts' },
-      { icon: CloudIcon, text: 'Multi-cloud orchestration (AWS, Azure, GCP)' },
-      { icon: WorkflowIcon, text: 'Self-healing infrastructure with AI monitoring' }
+      { icon: CodeIcon, text: 'Automate toil with reliable copilots and runbooks' },
+      { icon: CloudIcon, text: 'Multi‑cloud orchestration with guardrails' },
+      { icon: WorkflowIcon, text: 'Self‑healing infra with predictive monitoring' }
     ],
-    description: 'Powerful automation tools that integrate seamlessly with your existing infrastructure and reduce manual workload by 70%.',
-    cta: 'Start Free Trial',
-    ctaLink: '/contact?type=trial',
+    description: 'Reduce manual workload and incidents with practical automations that fit your toolchain.',
+    cta: 'Request Team Demo',
+    ctaLink: '/contact?type=team-demo',
     color: 'from-green-600/20 to-green-600/5'
   },
   {
