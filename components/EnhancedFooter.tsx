@@ -39,7 +39,7 @@ const footerSections = [
   {
     title: 'Resources',
     links: [
-      { name: 'Case Studies', href: '/case-studies' },
+      { name: 'Case Studies', href: '/portfolio' },
       { name: 'Documentation', href: '/docs' },
       { name: 'Blog', href: '/blog' },
       { name: 'Support Center', href: '/support' }
@@ -51,7 +51,9 @@ const footerSections = [
       { name: 'About Us', href: '/about' },
       { name: 'Careers', href: '/careers' },
       { name: 'Contact', href: '/contact' },
-      { name: 'Privacy Policy', href: '/privacy' }
+      { name: 'Privacy Policy', href: '/privacy' },
+      { name: 'Ethical AI Policy', href: '/ethical-ai' },
+      { name: 'Security & Trust Center', href: '/trust-center' }
     ]
   }
 ]
@@ -90,24 +92,24 @@ const EnhancedFooter: React.FC = () => {
             className="text-center mb-16 p-8 bg-gradient-to-r from-tech-green/10 to-accent-hover/10 border border-tech-green/20 rounded-3xl"
           >
             <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Ready to Transform Your Business?
+              Ready to identify savings and automation opportunities?
             </h3>
             <p className="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
-              Join 500+ enterprises already saving costs and accelerating innovation with AstroIntelligence.
+              Get a pragmatic assessment of your stack with clear next steps—security and compliance first.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/contact"
+                href="/contact?type=cost-teardown"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-tech-green hover:bg-accent-hover text-black font-bold text-lg rounded-lg transition-all duration-200 hover:scale-[1.02]"
               >
-                Get Your Free Assessment
+                Book a Cost Teardown
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
-                href="/demo"
+                href="/services"
                 className="px-8 py-4 bg-transparent border-2 border-tech-green text-tech-green hover:bg-tech-green hover:text-black font-semibold text-lg rounded-lg transition-all duration-200"
               >
-                Schedule Demo
+                Explore Solutions
               </Link>
             </div>
           </motion.div>
@@ -123,8 +125,7 @@ const EnhancedFooter: React.FC = () => {
                 <span className="text-2xl font-bold text-white">AstroIntelligence</span>
               </div>
               <p className="text-text-secondary leading-relaxed mb-6 max-w-sm">
-                Transforming enterprises through ethical AI automation and intelligent cloud optimization. 
-                Trusted by Fortune 500 companies worldwide.
+                Ethical AI automation and cloud optimization with guardrails, telemetry, and measurable outcomes.
               </p>
               
               {/* Contact Info */}
@@ -199,7 +200,9 @@ const EnhancedFooter: React.FC = () => {
             <div className="text-text-subtle text-sm">
               © {currentYear} AstroIntelligence. All rights reserved. | 
               <Link href="/terms" className="hover:text-tech-green transition-colors ml-1">Terms</Link> | 
-              <Link href="/privacy" className="hover:text-tech-green transition-colors ml-1">Privacy</Link>
+              <Link href="/privacy" className="hover:text-tech-green transition-colors ml-1">Privacy</Link> | 
+              <Link href="/ethical-ai" className="hover:text-tech-green transition-colors ml-1">Ethical AI</Link> | 
+              <Link href="/trust-center" className="hover:text-tech-green transition-colors ml-1">Trust Center</Link>
             </div>
 
             {/* Social Links */}
@@ -229,9 +232,8 @@ const EnhancedFooter: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-6 text-sm text-text-muted">
               <span>🚀 Built for Performance</span>
-              <span>⚡ 99.9% Uptime SLA</span>
               <span>🔒 Enterprise Security</span>
-              <span>🌍 Global CDN</span>
+              <span>🤝 Ethical AI by Design</span>
             </div>
           </div>
         </div>

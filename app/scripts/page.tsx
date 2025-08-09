@@ -57,20 +57,20 @@ export default function ScriptsMarketplacePage() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-3xl font-bold text-magenta mb-2">500+</div>
-              <Text variant="small" className="text-muted-foreground">Active Users</Text>
+              <div className="text-3xl font-bold text-magenta mb-2">MVP</div>
+              <Text variant="small" className="text-muted-foreground">Launching with 3–5 scripts</Text>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-magenta mb-2">50+</div>
-              <Text variant="small" className="text-muted-foreground">Premium Scripts</Text>
+              <div className="text-3xl font-bold text-magenta mb-2">MIT</div>
+              <Text variant="small" className="text-muted-foreground">Permissive licensing</Text>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-magenta mb-2">95%</div>
-              <Text variant="small" className="text-muted-foreground">Success Rate</Text>
+              <div className="text-3xl font-bold text-magenta mb-2">README</div>
+              <Text variant="small" className="text-muted-foreground">Docs + rollback steps</Text>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-magenta mb-2">24/7</div>
-              <Text variant="small" className="text-muted-foreground">Support Available</Text>
+              <div className="text-3xl font-bold text-magenta mb-2">Notify</div>
+              <Text variant="small" className="text-muted-foreground">Get updates by email</Text>
             </div>
           </div>
         </div>
@@ -81,11 +81,10 @@ export default function ScriptsMarketplacePage() {
         <div className="container-width">
           <div className="text-center mb-12">
             <Heading as="h2" variant="h2" className="mb-4">
-              Scripts Marketplace Coming Soon
+              Scripts Library (MVP)
             </Heading>
             <Text variant="lead" className="max-w-2xl mx-auto">
-              We're building an extensive library of enterprise automation scripts. 
-              Get notified when it launches!
+              We’re starting with proven, practical scripts. No inflated adoption numbers—just useful tools with clear docs.
             </Text>
           </div>
 
@@ -105,26 +104,26 @@ export default function ScriptsMarketplacePage() {
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-magenta rounded-full"></div>
-                <Text>Multi-cloud Terraform frameworks</Text>
+                <Text>Azure Idle‑VM Shutoff (session‑aware)</Text>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-magenta rounded-full"></div>
-                <Text>AI-powered infrastructure optimization</Text>
+                <Text>Citrix Logon Time Analyzer</Text>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-magenta rounded-full"></div>
-                <Text>Security compliance automation</Text>
+                <Text>Azure Cost Export + Idle Tagger (DecomCandidate)</Text>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-magenta rounded-full"></div>
-                <Text>CI/CD pipeline generators</Text>
+                <Text>Autoscale Policy Pack (off‑hours schedules)</Text>
               </div>
             </div>
 
             <div className="text-center">
               <Button size="lg" asChild>
                 <Link href="/contact?type=script-notification">
-                  Notify Me When Available
+                  Notify me when new scripts are added
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

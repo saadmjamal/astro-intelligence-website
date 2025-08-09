@@ -9,208 +9,40 @@ import Link from 'next/link';
 
 // Metadata moved to separate server component file
 
-// Portfolio data with enterprise-grade metrics
+// Portfolio data placeholder — replace with real cases when available
 const portfolioStats = [
-  { value: 67, suffix: '%', label: 'Average Cost Reduction', subtext: 'Across Fortune 100 clients' },
-  { value: 150, suffix: '×', label: 'Deployment Acceleration', subtext: 'From months to hours' },
-  { value: 99.9, suffix: '%', label: 'Client Success Rate', subtext: 'Fortune 500 satisfaction' },
-  { value: 47, suffix: 'B+', label: 'Total Value Generated', subtext: 'Measurable business impact' }
+  { value: 1, suffix: '–2', label: 'Detailed Cases', subtext: 'Publishing soon' },
+  { value: 3, suffix: '–5', label: 'Quick Wins', subtext: 'Per teardown' },
+  { value: 6, suffix: '–12', label: 'Weeks', subtext: 'Pilot to production' },
+  { value: 0, suffix: '%', label: 'Inflated Claims', subtext: 'We publish only what’s real' }
 ];
 
 const filters = ['All', 'Enterprise AI', 'Cloud Optimization', 'Platform Engineering', 'Digital Transformation'];
 
-const projects = [
+const projects: Array<{
+  id: string;
+  title: string;
+  category: string;
+  client?: string;
+  description: string;
+  image?: string;
+  metrics?: Array<{ label: string; value: string; subtext?: string }>;
+  technologies?: string[];
+  architectureHighlights?: string[];
+  caseStudyUrl?: string;
+}> = [
   {
-    id: 'fintech-platform',
-    title: 'Global AI-Powered FinTech Transformation',
-    category: 'Enterprise AI',
-    client: 'JPMorgan Chase & Co. (Fortune 10)',
-    description: 'Revolutionary AI-driven platform transformation serving 50M+ users globally, achieving $2.3B in cost savings through intelligent automation and predictive analytics while maintaining 99.99% uptime and exceeding regulatory compliance standards across 47 countries.',
-    image: '/images/case-studies/fintech-transformation.svg',
-    businessValue: '$2.3B annual savings',
-    technicalAchievement: '50M+ users, 47 countries',
-    timeline: '18-month transformation',
+    id: 'case-coming-soon',
+    title: 'Cost Teardown → Pilot → Production',
+    category: 'Methodology',
+    description: 'We publish only attributable outcomes. First anonymized case (with architecture notes) is being prepared.',
     metrics: [
-      { label: 'Cost Savings', value: '$2.3B', subtext: 'Annual' },
-      { label: 'Performance Gain', value: '1,200%', subtext: 'Processing Speed' },
-      { label: 'AI Automation', value: '89%', subtext: 'Operations Automated' },
-      { label: 'ROI Achievement', value: '6 weeks', subtext: 'Payback Period' },
-      { label: 'Global Scale', value: '50M+', subtext: 'Active Users' },
-      { label: 'Regulatory Compliance', value: '47', subtext: 'Countries Compliant' }
+      { label: 'Stage 1', value: 'Teardown', subtext: 'Savings plan' },
+      { label: 'Stage 2', value: 'Pilot', subtext: 'Guardrails + HIL' },
+      { label: 'Stage 3', value: 'Production', subtext: 'Telemetry + ROI' },
+      { label: 'Timeline', value: '6–12 weeks' }
     ],
-    technologies: ['Kubernetes', 'TensorFlow', 'Apache Kafka', 'GraphQL', 'Redis', 'PostgreSQL', 'Istio Service Mesh', 'Prometheus'],
-    architectureHighlights: [
-      'Multi-region Kubernetes orchestration across 12 data centers',
-      'Real-time AI fraud detection processing 2M transactions/second',
-      'Event-driven microservices architecture with 340+ services',
-      'Automated compliance monitoring across 47 regulatory frameworks'
-    ],
-    testimonial: {
-      quote: "AstroIntelligence transformed our century-old institution into a digital-first powerhouse. The AI platform they built processes more transactions per second than our previous system handled per day, with 89% of operations now fully automated. ROI was achieved in 6 weeks—unprecedented in our industry.",
-      author: "Sarah Chen",
-      role: "Chief Technology Officer",
-      company: "JPMorgan Chase & Co.",
-      avatar: "/images/testimonials/sarah-chen.svg",
-      credentials: "Former Google VP Engineering, MIT PhD"
-    },
-    awards: ['AWS Partner of the Year 2024', 'FinTech Innovation Award', 'AI Excellence in Banking'],
-    certifications: ['SOC 2 Type II', 'PCI DSS Level 1', 'ISO 27001', 'GDPR Compliant'],
-    caseStudyUrl: '/case-studies/jpmorgan-ai-transformation'
-  },
-  {
-    id: 'healthcare-automation',
-    title: 'AI-Powered Healthcare Data Intelligence Platform',
-    category: 'Enterprise AI',
-    client: 'Johnson & Johnson (Fortune 50)',
-    description: 'Transformational AI platform processing 250M+ patient records across 85 countries, achieving $1.8B in operational cost savings through predictive analytics, automated clinical decision support, and real-time population health insights while exceeding FDA validation standards and maintaining 99.99% accuracy in clinical predictions.',
-    image: '/images/case-studies/healthcare-automation.svg',
-    businessValue: '$1.8B operational savings',
-    technicalAchievement: '250M+ records, 85 countries',
-    timeline: '24-month implementation',
-    metrics: [
-      { label: 'Cost Savings', value: '$1.8B', subtext: 'Operational' },
-      { label: 'Processing Speed', value: '2,400%', subtext: 'Improvement' },
-      { label: 'Accuracy Rate', value: '99.99%', subtext: 'Clinical Predictions' },
-      { label: 'Global Reach', value: '250M+', subtext: 'Patient Records' },
-      { label: 'Regulatory Compliance', value: '85', subtext: 'Countries FDA-Validated' },
-      { label: 'Real-time Analytics', value: '24/7', subtext: 'Population Health Monitoring' }
-    ],
-    technologies: ['Apache Kafka', 'TensorFlow', 'FHIR HL7', 'Kubernetes', 'Apache Spark', 'Elasticsearch', 'MongoDB', 'NVIDIA RAPIDS'],
-    architectureHighlights: [
-      'Federated learning across 85 countries with privacy-preserving ML',
-      'Real-time clinical decision support system processing 50K decisions/second',
-      'HIPAA-compliant data lakehouse architecture with 250M+ records',
-      'Multi-modal AI models for radiology, pathology, and genomics analysis'
-    ],
-    testimonial: {
-      quote: "AstroIntelligence delivered the most sophisticated healthcare AI platform in the industry. Our clinical decision accuracy improved from 82% to 99.99%, patient outcomes improved by 40%, and we achieved $1.8B in operational savings while maintaining FDA compliance across 85 countries. This platform is revolutionizing personalized medicine.",
-      author: "Dr. Michael Rodriguez",
-      role: "Chief Medical Officer & VP of Digital Health",
-      company: "Johnson & Johnson",
-      avatar: "/images/testimonials/michael-rodriguez.svg",
-      credentials: "Harvard Medical School, Former NIH Director"
-    },
-    awards: ['HIMSS Innovation Award', 'FDA Breakthrough Device Designation', 'Healthcare AI Excellence 2024'],
-    certifications: ['HIPAA Compliant', 'FDA 21 CFR Part 11', 'ISO 13485', 'SOC 2 Type II'],
-    caseStudyUrl: '/case-studies/jnj-healthcare-ai-platform'
-  },
-  {
-    id: 'retail-optimization',
-    title: 'Global E-Commerce AI Optimization Engine',
-    category: 'Enterprise AI',
-    client: 'Amazon.com (Fortune 5)',
-    description: 'Next-generation AI-powered commerce platform serving 500M+ customers globally, handling 2.8B+ concurrent transactions during peak events with predictive scaling, personalized recommendations driving $15B+ in additional revenue, and achieving 67% cost reduction through intelligent resource optimization across 25+ global regions.',
-    image: '/images/case-studies/retail-optimization.svg',
-    businessValue: '$15B+ revenue increase',
-    technicalAchievement: '500M+ customers, 25 regions',
-    timeline: '36-month transformation',
-    metrics: [
-      { label: 'Revenue Impact', value: '$15B+', subtext: 'Additional Revenue' },
-      { label: 'Peak Traffic', value: '2.8B+', subtext: 'Concurrent Transactions' },
-      { label: 'Cost Reduction', value: '67%', subtext: 'Infrastructure' },
-      { label: 'Global Scale', value: '500M+', subtext: 'Active Customers' },
-      { label: 'Personalization', value: '94%', subtext: 'Recommendation Accuracy' },
-      { label: 'Regional Coverage', value: '25+', subtext: 'Global Regions' }
-    ],
-    technologies: ['AWS', 'Kubernetes', 'Apache Cassandra', 'Redis', 'TensorFlow', 'Apache Airflow', 'Elasticsearch', 'GraphQL'],
-    architectureHighlights: [
-      'Global multi-region architecture with sub-50ms response times',
-      'AI-driven predictive auto-scaling handling 1000x traffic spikes',
-      'Real-time personalization engine processing 100M+ recommendations/second',
-      'Distributed computing platform across 25 regions with 99.999% uptime'
-    ],
-    testimonial: {
-      quote: "AstroIntelligence re-architected our global commerce platform to handle unprecedented scale. During our biggest shopping event, we processed 2.8 billion concurrent transactions with zero downtime while reducing infrastructure costs by 67%. The AI recommendations they built generated over $15B in additional revenue. Simply extraordinary engineering.",
-      author: "Jennifer Park",
-      role: "Vice President of Engineering & Architecture",
-      company: "Amazon.com",
-      avatar: "/images/testimonials/jennifer-park.svg",
-      credentials: "Stanford CS PhD, Former Netflix VP of Platform"
-    },
-    awards: ['AWS Partner of the Year', 'Retail Technology Innovation Award', 'Global E-commerce Excellence'],
-    certifications: ['AWS Advanced Tier', 'PCI DSS Level 1', 'ISO 27001', 'SOC 2 Type II'],
-    caseStudyUrl: '/case-studies/amazon-global-commerce-ai'
-  },
-  {
-    id: 'manufacturing-iot',
-    title: 'AI-Powered Smart Manufacturing Ecosystem',
-    category: 'Enterprise AI',
-    client: 'General Electric (Fortune 20)',
-    description: 'Revolutionary Industry 4.0 platform transforming 180+ manufacturing facilities globally, utilizing AI-powered predictive maintenance, digital twins, and autonomous quality control to achieve $4.2B in operational savings, 89% reduction in unplanned downtime, and 95% improvement in product quality across 45+ product lines.',
-    image: '/images/case-studies/manufacturing-iot.svg',
-    businessValue: '$4.2B operational savings',
-    technicalAchievement: '180+ facilities, 45+ product lines',
-    timeline: '30-month implementation',
-    metrics: [
-      { label: 'Operational Savings', value: '$4.2B', subtext: 'Annual' },
-      { label: 'Downtime Reduction', value: '89%', subtext: 'Unplanned Downtime' },
-      { label: 'Quality Improvement', value: '95%', subtext: 'Defect Reduction' },
-      { label: 'Global Facilities', value: '180+', subtext: 'Manufacturing Sites' },
-      { label: 'Predictive Accuracy', value: '97%', subtext: 'Maintenance Predictions' },
-      { label: 'Energy Efficiency', value: '42%', subtext: 'Reduction in Energy Use' }
-    ],
-    technologies: ['Azure IoT', 'TensorFlow', 'Apache Kafka', 'InfluxDB', 'Kubernetes', 'NVIDIA Omniverse', 'OPC UA', 'Apache Spark'],
-    architectureHighlights: [
-      'Real-time digital twin simulation for 180+ manufacturing facilities',
-      'Edge AI processing 50M+ sensor data points per second',
-      'Predictive maintenance AI models with 97% accuracy across 45 product lines',
-      'Autonomous quality control systems reducing defects by 95%'
-    ],
-    testimonial: {
-      quote: "AstroIntelligence delivered the most advanced manufacturing AI platform in the world. Our unplanned downtime dropped by 89%, product quality improved by 95%, and we achieved $4.2B in operational savings. The digital twin technology they built allows us to simulate and optimize our entire global manufacturing network. This is the future of Industry 4.0.",
-      author: "David Kim",
-      role: "Chief Digital Officer & VP of Global Manufacturing",
-      company: "General Electric",
-      avatar: "/images/testimonials/david-kim.svg",
-      credentials: "MIT PhD Mechanical Engineering, Former Tesla VP of Manufacturing"
-    },
-    awards: ['Industry 4.0 Innovation Award', 'Manufacturing Excellence 2024', 'Digital Transformation Leadership'],
-    certifications: ['ISO 9001', 'Six Sigma Black Belt', 'Industry 4.0 Certified', 'IEC 62443'],
-    caseStudyUrl: '/case-studies/ge-smart-manufacturing-ai'
-  },
-  {
-    id: 'energy-optimization',
-    title: 'Renewable Energy Grid Optimization',
-    category: 'Enterprise AI',
-    client: 'Energy Sector Leader',
-    description: 'AI-powered grid optimization increasing renewable energy efficiency by 30% while reducing waste.',
-    image: '/images/case-studies/energy-optimization.svg',
-    metrics: [
-      { label: 'Efficiency Gain', value: '30%' },
-      { label: 'Waste Reduction', value: '40%' },
-      { label: 'Cost Savings', value: '28%' },
-      { label: 'Green Impact', value: '50K tons CO₂' }
-    ],
-    technologies: ['Machine Learning', 'Time Series Analysis', 'Grid Analytics', 'IoT'],
-    testimonial: {
-      quote: "The AI optimization increased our renewable efficiency by 30% while reducing waste by 40%. Exceptional environmental and financial impact.",
-      author: "Maria Santos",
-      role: "Chief Sustainability Officer",
-      avatar: "/images/testimonials/maria-santos.svg"
-    },
-    awards: ['Green Technology Award', 'Sustainability Innovation']
-  },
-  {
-    id: 'logistics-automation',
-    title: 'Global Supply Chain Intelligence',
-    category: 'Platform Engineering',
-    client: 'Logistics Corporation',
-    description: 'AI-driven supply chain optimization reducing delivery times by 35% and operational costs by 30%.',
-    image: '/images/case-studies/logistics-automation.svg',
-    metrics: [
-      { label: 'Delivery Speed', value: '35%' },
-      { label: 'Cost Reduction', value: '30%' },
-      { label: 'Route Efficiency', value: '200%' },
-      { label: 'Customer Satisfaction', value: '95%' }
-    ],
-    technologies: ['Route Optimization', 'Predictive Analytics', 'Real-time Tracking', 'AI Algorithms'],
-    testimonial: {
-      quote: "Supply chain intelligence transformed our operations. 35% faster deliveries and 30% cost reduction with perfect tracking.",
-      author: "Robert Chen",
-      role: "VP Supply Chain",
-      avatar: "/images/testimonials/robert-chen.svg"
-    },
-    awards: ['Logistics Innovation Award', 'Supply Chain Excellence']
+    technologies: ['Azure/AWS/GCP', 'M365/ServiceNow', 'Snowflake/Databricks'],
   }
 ];
 
@@ -381,23 +213,21 @@ export default function PortfolioPage() {
             transition={{ duration: 0.8 }}
           >
             <Heading as="h1" variant="hero" color="gradient" className="mb-6">
-              Fortune 100 Success Stories
+              Case Studies
             </Heading>
             <Text variant="lead" className="mx-auto mb-8 max-w-4xl">
-              Transforming industry titans through AI excellence. Fortune 10 companies trust us to deliver 
-              unprecedented results—$47B+ in value generated, 150× deployment acceleration, and revolutionary ROI 
-              achieved in weeks, not years.
+              We share only verifiable outcomes. Our first anonymized case is being prepared. Meanwhile, explore our delivery approach and request a teardown.
             </Text>
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button size="xl" prominence="critical" asChild>
-                <Link href="/contact?type=enterprise-consultation&source=portfolio">
-                  Schedule Fortune 500 Consultation
+                <Link href="/contact?type=cost-teardown&source=portfolio">
+                  Book a Cost Teardown
                 </Link>
               </Button>
               <Button size="xl" variant="secondary" asChild>
-                <Link href="#case-studies">View Enterprise Transformations</Link>
+                <Link href="#case-studies">View Approach</Link>
               </Button>
             </div>
           </motion.div>
@@ -661,7 +491,7 @@ export default function PortfolioPage() {
             viewport={{ once: true }}
           >
             <Text variant="body" className="text-muted-foreground mb-6">
-              This is just the beginning. We've delivered 100+ successful transformations.
+              Case studies will be published as permissions are granted.
             </Text>
             <Button size="lg" prominence="high" asChild>
               <Link href="/contact?type=portfolio-review&source=portfolio">
@@ -683,84 +513,25 @@ export default function PortfolioPage() {
             viewport={{ once: true }}
           >
             <Heading as="h2" variant="display" className="mb-6">
-              What Industry Leaders Say
+              Thought Leadership
             </Heading>
             <Text variant="lead" className="mx-auto max-w-3xl text-secondary-foreground">
-              Don't just take our word for it—hear directly from the executives who've experienced the transformation.
+              Until client quotes can be published, read our research and implementation notes in the Lab and Blog.
             </Text>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {clientTestimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="bg-gradient-to-br from-glass-strong to-glass-tech backdrop-blur-sm rounded-2xl card-padding border border-tech-green/30 hover:border-tech-green/50 transition-all duration-300"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-              >
-                {/* Quote */}
-                <div className="mb-6">
-                  <div className="text-4xl text-tech-green mb-4 font-serif">"</div>
-                  <Text variant="body" className="text-secondary-foreground leading-relaxed">
-                    {testimonial.quote}
-                  </Text>
-                </div>
-
-                {/* Metrics Grid */}
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  {testimonial.metrics.map((metric, idx) => (
-                    <div 
-                      key={idx}
-                      className="text-center p-2 bg-tech-green/10 rounded-lg border border-tech-green/20"
-                    >
-                      <Text className="text-xs font-bold text-tech-green">
-                        {metric}
-                      </Text>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Business Impact */}
-                {testimonial.businessImpact && (
-                  <div className="mb-6 p-3 bg-magenta/5 rounded-lg border border-magenta/20">
-                    <Text variant="small" className="text-magenta font-semibold mb-1">
-                      Business Impact:
-                    </Text>
-                    <Text variant="small" className="text-secondary-foreground">
-                      {testimonial.businessImpact}
-                    </Text>
-                  </div>
-                )}
-
-                {/* Author */}
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-tech-green to-magenta rounded-full flex items-center justify-center mr-4">
-                    <Text className="font-black text-black">
-                      {testimonial.author.charAt(0)}
-                    </Text>
-                  </div>
-                  <div>
-                    <Text variant="small" className="font-semibold text-white">
-                      {testimonial.author}
-                    </Text>
-                    <Text variant="small" className="text-muted-foreground">
-                      {testimonial.role}
-                    </Text>
-                    <Text variant="small" className="text-tech-green text-xs font-semibold">
-                      {testimonial.company}
-                    </Text>
-                    {testimonial.credentials && (
-                      <Text variant="small" className="text-tech-green/70 text-xs mt-1">
-                        {testimonial.credentials}
-                      </Text>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <motion.div
+              className="bg-gradient-to-br from-glass-strong to-glass-tech backdrop-blur-sm rounded-2xl card-padding border border-tech-green/30"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Text variant="body" className="text-secondary-foreground leading-relaxed">
+                We do not publish testimonials without permission. Credibility first.
+              </Text>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -776,36 +547,30 @@ export default function PortfolioPage() {
             viewport={{ once: true }}
           >
             <Heading as="h2" variant="display" className="mb-6">
-              Industry Recognition
+              Publishing timeline
             </Heading>
             <Text variant="lead" className="mx-auto max-w-3xl text-secondary-foreground">
-              Our commitment to excellence has earned recognition from industry leaders worldwide.
+              Case preparation, privacy checks, and legal review. We’ll publish what’s real—nothing else.
             </Text>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {awards.map((award, index) => (
+            {timelineEvents.map((event, index) => (
               <motion.div
                 key={index}
                 className="text-center group"
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
               >
-                <div className="bg-gradient-to-br from-glass-medium to-glass-strong backdrop-blur-sm rounded-2xl card-padding border border-tech-green/20 hover:border-tech-green/40 transition-all duration-300 hover:shadow-lg hover:shadow-tech-green/20">
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
-                    {award.icon}
-                  </div>
-                  <Heading as="h4" variant="h6" className="mb-2 group-hover:text-tech-green transition-colors">
-                    {award.title}
+                <div className="bg-gradient-to-br from-glass-medium to-glass-strong backdrop-blur-sm rounded-2xl card-padding border border-tech-green/20">
+                  <Text className="text-2xl font-bold text-tech-green">{event.year}</Text>
+                  <Heading as="h4" variant="h6" className="mb-1">
+                    {event.title}
                   </Heading>
-                  <Text variant="small" className="text-tech-green font-semibold mb-1">
-                    {award.year}
-                  </Text>
                   <Text variant="small" className="text-muted-foreground">
-                    {award.category}
+                    {event.description}
                   </Text>
                 </div>
               </motion.div>
@@ -888,14 +653,12 @@ export default function PortfolioPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Heading as="h2" variant="hero" color="gradient" className="mb-8">
-              Join the Fortune 100 Elite
-            </Heading>
-            <Text variant="lead" className="mb-12 max-w-4xl mx-auto">
-              The proof is undeniable. $47B+ in value generated, 150× deployment acceleration, 
-              99.9% Fortune 500 satisfaction rate. Your billion-dollar transformation begins with 
-              one strategic conversation.
-            </Text>
+              <Heading as="h2" variant="hero" color="gradient" className="mb-8">
+                Want a credible teardown first?
+              </Heading>
+              <Text variant="lead" className="mb-12 max-w-4xl mx-auto">
+                We’ll analyze your environment, propose safe changes, and publish results only when attributable and approved.
+              </Text>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button size="xl" prominence="critical" asChild>
@@ -918,20 +681,20 @@ export default function PortfolioPage() {
             {/* Additional Enterprise Credentials */}
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
-                <Text className="text-2xl font-bold text-tech-green">Fortune 5-100</Text>
-                <Text variant="small" className="text-muted-foreground">Client Portfolio</Text>
+                <Text className="text-2xl font-bold text-tech-green">1–2</Text>
+                <Text variant="small" className="text-muted-foreground">Initial Cases</Text>
               </div>
               <div>
-                <Text className="text-2xl font-bold text-tech-green">$47B+</Text>
-                <Text variant="small" className="text-muted-foreground">Value Generated</Text>
+                <Text className="text-2xl font-bold text-tech-green">Screenshots</Text>
+                <Text variant="small" className="text-muted-foreground">Architecture & KPIs</Text>
               </div>
               <div>
-                <Text className="text-2xl font-bold text-tech-green">99.9%</Text>
-                <Text variant="small" className="text-muted-foreground">Success Rate</Text>
+                <Text className="text-2xl font-bold text-tech-green">Guardrails</Text>
+                <Text variant="small" className="text-muted-foreground">Approvals & Audit</Text>
               </div>
               <div>
-                <Text className="text-2xl font-bold text-tech-green">24/7/365</Text>
-                <Text variant="small" className="text-muted-foreground">Enterprise Support</Text>
+                <Text className="text-2xl font-bold text-tech-green">6–12 weeks</Text>
+                <Text variant="small" className="text-muted-foreground">Pilot → Production</Text>
               </div>
             </div>
           </motion.div>

@@ -64,12 +64,10 @@ export default function LabPage() {
               </div>
             </div>
             <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
-              Astro Intelligence Research Lab
+              Research Lab
             </h1>
             <p className="text-2xl text-muted-foreground mb-8 leading-relaxed">
-              Pushing the boundaries of AI and cloud technology through 
-              <span className="text-foreground font-semibold"> open research</span> and 
-              <span className="text-foreground font-semibold"> collaborative innovation</span>
+              Focused research aligned with delivery: LLM‑driven orchestration, predictive autoscaling, anomaly detection, and ethical AI governance.
             </p>
             
             {/* Stats */}
@@ -79,12 +77,12 @@ export default function LabPage() {
                 <div className="text-sm text-muted-foreground">Research Papers</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-purple-500">12+</div>
+                <div className="text-3xl font-bold text-purple-500">Active</div>
                 <div className="text-sm text-muted-foreground">Open Source Projects</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-pink-500">50+</div>
-                <div className="text-sm text-muted-foreground">Contributors</div>
+                <div className="text-3xl font-bold text-pink-500">On‑mission</div>
+                <div className="text-sm text-muted-foreground">Topics only</div>
               </div>
             </div>
             

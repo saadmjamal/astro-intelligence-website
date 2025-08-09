@@ -9,20 +9,17 @@ import { getRandomTestimonials } from '@/data/testimonials';
 import OfferCard from '@/components/OfferCard'
 
 export const metadata: Metadata = {
-  title: 'Enterprise AI Services | Transform Operations & Cut Costs by 70%',
+  title: 'Enterprise AI Services | Practical Automation with Guardrails',
   description:
-    'Fortune 500 companies trust our AI transformation services to cut operational costs by 70% while increasing revenue by 40%. Get measurable ROI in 90 days with enterprise-grade AI solutions.',
+    'Outcome-focused AI services for cloud and operations. Practical cost reductions, safer automation, and measurable results—without inflated claims.',
   keywords: [
     'Enterprise AI Services',
-    'AI Transformation',
     'Cloud Cost Optimization',
-    'Infrastructure Monitoring',
     'AI Service Desk',
-    'MLOps Platform',
     'Enterprise Automation',
-    'AI Consulting',
-    'ROI Guarantee',
-    'Fortune 500 AI Solutions'
+    'Ethical AI',
+    'SOC 2',
+    'Human-in-the-loop'
   ],
 };
 
@@ -44,15 +41,14 @@ export default function ServicesPage() {
         <div className="from-primary/20 via-navy-800 to-navy-900 absolute inset-0 bg-gradient-to-br" />
         <div className="relative mx-auto max-w-7xl text-center">
           <Heading as="h1" variant="h1" className="mb-6">
-            Our Services
+            Services that reduce spend and risk—fast
           </Heading>
           <Text variant="lead" className="mx-auto mb-8 max-w-3xl text-muted-foreground">
-            Fortune 500 companies choose us to cut operational costs by 70% while increasing revenue by 40%. 
-            Our enterprise AI solutions deliver guaranteed ROI in 90 days with complete compliance and governance.
+            Outcome-focused, security-first delivery. We implement pragmatic automation with approvals, audit trails, and clear ROI tracking. No hype.
           </Text>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
-              <Link href="/contact?type=executive">Get Executive Briefing</Link>
+              <Link href="/contact?type=executive">Schedule Executive Briefing</Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
               <Link href="#services-grid">Explore Solutions</Link>
@@ -94,13 +90,13 @@ export default function ServicesPage() {
           {/* Section Header */}
           <div className="section-intro">
             <div className="badge">
-              <div className="badge-text">🏆 Award-Winning Solutions</div>
+              <div className="badge-text">How our services are delivered</div>
             </div>
             <h2 className="title text-gradient-tech">
-              Enterprise AI Solutions That Deliver Results
+              Problem → Approach → Technologies → Expected Results
             </h2>
             <p className="description">
-              Join Fortune 500 companies achieving breakthrough results with AI services that guarantee measurable ROI, complete compliance, and enterprise-grade security.
+              Each engagement includes risk reviews, approvals, and observability. We avoid exact % claims unless backed by a published case.
             </p>
           </div>
 
@@ -203,16 +199,7 @@ export default function ServicesPage() {
                         </Button>
                       </div>
                       
-                      {/* Service Metrics/Badge */}
-                      {service.caseStudies && service.caseStudies[0] && (
-                        <div className="absolute top-4 right-4">
-                          <div className="bg-tech-green/10 border border-tech-green/20 rounded-full px-3 py-1 backdrop-blur-sm">
-                            <Text variant="small" className="text-tech-green font-medium">
-                              {service.caseStudies[0].metric}
-                            </Text>
-                          </div>
-                        </div>
-                      )}
+                      {/* Remove optimistic metric badges unless linked to a public case */}
                     </div>
                   </div>
                 </div>
@@ -240,7 +227,7 @@ export default function ServicesPage() {
                   Not sure which service is right for you?
                 </Heading>
                 <Text variant="lead" className="max-w-2xl mx-auto text-text-muted">
-                  Let's discuss your challenges and find the perfect solution together. Our experts will help you identify the best path forward.
+                  Share your environment constraints and goals. We’ll propose a safe sequence of steps with measurable checkpoints.
                 </Text>
                 
                 {/* CTA Buttons */}
@@ -264,15 +251,15 @@ export default function ServicesPage() {
                   <div className="flex flex-wrap justify-center items-center gap-6 text-text-subtle">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-tech-green" />
-                      <Text variant="small">Free enterprise assessment & ROI analysis</Text>
+                      <Text variant="small">Enterprise assessment & ROI model (on request)</Text>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-tech-green" />
-                      <Text variant="small">Guaranteed 90-day ROI or money back</Text>
+                      <Text variant="small">SOC 2-friendly delivery, audit trails</Text>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="h-4 w-4 text-tech-green" />
-                      <Text variant="small">Fortune 500-proven methodologies</Text>
+                      <Text variant="small">Fortune 500‑proven methodologies</Text>
                     </div>
                   </div>
                 </div>
@@ -307,10 +294,10 @@ export default function ServicesPage() {
         <div className="container-width relative">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {[
-              { value: "$47M+", label: "Annual Savings Delivered", icon: "💰" },
-              { value: "97%", label: "Outage Prevention Rate", icon: "🛡️" },
-              { value: "95%", label: "AI Project Success Rate", icon: "🎯" },
-              { value: "99.99%", label: "Enterprise Uptime SLA", icon: "⭐" }
+              { value: "Measurable", label: "Outcomes over claims", icon: "📊" },
+              { value: "Secure", label: "Guardrails & approvals", icon: "🛡️" },
+              { value: "Pragmatic", label: "Pilot → Production", icon: "🔧" },
+              { value: "Observable", label: "Telemetry & ROI", icon: "📈" }
             ].map((stat, index) => (
               <div 
                 key={index} 

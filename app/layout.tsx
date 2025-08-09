@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     default: 'Astro Intelligence - Enterprise AI & Cloud Solutions',
     template: '%s | Astro Intelligence'
   },
-  description: 'Leading enterprise AI and cloud solutions provider helping Fortune 500 companies reduce costs by 30% and deploy 5× faster with quantum-enhanced, privacy-preserving technology.',
-  keywords: ['Enterprise AI', 'Cloud Solutions', 'Quantum Computing', 'Privacy-Preserving AI', 'Digital Transformation', 'Mobile AI'],
+  description: 'Human‑first enterprise AI for cloud and operations. Pragmatic automation, telemetry, and SOC 2 guardrails—no inflated claims.',
+  keywords: ['Enterprise AI', 'Cloud Solutions', 'Ethical AI', 'SOC 2', 'Cloud Cost Optimization', 'AI Service Desk'],
   authors: [{ name: 'Astro Intelligence' }],
   creator: 'Astro Intelligence',
   publisher: 'Astro Intelligence',
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://astro-intelligence.com',
     siteName: 'Astro Intelligence',
-    title: 'Astro Intelligence - Enterprise AI & Mobile Solutions',
-    description: 'Leading enterprise AI provider with mobile-first approach helping Fortune 500s reduce costs by 30%.',
+    title: 'Astro Intelligence - Enterprise AI for Cloud & Operations',
+    description: 'Pragmatic automation with guardrails. Telemetry, approvals, and measurable outcomes.',
     images: ['/og-image.png']
   }
 }
