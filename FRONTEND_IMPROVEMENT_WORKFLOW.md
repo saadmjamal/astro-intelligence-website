@@ -15,12 +15,12 @@
 ## Highest-priority next fixes (production readiness)
 1) Prerender stability (in progress)
 - Re‑enabled: home (minimal hero), portfolio (SSR‑safe stub with value copy), scripts marketplace (static grid + CTAs).
-- Compare & Search: temporarily no-op to keep builds green; hardening next.
+- Compare & Search: implemented SSR-safe Compare table (URL param `?ids=`) and server-rendered Search with query/category filters.
 
 2) Analytics (MVP)
-- `app/analytics-client.tsx` now emits events to Plausible (window.plausible) and GA4 (window.gtag) when elements with `data-analytics` are clicked.
-- Event ids: `hero-cta-book-teardown`, `nav-cta`, `solutions-cta`, `calendly-click`, `contact-submit`.
-- Next: add pageview hook and outbound link tracking.
+- `app/analytics-client.tsx` emits pageview on mount and click events via `data-analytics`.
+- Event ids: `hero-cta-book-teardown`, `nav-cta`, `solutions-cta`, `calendly-click`, `contact-submit`, `search-submit`, `compare-cta-contact`.
+- Next: outbound link tracking.
 
 3) Calendly embed
 - Add inline embed section to `contact` below hero, lazy-loaded for performance.
@@ -45,6 +45,11 @@
  - Sign-in/Sign-up: replaced Clerk components with placeholders for preview to eliminate runtime warnings and dev-key prompts.
 - Solutions: created 3 solution pages with Architecture/Rollout/KPIs.
 - Contact: Calendly CTA and analytics marker.
+- Compare: SSR table using `lib/scripts-data-enhanced.ts` with deterministic output.
+- Search: SSR filtering by query and category; no client JS needed.
+- Ethical AI: created `/ethical-ai` policy page (plain English, HIL, audit logs, opt-outs).
+- Trust Center: created `/trust-center` with controls summary and briefing CTA.
+- SEO: Added Organization JSON‑LD to root layout; ensured PWA `apple-touch-icon` present.
 
 ## Backlog (rolling)
 - Solutions: add diagrams and sample screenshots (mocked and clearly labeled) for each.

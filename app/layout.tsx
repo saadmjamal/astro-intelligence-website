@@ -9,6 +9,7 @@ import { MobileAccessibilityProvider } from '@/components/accessibility/MobileAc
 import { MobilePWAProvider } from '@/components/mobile/MobilePWAProvider'
 import { Suspense } from 'react'
 import AnalyticsClient from './analytics-client'
+import { OrganizationStructuredData } from '@/components/SEO/StructuredData'
 
 const manrope = Manrope({ 
   subsets: ['latin'],
@@ -96,6 +97,7 @@ export default function RootLayout({
                 <AIPersonalizationProvider>
                   <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
                     <Header />
+                    <OrganizationStructuredData />
                     <AnalyticsClient />
                     {children}
                   </Suspense>

@@ -28,9 +28,9 @@ export default function Home() {
           </a>
         </div>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto text-sm text-gray-300">
-          <div className="rounded-lg border border-white/10 px-4 py-3">Guardrails & approvals</div>
-          <div className="rounded-lg border border-white/10 px-4 py-3">Telemetry & ROI dashboards</div>
-          <div className="rounded-lg border border-white/10 px-4 py-3">Pilot → Production in 6–12 weeks</div>
+          <div className="rounded-lg border border-white/10 px-4 py-3 glass-morphism">Guardrails & approvals</div>
+          <div className="rounded-lg border border-white/10 px-4 py-3 glass-morphism">Telemetry & ROI dashboards</div>
+          <div className="rounded-lg border border-white/10 px-4 py-3 glass-morphism">Pilot → Production in 6–12 weeks</div>
         </div>
       </section>
 
@@ -38,17 +38,17 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-2">Core Offers</h2>
         <p className="text-gray-300 mb-8">Bounded, outcome‑driven engagements that de‑risk adoption.</p>
         <div className="grid max-w-6xl mx-auto grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="rounded-2xl border border-white/10 p-6 text-left">
+          <div className="rounded-2xl border border-white/10 p-6 text-left glass-morphism">
             <h3 className="font-semibold mb-2">Cloud Cost Teardown (14 days)</h3>
             <p className="text-gray-300 mb-4">Evidence‑based audit, quick wins, and policy scripts. ≥15% savings identified or 20% fee refund.</p>
             <a href="/services" className="text-emerald-400">See the 14‑day plan →</a>
           </div>
-          <div className="rounded-2xl border border-white/10 p-6 text-left">
+          <div className="rounded-2xl border border-white/10 p-6 text-left glass-morphism">
             <h3 className="font-semibold mb-2">AI‑Powered Ops Pilot (6 weeks)</h3>
             <p className="text-gray-300 mb-4">Ticket deflection, idle orchestration, and HIL change assistant with approvals.</p>
             <a href="/solutions/ai-service-desk" className="text-emerald-400">Start a pilot →</a>
           </div>
-          <div className="rounded-2xl border border-white/10 p-6 text-left">
+          <div className="rounded-2xl border border-white/10 p-6 text-left glass-morphism">
             <h3 className="font-semibold mb-2">Citrix Modernization Sprint (4 weeks)</h3>
             <p className="text-gray-300 mb-4">Logon analytics, image lifecycle automation, and capacity plan.</p>
             <a href="/solutions/cost-optimization" className="text-emerald-400">Modernize VDI →</a>
