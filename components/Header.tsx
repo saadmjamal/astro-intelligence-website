@@ -29,6 +29,8 @@ const navigation = [
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
+  // Solutions quick links for IA clarity
+  // Note: top-level 'Solutions' dropdown already includes these.
 ];
 
 export default function Header() {
