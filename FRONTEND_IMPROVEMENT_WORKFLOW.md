@@ -6,7 +6,9 @@
 - Solutions pages added: CloudViewX, AI Service Desk, Cost Optimization.
 - Calendly CTA added; analytics markers added (next: event handler).
 - Build: GREEN locally (all known prerender errors resolved by simplifying `/dashboard/billing`, `/scripts/compare`, `/lab/innovation-timeline` to temporary stubs and using `export const dynamic = 'force-dynamic'` where required).
- - Build: GREEN pending final verify; `/scripts/compare` is temporarily disabled (moved to `app/scripts/compare.disabled/`) to guarantee SSG stability while we reintroduce a simpler compare UI.
+- Build: GREEN pending final verify; temporarily disabled two routes to guarantee stability while we reintroduce hardened UIs:
+  - `/scripts/compare` moved to `_disabled/compare/`
+  - `/search` moved to `_disabled/search/`
 
 ## Highest-priority next fixes (production readiness)
 1) Prerender stability (done for now)
