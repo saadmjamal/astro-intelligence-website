@@ -17,8 +17,9 @@
 - Re‑enable pages incrementally (home → portfolio → scripts → search → compare). Validate build after each step. Keep green.
 
 2) Analytics (MVP)
-- `app/analytics-client.tsx` listens for `[data-analytics]` clicks. Next: wire Plausible/GA4 and add event names for hero CTA, solutions, teardown.
-- Track: hero CTA, offers, Calendly clicks, contact submit.
+- `app/analytics-client.tsx` now emits events to Plausible (window.plausible) and GA4 (window.gtag) when elements with `data-analytics` are clicked.
+- Event ids: `hero-cta-book-teardown`, `nav-cta`, `solutions-cta`, `calendly-click`, `contact-submit`.
+- Next: add pageview hook and outbound link tracking.
 
 3) Calendly embed
 - Add inline embed section to `contact` below hero, lazy-loaded for performance.
