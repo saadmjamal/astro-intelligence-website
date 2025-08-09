@@ -1,4 +1,6 @@
-import EnhancedHeroFixed from '@/components/EnhancedHeroFixed'
+export const dynamic = 'force-dynamic'
+import dynamic from 'next/dynamic'
+const EnhancedHeroFixed = dynamic(() => import('@/components/EnhancedHeroFixed'), { ssr: false })
 import TrustSection from '@/components/TrustSection'
 import AIShowcase from '@/components/AIShowcase'
 import CoreServices from '@/components/CoreServices'
