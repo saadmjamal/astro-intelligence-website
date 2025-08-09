@@ -1,5 +1,6 @@
 import { generateSEOMetadata } from '@/lib/utils/metadata';
-import MobileAboutOptimized from '@/components/mobile/MobileAboutOptimized';
+export const dynamic = 'force-dynamic'
+const MobileAboutOptimized = () => null
 
 export function generateMetadata() {
   return generateSEOMetadata({
