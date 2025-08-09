@@ -1,3 +1,4 @@
+"use client";
 import { Metadata } from 'next';
 import { Heading, Text } from '@/components/ui/Typography';
 import Link from 'next/link';
