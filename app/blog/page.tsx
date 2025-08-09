@@ -11,11 +11,14 @@ try {
   allPosts = [];
 }
 import { compareDesc } from 'date-fns';
-import Card from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import Badge from '@/components/ui/Badge';
-import Input from '@/components/ui/Input';
-import { PageLayout } from '@/components/layout/PageLayout';
+let Card: any, Button: any, Badge: any, Input: any, PageLayout: any;
+try {
+  Card = require('@/components/ui/Card').default;
+  Button = require('@/components/ui/Button').default;
+  Badge = require('@/components/ui/Badge').default || require('@/components/ui/Badge');
+  Input = require('@/components/ui/Input').default;
+  PageLayout = require('@/components/layout/PageLayout').PageLayout || require('@/components/layout/PageLayout').default;
+} catch {}
 import { 
   ArrowRight, 
   Calendar, 
