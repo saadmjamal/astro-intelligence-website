@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
 import { Heading, Text } from '@/components/ui/Typography';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
@@ -94,6 +95,17 @@ export default function ContactPage() {
                 Get Priority Response
               </Link>
             </div>
+          </div>
+
+          {/* Calendly Inline Embed */}
+          <div className="mb-16" aria-label="Schedule with Calendly">
+            <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/saadjamal/30min"
+              style={{ minWidth: '320px', height: '700px' }}
+              data-analytics="calendly-inline"
+            />
           </div>
 
           {/* Contact Form */}

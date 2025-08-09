@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Manrope } from 'next/font/google'
 import './globals.css'
 import './mobile-accessibility.css'
@@ -28,17 +28,6 @@ export const metadata: Metadata = {
   publisher: 'Astro Intelligence',
   metadataBase: new URL('https://astro-intelligence.com'),
   manifest: '/manifest.json',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-    viewportFit: 'cover'
-  },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#00FF94' },
-    { media: '(prefers-color-scheme: dark)', color: '#00FF94' }
-  ],
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -53,6 +42,18 @@ export const metadata: Metadata = {
     description: 'Pragmatic automation with guardrails. Telemetry, approvals, and measurable outcomes.',
     images: ['/og-image.png']
   }
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#00FF94' },
+    { media: '(prefers-color-scheme: dark)', color: '#00FF94' }
+  ]
 }
 
 export default function RootLayout({
