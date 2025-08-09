@@ -15,7 +15,7 @@
 ## Highest-priority next fixes (production readiness)
 1) Prerender stability (in progress)
 - Re‑enabled: home (minimal hero), portfolio (SSR‑safe stub with value copy), scripts marketplace (static grid + CTAs).
-- Re‑enabled: search (client-only, local data — no external deps). Next: compare (SSR‑safe table). Validate build after each step. Keep green.
+- Search: temporarily reverted to no-op while we harden imports; next up after compare table.
 
 2) Analytics (MVP)
 - `app/analytics-client.tsx` now emits events to Plausible (window.plausible) and GA4 (window.gtag) when elements with `data-analytics` are clicked.
