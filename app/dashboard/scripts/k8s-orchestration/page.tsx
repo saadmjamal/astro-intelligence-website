@@ -1,7 +1,7 @@
+export const dynamic = 'force-dynamic'
 import { Heading, Text } from '@/components/ui/Typography';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import { checkUserSubscription } from '@/app/actions/subscription';
 import { 
   CloudArrowDownIcon, 
   CheckCircleIcon,

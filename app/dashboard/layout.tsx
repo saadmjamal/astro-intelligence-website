@@ -1,4 +1,5 @@
 // Remove auth requirement for static builds (replace with public layout)
+export const dynamic = 'force-dynamic'
 import Link from 'next/link';
 
 export default async function DashboardLayout({

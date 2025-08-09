@@ -184,11 +184,11 @@ export default function BlogPage() {
                   </p>
                   
                   <div className="flex flex-wrap items-center gap-4 mb-6">
-                    <div className="flex items-center gap-2">
+                   <div className="flex items-center gap-2">
                       <User className="h-4 w-4 text-muted-foreground" />
                       <span className="text-sm font-medium">{featuredPost.author}</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                     <div className="flex items-center gap-2">
                       <Clock className="h-4 w-4 text-muted-foreground" />
                       <span className="text-sm text-muted-foreground">
                         {calculateReadingTime(featuredPost.body.raw)} min read
@@ -235,7 +235,7 @@ export default function BlogPage() {
       <section className="py-8 px-4 border-b">
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
+                     <div className="flex items-center gap-2">
               <Filter className="h-4 w-4 text-muted-foreground" />
               <span className="font-medium">Filter by topic:</span>
             </div>
@@ -349,7 +349,7 @@ export default function BlogPage() {
                       </p>
                       
                       <div className="flex flex-wrap items-center gap-4 mb-4">
-                        <div className="flex items-center gap-2">
+                     <div className="flex items-center gap-2">
                           <User className="h-4 w-4 text-muted-foreground" />
                           <span className="text-sm font-medium">{post.author}</span>
                           {author && (
