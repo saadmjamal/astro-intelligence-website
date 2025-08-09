@@ -1,5 +1,4 @@
-import { auth } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
+// Remove auth requirement for static builds (replace with public layout)
 import Link from 'next/link';
 
 export default async function DashboardLayout({
@@ -7,12 +6,6 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { userId } = await auth();
-  
-  if (!userId) {
-    redirect('/sign-in');
-  }
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-navy-900">
       {/* Dashboard Navigation */}

@@ -56,7 +56,7 @@ export default function ContactPage() {
                 30-minute strategy session with ROI assessment for IT leaders.
               </Text>
               <Button variant="outline" asChild>
-                <Link href="https://calendly.com/saadjamal" target="_blank" rel="noopener noreferrer">
+                <Link href="https://calendly.com/saadjamal/30min" target="_blank" rel="noopener noreferrer" data-analytics="calendly-click">
                   Book Executive Call
                 </Link>
               </Button>

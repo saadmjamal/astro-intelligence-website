@@ -378,6 +378,7 @@ const EnhancedHeroFixed: React.FC<EnhancedHeroProps> = ({ className = '' }) => {
                   <Link 
                     href="/contact?plan=6-weeks"
                     className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto overflow-hidden rounded-2xl font-bold text-lg"
+                    data-analytics="hero-cta-book-teardown"
                   >
                     <div className="absolute inset-0"
                           style={{ backgroundImage: 'linear-gradient(to right, #00FF94, #00D9FF, #B794F4)', backgroundSize: '200% 100%' }} />
