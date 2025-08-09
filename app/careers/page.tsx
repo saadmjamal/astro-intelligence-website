@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+export const dynamic = 'force-dynamic'
 import { Heading, Text } from '@/components/ui/Typography';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
