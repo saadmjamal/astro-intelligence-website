@@ -38,7 +38,7 @@ export const services: Service[] = [
     id: 'enterprise-ai-transformation',
     title: 'Enterprise AI Transformation Suite',
     slug: 'enterprise-ai-transformation',
-    description: 'Cut operational costs by 65% while increasing revenue by 40% through comprehensive AI transformation that delivers measurable ROI in 90 days.',
+    description: 'Outcome‑focused AI transformation with approvals, audit trails, and telemetry. Practical cost reductions and safer automation—no inflated claims.',
     longDescription: `Replace expensive manual processes with intelligent AI systems that work 24/7. Our enterprise transformation suite delivers end-to-end automation across your entire organization, from customer service to backend operations.
     
     Experience the power of enterprise-grade AI that learns your business patterns, adapts to market changes, and continuously optimizes for maximum efficiency and profitability.
@@ -57,14 +57,11 @@ export const services: Service[] = [
       'Custom AI Model Development and Deployment Platform',
     ],
     benefits: [
-      'Achieve 65% operational cost reduction within 6 months',
-      'Increase revenue by 40% through intelligent automation',
-      '24/7 intelligent operations with zero downtime guarantee',
-      'SOC 2 Type II compliant with enterprise-grade security',
-      'Real-time ROI tracking with executive dashboards',
-      'Guaranteed 90-day implementation with staged delivery',
-      'Industry-leading 99.95% uptime SLA',
-      'Continuous AI optimization with monthly performance reviews',
+      'Reduce run‑rate costs with safe‑by‑default automation',
+      'Human‑in‑the‑loop for high‑risk actions',
+      'SOC 2‑friendly delivery with audit trails',
+      'Executive dashboards for telemetry and ROI',
+      'Staged delivery: diagnose → pilot → production',
     ],
     technicalApproach: [
       'Multi-Agent AI Architecture with Distributed Intelligence',
@@ -75,11 +72,7 @@ export const services: Service[] = [
       'Machine Learning Operations (MLOps) for Model Lifecycle Management',
     ],
     caseStudies: [
-      {
-        title: 'Fortune 500 Manufacturing AI Transformation',
-        metric: '$12M annual savings, 67% cost reduction',
-        link: '/case-studies/fortune-500-manufacturing-ai',
-      },
+      // Real cases will be published upon permission
       {
         title: 'Global Financial Services AI Suite',
         metric: '89% process automation, 45% revenue increase',
@@ -118,7 +111,7 @@ export const services: Service[] = [
     id: 'autonomous-l1-servicedesk',
     title: 'Autonomous L1 AI Service Desk',
     slug: 'autonomous-service-desk',
-    description: 'Replace $2M+ annual support costs with AI agents achieving 94% resolution rates and 15-second average response times across all channels.',
+    description: 'AI‑powered L1 assistance with escalation, approvals, and observability. Focus on deflection, safety, and measurable impact.',
     longDescription: `Eliminate expensive L1 support teams while delivering superior customer experience. Our autonomous AI service desk handles 94% of inquiries instantly across voice, chat, email, and Slack with human-level empathy and context awareness.
     
     Deploy enterprise-grade support automation that integrates seamlessly with ServiceNow, Zendesk, Jira, and your existing ITSM tools. Our AI agents learn your organization's unique processes and documentation.
@@ -137,14 +130,10 @@ export const services: Service[] = [
       'Custom AI Model Training for Domain Expertise',
     ],
     benefits: [
-      'Achieve 94% first-contact resolution rate',
-      'Reduce support costs by $2M+ annually',
-      'Deliver 15-second average response times',
-      'Maintain 98% customer satisfaction scores',
-      'Scale support capacity infinitely with zero hiring',
-      'Ensure 24/7 consistent service quality',
-      'Eliminate human error and emotional fatigue',
-      'Generate actionable insights from every interaction',
+      'Deflect common tickets with domain‑aware copilots',
+      'Approvals and change controls for risky actions',
+      'Audit logs and redaction for privacy',
+      'Integrations: ServiceNow/Jira/M365/Slack',
     ],
     technicalApproach: [
       'Large Language Models Fine-Tuned for Enterprise Support',
@@ -198,7 +187,7 @@ export const services: Service[] = [
     id: 'ai-infrastructure-monitoring',
     title: 'Predictive AI Infrastructure Monitoring',
     slug: 'ai-infrastructure-monitoring',
-    description: 'Eliminate 97% of unplanned outages with AI that predicts failures 6+ hours early and auto-resolves issues before users notice.',
+    description: 'Predictive alerting and auto‑remediation with rollback and guardrails. Focus on early warning, safe fixes, and human control.',
     longDescription: `Transform reactive firefighting into predictive excellence. Our AI monitoring platform learns your infrastructure's unique behavioral patterns and predicts failures with 97% accuracy, 6+ hours before they occur.
     
     Deploy intelligent monitoring that integrates with Datadog, New Relic, Prometheus, and your existing observability stack. Our AI agents automatically remediate common issues and provide detailed root cause analysis for complex problems.
@@ -217,14 +206,10 @@ export const services: Service[] = [
       'Enterprise Observability Stack Integration',
     ],
     benefits: [
-      'Eliminate 97% of unplanned outages before they occur',
-      'Reduce MTTR from hours to minutes with auto-resolution',
-      'Save $5M+ annually in downtime costs',
-      'Achieve 99.99% uptime SLA with confidence',
-      'Eliminate alert fatigue with zero false positives',
-      'Reduce infrastructure team workload by 80%',
-      'Optimize performance and resource utilization',
-      'Maintain compliance with SOC 2, ISO 27001 standards',
+      'Early warnings with actionable context',
+      'Auto‑remediation for safe classes of incidents',
+      'Rollback and circuit‑breakers on anomalies',
+      'SOC 2‑friendly observability and change logs',
     ],
     technicalApproach: [
       'Advanced Time Series Analysis with Deep Learning',
@@ -278,7 +263,7 @@ export const services: Service[] = [
     id: 'ai-cloud-cost-optimization',
     title: 'Enterprise Cloud FinOps with AI Optimization',
     slug: 'ai-cloud-cost-optimization',
-    description: 'Reduce cloud spend by 70% while improving performance through autonomous FinOps that delivers $15M+ annual savings for enterprise clients.',
+    description: 'FinOps with policy‑as‑code and automation. Rightsizing, schedules, commitments—validated changes with approvals and telemetry.',
     longDescription: `Transform cloud cost management from reactive spreadsheet analysis to proactive AI-driven optimization. Our enterprise FinOps platform continuously monitors, analyzes, and optimizes your multi-cloud spend in real-time.
     
     Deploy intelligent cost management that integrates with AWS Cost Explorer, Azure Cost Management, and GCP Billing to provide unified visibility and automated optimization across all cloud providers.
@@ -297,14 +282,10 @@ export const services: Service[] = [
       'Enterprise Governance with Budget Controls and Approvals',
     ],
     benefits: [
-      'Achieve 70% cloud cost reduction without performance impact',
-      'Save $15M+ annually for typical enterprise workloads',
-      'Automate 95% of cost optimization decisions',
-      'Predict and prevent cost overruns with 99% accuracy',
-      'Optimize carbon footprint by 45% for ESG compliance',
-      'Reduce FinOps team workload by 90%',
-      'Maintain performance SLAs while minimizing costs',
-      'Achieve cost transparency across all business units',
+      'Idle scheduling and rightsizing policies',
+      'Storage lifecycle and commitment planning',
+      'Budget guardrails and anomaly alerts',
+      'Executive dashboards for showback/chargeback',
     ],
     technicalApproach: [
       'Advanced Machine Learning for Workload Pattern Recognition',
