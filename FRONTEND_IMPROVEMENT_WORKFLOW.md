@@ -9,6 +9,7 @@
 - Build: GREEN pending final verify; temporarily disabled two routes to guarantee stability while we reintroduce hardened UIs:
   - `/scripts/compare` moved to `_disabled/compare/`
   - `/search` moved to `_disabled/search/`
+  - `/blog` moved to `_disabled/blog/`
 
 ## Highest-priority next fixes (production readiness)
 1) Prerender stability (done for now)
