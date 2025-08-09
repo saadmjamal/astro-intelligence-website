@@ -4,6 +4,16 @@ import { useEffect } from 'react'
 
 export default function AnalyticsClient() {
   useEffect(() => {
+    // pageview on mount
+    try {
+      // @ts-ignore
+      if (typeof window !== 'undefined' && window.plausible) window.plausible('pageview');
+    } catch {}
+    try {
+      // @ts-ignore
+      if (typeof window !== 'undefined' && window.gtag) window.gtag('event', 'page_view');
+    } catch {}
+
     function onClick(e: Event) {
       const target = e.target as HTMLElement
       const el = target?.closest('[data-analytics]') as HTMLElement | null
