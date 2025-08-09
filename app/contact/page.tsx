@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+export const dynamic = 'force-dynamic'
 import Script from 'next/script';
 import { Heading, Text } from '@/components/ui/Typography';
 import Link from 'next/link';
