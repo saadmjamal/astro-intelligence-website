@@ -6,17 +6,18 @@
 - Solutions pages added: CloudViewX, AI Service Desk, Cost Optimization.
 - Calendly CTA added; analytics markers added (next: event handler).
 - Build: GREEN locally (all known prerender errors resolved by simplifying `/dashboard/billing`, `/scripts/compare`, `/lab/innovation-timeline` to temporary stubs and using `export const dynamic = 'force-dynamic'` where required).
-- Build: GREEN pending final verify; temporarily disabled two routes to guarantee stability while we reintroduce hardened UIs:
+- Build: GREEN locally and pushed to Vercel. Home hero restored in a minimal SSR‑safe form. Temporarily disabled some routes to guarantee stability while we reintroduce hardened UIs:
   - `/scripts/compare` moved to `_disabled/compare/`
   - `/search` moved to `_disabled/search/`
   - `/blog` moved to `_disabled/blog/`
+  - `/scripts`, `/scripts/search`, `/scripts/compare`, `/portfolio` currently no‑op stubs to keep build green while we harden components.
 
 ## Highest-priority next fixes (production readiness)
-1) Prerender stability (done for now)
-- Remaining complex UIs reintroduced incrementally behind feature flags. Maintain green builds while restoring richer interactions.
+1) Prerender stability (in progress)
+- Re‑enable pages incrementally (home → portfolio → scripts → search → compare). Validate build after each step. Keep green.
 
 2) Analytics (MVP)
-- `app/analytics-client.tsx` listens for `[data-analytics]` clicks. Next: wire Plausible/GA4.
+- `app/analytics-client.tsx` listens for `[data-analytics]` clicks. Next: wire Plausible/GA4 and add event names for hero CTA, solutions, teardown.
 - Track: hero CTA, offers, Calendly clicks, contact submit.
 
 3) Calendly embed
@@ -48,6 +49,7 @@
 - Trust Center: list evidence artifacts and DPA template link.
 - SEO: schema for Organization, WebSite, BreadcrumbList, FAQPage; meta titles/descriptions per page.
 - Monitoring: Sentry; Web Vitals reporting; Lighthouse CI gate.
+ - Re‑enable `portfolio` with SSR‑safe UI; then `scripts` marketplace (static grid + docs links); then `search` (client-only, dynamic route); and finally `compare` (SSR‑safe compare table without dynamic imports).
 
 ## Validation checklist (each PR)
 - Build: `pnpm build` green, no prerender errors.
