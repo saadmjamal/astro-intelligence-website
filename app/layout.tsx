@@ -7,7 +7,6 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { AIPersonalizationProvider } from '@/components/AIPersonalizationProvider'
 import { MobileAccessibilityProvider } from '@/components/accessibility/MobileAccessibilityProvider'
 import { MobilePWAProvider } from '@/components/mobile/MobilePWAProvider'
-import { ClerkProvider } from '@clerk/nextjs'
 import { Suspense } from 'react'
 
 const manrope = Manrope({ 
@@ -61,7 +60,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head>
           <meta name="application-name" content="Astro AI" />
@@ -104,6 +102,5 @@ export default function RootLayout({
           </ThemeProvider>
         </body>
       </html>
-    </ClerkProvider>
   )
 }

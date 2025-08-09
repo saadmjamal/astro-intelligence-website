@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+// Clerk removed for build stability in static export contexts
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
@@ -130,29 +130,13 @@ export default function Header() {
             </Button>
             <ThemeToggle />
             
-            <SignedOut>
-              <Button variant="ghost" size="sm" asChild data-testid="nav-signin">
-                <Link href="/sign-in">Sign In</Link>
-              </Button>
-              <Button size="sm" asChild data-testid="nav-signup" className="relative overflow-hidden font-semibold">
-                <Link href="/sign-up" className="relative z-10">Get Started</Link>
-                <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--neon-green)] via-[var(--electric-blue)] to-[var(--cyber-purple)] opacity-90" />
-              </Button>
-            </SignedOut>
-            
-            <SignedIn>
-              <Button variant="ghost" size="sm" asChild>
-                <Link href="/dashboard">Dashboard</Link>
-              </Button>
-              <UserButton 
-                afterSignOutUrl="/"
-                appearance={{
-                  elements: {
-                    avatarBox: "h-8 w-8"
-                  }
-                }}
-              />
-            </SignedIn>
+            <Button variant="ghost" size="sm" asChild data-testid="nav-signin">
+              <Link href="/contact">Contact</Link>
+            </Button>
+            <Button size="sm" asChild data-testid="nav-signup" className="relative overflow-hidden font-semibold">
+              <Link href="/services" className="relative z-10">Get Started</Link>
+              <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[var(--neon-green)] via-[var(--electric-blue)] to-[var(--cyber-purple)] opacity-90" />
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -268,30 +252,12 @@ export default function Header() {
             {/* User Actions */}
             <div className="px-6 py-4 border-t border-gray-800 mt-auto">
               <div className="space-y-3">
-                <SignedOut>
-                  <Button variant="secondary" size="md" className="w-full mobile-button" asChild>
-                    <Link href="/sign-in" onClick={() => setMobileMenuOpen(false)}>Sign In</Link>
-                  </Button>
-                  <Button size="md" className="w-full mobile-button" asChild>
-                    <Link href="/sign-up" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
-                  </Button>
-                </SignedOut>
-                
-                <SignedIn>
-                  <Button size="md" className="w-full mobile-button" asChild>
-                    <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>Dashboard</Link>
-                  </Button>
-                  <div className="flex justify-center pt-3 border-t border-gray-800 mt-4">
-                    <UserButton 
-                      afterSignOutUrl="/"
-                      appearance={{
-                        elements: {
-                          avatarBox: "h-12 w-12 border border-gray-700"
-                        }
-                      }}
-                    />
-                  </div>
-                </SignedIn>
+                <Button variant="secondary" size="md" className="w-full mobile-button" asChild>
+                  <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+                </Button>
+                <Button size="md" className="w-full mobile-button" asChild>
+                  <Link href="/services" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
+                </Button>
                 
                 <div className="flex justify-center pt-3">
                   <ThemeToggle />
