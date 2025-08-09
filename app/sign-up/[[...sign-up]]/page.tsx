@@ -1,23 +1,13 @@
-import { SignUp } from '@clerk/nextjs';
+// Placeholder route while Clerk is disabled in production
 
 export default function SignUpPage() {
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <SignUp 
-        appearance={{
-          elements: {
-            rootBox: "mx-auto",
-            card: "bg-white dark:bg-navy-800 border border-gray-200 dark:border-navy-700",
-            headerTitle: "text-2xl font-orbitron text-gray-900 dark:text-white",
-            headerSubtitle: "text-muted-foreground",
-            socialButtonsBlockButton: "bg-white dark:bg-navy-700 border-gray-300 dark:border-navy-600 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-navy-600",
-            formFieldLabel: "text-gray-700 dark:text-gray-200",
-            formFieldInput: "bg-white dark:bg-navy-700 border-gray-300 dark:border-navy-600 text-gray-900 dark:text-white",
-            formButtonPrimary: "bg-magenta hover:bg-magenta/90 text-white",
-            footerActionLink: "text-magenta hover:text-magenta/80",
-          },
-        }}
-      />
+    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center py-12 px-4 sm:px-6 lg:px-8 text-center">
+      <div>
+        <h1 className="text-2xl font-bold mb-2">Create Account</h1>
+        <p className="text-sm text-muted-foreground mb-6">Account creation is temporarily disabled in this preview build.</p>
+        <a href="/contact" className="inline-flex items-center px-4 py-2 rounded-md border border-white/20">Contact us</a>
+      </div>
     </div>
   );
 }

@@ -42,6 +42,7 @@
 - Lab: refocused copy on aligned areas.
 - Layout/Header: removed Clerk; stabilized composition.
  - Middleware: removed Clerk references from Edge middleware to satisfy Vercel Edge constraints; dashboard remains public preview.
+ - Sign-in/Sign-up: replaced Clerk components with placeholders for preview to eliminate runtime warnings and dev-key prompts.
 - Solutions: created 3 solution pages with Architecture/Rollout/KPIs.
 - Contact: Calendly CTA and analytics marker.
 

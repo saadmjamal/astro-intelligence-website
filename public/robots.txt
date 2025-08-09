@@ -6,9 +6,9 @@ Disallow: /admin/
 Disallow: /auth/
 
 # Host
-Host: http://localhost:3000
+Host: https://astrointelligence.com
 
 # Sitemaps
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://astrointelligence.com/sitemap.xml
 Sitemap: https://astrointelligence.com/sitemap-blog.xml
 Sitemap: https://astrointelligence.com/sitemap-portfolio.xml
