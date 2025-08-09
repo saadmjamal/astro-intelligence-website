@@ -1,12 +1,13 @@
-'use client';
 export const dynamic = 'force-dynamic'
 
-import { useState, useRef, useEffect } from 'react';
-import { Heading, Text } from '@/components/ui/Typography';
-import { Button } from '@/components/ui/Button';
-import { MetricCounter } from '@/components/ui/MetricCounter';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+export default function PortfolioPage() {
+  return (
+    <main className="py-12 px-4 text-center">
+      <h1 className="text-4xl font-bold mb-4">Portfolio</h1>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">This page is temporarily simplified to ensure build stability. Case studies will return soon.</p>
+    </main>
+  )
+}
 
 // Metadata moved to separate server component file
 
