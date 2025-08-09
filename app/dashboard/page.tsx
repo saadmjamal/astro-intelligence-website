@@ -1,5 +1,4 @@
-import { auth } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
+export const dynamic = 'force-dynamic'
 import { Heading, Text } from '@/components/ui/Typography';
 import { Button } from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
@@ -9,13 +8,8 @@ import { getPremiumScripts } from '@/lib/scripts-data';
 import { Download, Lock } from 'lucide-react';
 
 export default async function DashboardPage() {
-  const { userId } = await auth();
-  
-  if (!userId) {
-    redirect('/sign-in');
-  }
-
-  const { hasActiveSubscription } = await checkUserSubscription();
+  // Auth disabled in static builds; show public dashboard preview
+  const hasActiveSubscription = false;
   const premiumScripts = getPremiumScripts().slice(0, 3);
 
   return (
@@ -80,9 +74,9 @@ export default async function DashboardPage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-magenta">Premium</span>
-                  <Button size="sm" variant="secondary" asChild>
+                   <Button size="sm" variant="secondary" asChild>
                     <Link href={`/dashboard/scripts/${script.id}`}>
-                      {hasActiveSubscription ? (
+                       {hasActiveSubscription ? (
                         <>
                           <Download className="mr-2 h-3 w-3" />
                           Download
@@ -90,7 +84,7 @@ export default async function DashboardPage() {
                       ) : (
                         <>
                           <Lock className="mr-2 h-3 w-3" />
-                          View
+                           View
                         </>
                       )}
                     </Link>
