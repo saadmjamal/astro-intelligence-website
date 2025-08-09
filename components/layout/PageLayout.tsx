@@ -1,3 +1,4 @@
+"use client";
 import { Breadcrumb, BreadcrumbItem } from '@/components/ui/Breadcrumb';
 import { RelatedContent, RelatedItem } from '@/components/ui/RelatedContent';
 import { cn } from '@/lib/utils';
