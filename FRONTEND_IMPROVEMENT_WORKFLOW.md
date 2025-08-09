@@ -15,7 +15,7 @@
 ## Highest-priority next fixes (production readiness)
 1) Prerender stability (in progress)
 - Re‑enabled: home (minimal hero), portfolio (SSR‑safe stub with value copy), scripts marketplace (static grid + CTAs).
-- Next: search (client-only) and compare (SSR‑safe table). Validate build after each step. Keep green.
+- Re‑enabled: search (client-only, local data — no external deps). Next: compare (SSR‑safe table). Validate build after each step. Keep green.
 
 2) Analytics (MVP)
 - `app/analytics-client.tsx` now emits events to Plausible (window.plausible) and GA4 (window.gtag) when elements with `data-analytics` are clicked.
@@ -52,6 +52,12 @@
 - SEO: schema for Organization, WebSite, BreadcrumbList, FAQPage; meta titles/descriptions per page.
 - Monitoring: Sentry; Web Vitals reporting; Lighthouse CI gate.
  - Re‑enable `portfolio` with SSR‑safe UI; then `scripts` marketplace (static grid + docs links); then `search` (client-only, dynamic route); and finally `compare` (SSR‑safe compare table without dynamic imports).
+
+## Near-term value delivery (72 hours)
+- Convert hero and offers to A/B variants (copy only) and log CTR events.
+- Publish one anonymized case stub (problem → approach → metrics) with clear “Book a teardown” CTA.
+- Add a simple “Cloud Cost Checklist (PDF)” download CTA on scripts/services; track downloads.
+- Add Organization and WebSite JSON‑LD, plus canonical/meta on home, services, solutions.
 
 ## Validation checklist (each PR)
 - Build: `pnpm build` green, no prerender errors.
