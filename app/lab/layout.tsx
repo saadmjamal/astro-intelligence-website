@@ -23,6 +23,8 @@ const labNavigation = [
   { name: 'Demos', href: '/lab/demos', icon: Cpu },
 ];
 
+export const dynamic = 'force-dynamic'
+
 export default function LabLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-navy-900/5 to-purple-900/5">
