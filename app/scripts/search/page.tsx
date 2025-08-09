@@ -3,12 +3,15 @@ export const dynamic = 'force-dynamic'
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { PageLayout } from '@/components/layout/PageLayout';
-import { Heading, Text } from '@/components/ui/Typography';
-import Input from '@/components/ui/Input';
-import { Button } from '@/components/ui/Button';
-import Badge from '@/components/ui/Badge';
-import Card from '@/components/ui/Card';
+let PageLayout: any, Heading: any, Text: any, Input: any, Button: any, Badge: any, Card: any;
+try {
+  PageLayout = require('@/components/layout/PageLayout').PageLayout || require('@/components/layout/PageLayout').default;
+  ({ Heading, Text } = require('@/components/ui/Typography'));
+  Input = require('@/components/ui/Input').default;
+  Button = require('@/components/ui/Button').default;
+  Badge = require('@/components/ui/Badge').default || require('@/components/ui/Badge');
+  Card = require('@/components/ui/Card').default;
+} catch {}
 import { scripts } from '@/lib/scripts-data-enhanced';
 import { 
   Search, 
