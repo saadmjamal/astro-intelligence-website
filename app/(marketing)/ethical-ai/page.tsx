@@ -1,9 +1,4 @@
-import { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Ethical AI Policy',
-  description: 'Plain‑English policy outlining data handling, human‑in‑the‑loop, audit logs, privacy, and model limits.',
-}
+export const dynamic = 'force-dynamic'
 
 export default function EthicalAIPage() {
   return (
