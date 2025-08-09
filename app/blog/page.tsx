@@ -3,7 +3,13 @@ export const dynamic = 'force-dynamic'
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { allPosts } from '@/.contentlayer/generated';
+let allPosts: any[] = [];
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  allPosts = require('@/.contentlayer/generated').allPosts || [];
+} catch (e) {
+  allPosts = [];
+}
 import { compareDesc } from 'date-fns';
 import Card from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
