@@ -41,6 +41,7 @@
 - Scripts: MVP shape with real starter list; removed inflated adoption metrics.
 - Lab: refocused copy on aligned areas.
 - Layout/Header: removed Clerk; stabilized composition.
+ - Middleware: removed Clerk references from Edge middleware to satisfy Vercel Edge constraints; dashboard remains public preview.
 - Solutions: created 3 solution pages with Architecture/Rollout/KPIs.
 - Contact: Calendly CTA and analytics marker.
 

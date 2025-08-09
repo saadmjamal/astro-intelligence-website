@@ -1,4 +1,5 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+// Temporary: remove Clerk from Edge middleware for Vercel compatibility
+// import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
@@ -10,12 +11,12 @@ const redirectMap: Record<string, string> = {
   '/services/microservices-architecture': '/services/strategic-partnerships',
 };
 
-const isProtectedRoute = createRouteMatcher([
-  '/dashboard(.*)',
-  '/api/dashboard(.*)',
-]);
+// const isProtectedRoute = createRouteMatcher([
+//   '/dashboard(.*)',
+//   '/api/dashboard(.*)',
+// ]);
 
-export default clerkMiddleware(async (auth, req: NextRequest) => {
+export default async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
 
   // Check if the current path needs a redirect
@@ -23,13 +24,7 @@ export default clerkMiddleware(async (auth, req: NextRequest) => {
     return NextResponse.redirect(new URL(redirectMap[pathname], req.url), 301);
   }
 
-  // Protect dashboard routes
-  if (isProtectedRoute(req)) {
-    const authObject = await auth();
-    if (!authObject.userId) {
-      return NextResponse.redirect(new URL('/sign-in', req.url));
-    }
-  }
+  // Auth temporarily disabled in Edge middleware; dashboard is public preview.
 
   // Add basic security headers (Edge Runtime compatible)
   const response = NextResponse.next();
@@ -40,7 +35,7 @@ export default clerkMiddleware(async (auth, req: NextRequest) => {
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   
   return response;
-});
+}
 
 export const config = {
   matcher: [
