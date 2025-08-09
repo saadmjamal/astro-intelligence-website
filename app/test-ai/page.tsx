@@ -6,7 +6,13 @@ import { Heading, Text } from '@/components/ui/Typography';
 import { Button } from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { chatService } from '@/lib/ai/chat-service';
-import { generateServiceRecommendations } from '@/lib/ai/recommendation-engine';
+// Temporarily stub recommendation engine to avoid undefined import during prerender
+const generateServiceRecommendations = async (_query: string, _ctx: any) => {
+  return [
+    { id: 'ai-cloud-cost-optimization' },
+    { id: 'autonomous-service-desk' },
+  ];
+};
 import { contentGenerator } from '@/lib/ai/content-generator';
 
 export default function TestAIPage() {
